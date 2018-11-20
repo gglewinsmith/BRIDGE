@@ -6,14 +6,14 @@
       <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
     </div>
     <div class="width">
-      <h2>Kate Buxton</h2>
-      <p>k8hunter@hotmail.com</p>
+      <h2 class="username">Kate Buxton</h2>
+      <p class="email">k8hunter@hotmail.com</p>
         <div class="stats">
           <p>1 loan maturing</p>
           <p>5 loan applications</p>
           <p>5 people invested in you</p>
         </div>
-      <p>Motivation / About - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="email">Motivation / About - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
   <div class="tabs">
@@ -23,6 +23,9 @@
 </div>
 
 <div class="wrapper">
+  <%= render 'shared/card' %>
+
+
   <%= link_to 'Create a loan', new_fundraising_event_path, class: "btn btn-danger" %>
 
   <%= link_to 'View outstanding loans', fundraising_events_path, class: "btn btn-danger" %>
