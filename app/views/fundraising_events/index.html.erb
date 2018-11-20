@@ -1,2 +1,7 @@
-<!-- view lists of fundraising events as cards -->
-<h1></h1>
+<h1>Loan Requests:</h1>
+
+<% @fundraising_events.each do |fundraising_event| %>
+  <p><%= fundraising_event.course %></p>
+<% end %>
+
+<%= link_to 'Back to dashboard', applicant_dashboard_path, class: "btn btn-secondary" %>

@@ -4,11 +4,13 @@
     <div class="homepage">
       <div class="applicant">
         <h3 class="homepage-h3">Applicant</h3>
-        <a class="btn btn-danger btn-homepage" href="/applicant_homepage">Go Now</a>
+        <button type="button" class="btn btn-danger btn-homepage"><%= link_to(name = 'New Post', new_user_session_url) %></button>
       </div>
       <div class="lender">
         <h3 class="homepage-h3">Lender</h3>
-        <a class="btn btn-danger btn-homepage" href="/lender_homepage">Go Now</a>
+        <button type="button" class="btn btn-danger btn-homepage">
+          <%= link_to(name = 'New Post', new_user_session_url) %>
+          </button>
       </div>
     </div>
     <h2 id=homepage-tagline>Connecting coding bootcamp applicants to a lending community.</h2>
@@ -16,3 +18,9 @@
 </div>
 
 
+<!-- Will need to include sign out!!! -->
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete  %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path  %>
+<% end %>
