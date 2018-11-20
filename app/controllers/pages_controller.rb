@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   def homepage
   end
 
-  def applicant
+  def applicant_dashboard
   end
 
-  def lender
+  def lender_dashboard
   end
 end
