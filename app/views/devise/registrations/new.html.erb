@@ -1,3 +1,16 @@
+  <h1>ALL USER ACCOUNT INFORMATION TO BE COLLECTED ON THIS PAGE </h1>
+  <p>   "email", default: "
+     "encrypted_password",
+     "admin"
+     "lender"
+    "applicant"
+     "name"
+     "motivation"
+     "linkedin"
+    "photo"
+   "job"
+    "industry"
+    "agecheck"</p>
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,8 +45,10 @@
                 autofocus: true %>
   </div>
 
+
     <div class="form-actions">
       <%= f.button :submit, "Sign up" %>
+      <h3>The sign up button should route to the applicant dashboard here</h3>
     </div>
   <% end %>
 

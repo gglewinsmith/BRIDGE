@@ -8,7 +8,7 @@
           <% if user_signed_in? %>
             <%= link_to(name = 'New Post', applicant_dashboard_path) %>
           <% else %>
-            <%= link_to "Sign in", new_user_session_path %>
+            <%= link_to "Applicant", applicant_path %>
           <% end %>
         </button>
       </div>
@@ -18,7 +18,7 @@
           <% if user_signed_in? %>
             <%= link_to(name = 'New Post', lender_dashboard_path) %>
           <% else %>
-            <%= link_to "Sign in", new_user_session_path %>
+            <%= link_to "Sign in", lender_path %>
           <% end %>
         </button>
       </div>
