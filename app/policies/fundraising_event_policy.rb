@@ -4,6 +4,11 @@ class FundraisingEventPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def event
+    return true
+  end
+
   def create?
     return true
   end
