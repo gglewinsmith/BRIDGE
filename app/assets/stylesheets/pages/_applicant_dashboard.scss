@@ -1,0 +1,16 @@
+.profile {
+  display: flex;
+}
+.avatar {
+  flex-basis: 20%;
+}
+.avatar-large {
+  width: 150px;
+  border-radius: 50%;
+}
+.stats {
+  display: flex;
+}
+.stat-item {
+  flex-grow: 1;
+}
