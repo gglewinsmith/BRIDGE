@@ -1,4 +1,5 @@
 class FundraisingEventsController < ApplicationController
+
   def index
 
   end
