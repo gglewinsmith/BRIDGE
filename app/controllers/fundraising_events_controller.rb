@@ -1,26 +1,32 @@
 class FundraisingEventsController < ApplicationController
-    def show
-      @fundraising_event = FundraisingEvent.find(params[:id])
-      authorize @fundraising_event
+  def index
+    if current_user.applicant
+      @fundraising_events = FundraisingEvent.all.reject { |d| d.user != current_user }
+    elsif current_user.lender
+      @fundraising_events = FundraisingEvent.all
     end
+  end
 
-    def new
-      @fundraising_event = FundraisingEvent.new
-      authorize @fundraising_event
-    end
+  def show
+    @fundraising_event = FundraisingEvent.find(params[:id])
+    # authorize @fundraising_event
+  end
 
+  def new
+    @fundraising_event = FundraisingEvent.new
+    # authorize @fundraising_event
+  end
 
-    def create
-
-      @fundraising_event = FundraisingEvent.new(fundraising_event_params)
-      @fundraising_event.user = current_user
-      authorize @fundraising_event
-      if @fundraising_event.save
+  def create
+    @fundraising_event = FundraisingEvent.new(fundraising_event_params)
+    @fundraising_event.user = current_user
+    # authorize @fundraising_event
+    if @fundraising_event.save
       redirect_to fundraising_event_path(@fundraising_event)
-      else
-        render :new
-      end
+    else
+      render :new
     end
+  end
 
   private
 
