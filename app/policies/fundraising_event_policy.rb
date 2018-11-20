@@ -6,6 +6,14 @@ class FundraisingEventPolicy < ApplicationPolicy
     end
   end
 
+  def event
+    return true
+  end
+
+  def show?
+    return true
+  end
+
   def create?
     return true
   end

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :applicant, :lender]
 
-  def home
+  def homepage
   end
 
   def applicant
