@@ -1,0 +1,48 @@
+.card {
+  height: 150px;
+  width: 75%;
+  margin: 20px;
+  background-color: white;
+  position: relative;
+  margin-left: 150px;
+  margin-right: 150px;
+  box-shadow: 1px 1px 1px 1px rgba(150,150,150,0.3);
+}
+.counter {
+  display: flex;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+.course-name {
+  font-size: 24px;
+  position: absolute;
+  left: 20px;
+}
+.cost {
+  font-size: 56px;
+  text-weight: 600px;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+.counters {
+  font-size: 16px;
+  flex-basis: 20%;
+  color: grey;
+}
+.orange-counter {
+  font-size: 16px;
+  flex-basis: 5%;
+  background-color: orange;
+  color: white;
+  margin: 0 10px;
+}
+.green-counter {
+  display: inline-block;
+  font-size: 16px;
+  flex-basis: 5%;
+  background-color: green;
+  color: white;
+  margin: 0 10px;
+}
