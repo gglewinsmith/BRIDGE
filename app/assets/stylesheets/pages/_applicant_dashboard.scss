@@ -1,8 +1,12 @@
-.profile {
+.dashboard {
+  padding: 20px 100px;
+}
+  .profile {
   display: flex;
 }
 .avatar {
   flex-basis: 20%;
+  text-align: center;
 }
 .avatar-large {
   width: 150px;
@@ -10,7 +14,27 @@
 }
 .stats {
   display: flex;
+  justify-content: space-between;
 }
-.stat-item {
-  flex-grow: 1;
+.text-center {
+  display: inline-block;
+}
+.width {
+  flex-basis: 80%;
+}
+.tabs {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.tab-selected {
+  flex-basis: 50%;
+  border-bottom: 3px solid black;
+}
+.tab {
+  flex-basis: 50%;
+}
+.wrapper {
+  background-color: #F6F8FA;
 }
