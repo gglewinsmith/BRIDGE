@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   private
 
   def applicant_params
+    params.require(:user).permit(:reasons_for_funding)
   end
 
   def lender_params
