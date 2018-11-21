@@ -1,0 +1,34 @@
+<div class="container" id=homepage-center>
+  <div class="banner-content">
+    <h1 id="title">bridge.</h1>
+    <div class="homepage">
+      <div class="applicant">
+        <h3 class="homepage-h3">Applicant</h3>
+        <button type="button" class="btn btn-danger btn-homepage">
+          <% if user_signed_in? && current_user.applicant? %>
+            <%= link_to(name = 'New Post', applicant_dashboard_path) %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path(:applicant => { :applicant => true }) %>
+          <% end %>
+        </button>
+      </div>
+      <div class="lender">
+        <h3 class="homepage-h3">Lender</h3>
+        <button type="button" class="btn btn-danger btn-homepage">
+          <% if user_signed_in? && current_user.lender? %>
+            <%= link_to(name = 'New Post', lender_dashboard_path) %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path(:applicant => { :applicant => false }) %>
+          <% end %>
+        </button>
+      </div>
+    </div>
+    <h2 id=homepage-tagline>Connecting coding bootcamp applicants to a lending community.</h2>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete  %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path  %>
+<% end %>
