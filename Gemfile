@@ -15,6 +15,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 
 #Added Gems
 gem "pundit"
