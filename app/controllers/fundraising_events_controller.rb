@@ -1,7 +1,8 @@
 class FundraisingEventsController < ApplicationController
   def index
     if current_user.applicant
-      @fundraising_events = FundraisingEvent.all.reject { |d| d.user != current_user }
+      @fundraising_events = FundraisingEvent.all
+      # @fundraising_events = FundraisingEvent.all.reject { |d| d.user != current_user }
     elsif current_user.lender
       @fundraising_events = FundraisingEvent.all
     end
