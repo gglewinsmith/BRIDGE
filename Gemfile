@@ -19,6 +19,9 @@ gem 'webpacker'
 #Added Gems
 gem "pundit"
 gem 'devise'
+gem 'money-rails'
+
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
