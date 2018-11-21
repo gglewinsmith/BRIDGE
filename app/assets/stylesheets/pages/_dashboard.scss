@@ -67,3 +67,10 @@
 .wrapper {
   background-color: #grey;
 }
+.dashboard-btns {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-btn {
+ margin: 20px;
+}
