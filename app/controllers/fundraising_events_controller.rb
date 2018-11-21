@@ -23,7 +23,6 @@ class FundraisingEventsController < ApplicationController
     @fundraising_event.user = current_user
     # authorize @fundraising_event
     if @fundraising_event.save
-      raise
       redirect_to fundraising_event_path(@fundraising_event)
     else
       render :new
