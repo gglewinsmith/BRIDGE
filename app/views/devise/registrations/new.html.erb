@@ -1,22 +1,14 @@
-  <h1>ALL USER ACCOUNT INFORMATION TO BE COLLECTED ON THIS PAGE </h1>
-  <p>   "email", default: "
-     "encrypted_password",
-     "admin"
-     "lender"
-    "applicant"
-     "name"
-     "motivation"
-     "linkedin"
-    "photo"
-   "job"
-    "industry"
-    "agecheck"</p>
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :applicant, as: :hidden, input_html: {value: true} %>
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "name"}%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -25,30 +17,24 @@
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :linkedin,
+                require: true,
+                autofocus: true,
+                input_html: { autocomplete: "LinkedIn URL"} %>
+    <%= f.input :photo,
+                require: true,
+                autofocus: true,
+                label: "Please upload a profile picture." %>
     <%= f.label "Are you 18 or older?" %>
     <%= f.check_box :agecheck,
                 as: :boolean,
                 as: :check_boxes,
                 required: true,
                 autofocus: true %><br/>
-    <%= f.label "Are you an applicant?" %>
-    <%= f.check_box :applicant,
-                as: :boolean,
-                as: :check_boxes,
-                required: true,
-                autofocus: true %><br/>
-    <%= f.label "Are you a lender?" %>
-    <%= f.check_box :lender,
-                as: :boolean,
-                as: :check_boxes,
-                required: true,
-                autofocus: true %>
   </div>
-
 
     <div class="form-actions">
       <%= f.button :submit, "Sign up" %>
-      <h3>The sign up button should route to the applicant dashboard here</h3>
     </div>
   <% end %>
 
