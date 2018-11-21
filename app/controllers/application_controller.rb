@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    user = User.find(params[:user])
     if params[:sign_up]
+    user = User.find(params[:user])
       if user.applicant?
         return lender_url
       elsif user.lender?
