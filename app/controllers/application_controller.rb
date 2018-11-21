@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   # authorize @fundraising_event
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:applicant, :lender, :photo, :agecheck])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:applicant, :lender,
+      :agecheck, :admin, :name, :motivation, :linkedin, :photo, :job,
+      :industry, :reasons_for_funding])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
@@ -20,6 +22,19 @@ class ApplicationController < ActionController::Base
       return dashboard_url
     else
       root_path
+    end
+  end
+
+  def after_sign_out_path_for(resource)
+    user = User.find(params[:user])
+    if params[:sign_up]
+      if user.applicant?
+        return applicant_url
+      elsif user.lender?
+        return lender_url
+      end
+    else
+      return root_path
     end
   end
 

@@ -2,5 +2,5 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eveniet error, ipsum odio tenetur repellat sapiente officia? Voluptas tempora tenetur pariatur nesciunt amet deleniti veniam blanditiis, delectus, possimus ad accusantium!</p>
 <h3>If this site is for you create a profile [otherwise sign in through the navbar]</h3>
 
-<%= link_to "Create an account", new_user_registration_path  %>
+<%= link_to "Create an Account", new_user_registration_path(:applicant => { :applicant => true }) %>
 
