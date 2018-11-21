@@ -15,12 +15,15 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 
 #Added Gems
 gem "pundit"
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'money-rails'
-
+gem 'stripe'
 
 
 group :development do
