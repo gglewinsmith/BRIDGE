@@ -1,111 +1,115 @@
-<h2>Sign up</h2>
+<div class="devise-form-box">
+  <div class="row">
+    <h2 class="devise-h2">Sign up</h2>
 
-<% if params[:applicant][:applicant] == "true" %>
+    <% if params[:applicant][:applicant] == "true" %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :applicant, as: :hidden, input_html: {value: true} %>
-      <%= f.input :name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "name"}%>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :linkedin,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "LinkedIn URL"} %>
-      <%= f.input :motivation,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "Short Statement of Motivation"} %>
-      <%= f.input :reasons_for_funding,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "Reasons for Funding"} %>
-      <%= f.input :photo,
-                  require: true,
-                  autofocus: true,
-                  label: "Please upload a profile picture." %>
-      <%= f.label "Are you 18 or older?" %>
-      <%= f.check_box :agecheck,
-                  as: :boolean,
-                  as: :check_boxes,
-                  required: true,
-                  autofocus: true %><br/>
-    </div>
+        <div class="form-inputs">
+          <%= f.input :applicant, as: :hidden, input_html: {value: true} %>
+          <%= f.input :name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "name"}%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :linkedin,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "LinkedIn URL"} %>
+          <%= f.input :motivation,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Short Statement of Motivation"} %>
+          <%= f.input :reasons_for_funding,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Reasons for Funding"} %>
+          <%= f.input :photo,
+                      require: true,
+                      autofocus: true,
+                      label: "Please upload a profile picture." %>
+          <%= f.label "Are you 18 or older?" %>
+          <%= f.check_box :agecheck,
+                      as: :boolean,
+                      as: :check_boxes,
+                      required: true,
+                      autofocus: true %><br/>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
 
-  <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
 
-<% elsif params[:applicant][:applicant] == "false" %>
+    <% elsif params[:applicant][:applicant] == "false" %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :lender, as: :hidden, input_html: {value: true} %>
-      <%= f.input :name,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "name"}%>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :linkedin,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "LinkedIn URL"} %>
-      <%= f.input :job,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "Job Title"} %>
-      <%= f.input :industry,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "Industry"} %>
-      <%= f.input :motivation,
-                  require: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "Short Statement of Motivation"} %>
-      <%= f.input :photo,
-                  require: true,
-                  autofocus: true,
-                  label: "Please upload a profile picture." %>
-      <%= f.label "Are you 18 or older?" %>
-      <%= f.check_box :agecheck,
-                  as: :boolean,
-                  as: :check_boxes,
-                  required: true,
-                  autofocus: true %><br/>
-    </div>
+        <div class="form-inputs">
+          <%= f.input :lender, as: :hidden, input_html: {value: true} %>
+          <%= f.input :name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "name"}%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :linkedin,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "LinkedIn URL"} %>
+          <%= f.input :job,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Job Title"} %>
+          <%= f.input :industry,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Industry"} %>
+          <%= f.input :motivation,
+                      require: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Short Statement of Motivation"} %>
+          <%= f.input :photo,
+                      require: true,
+                      autofocus: true,
+                      label: "Please upload a profile picture." %>
+          <%= f.label "Are you 18 or older?" %>
+          <%= f.check_box :agecheck,
+                      as: :boolean,
+                      as: :check_boxes,
+                      required: true,
+                      autofocus: true %><br/>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+      <div class="devise-footer-flex">
+        <%= render "devise/shared/links" %>
+      </div>
 
-  <%= render "devise/shared/links" %>
-
-<% end %>
-
+    <% end %>
+  </div>
+</div>
 
 
 
