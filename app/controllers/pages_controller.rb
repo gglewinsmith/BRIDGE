@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @fundraising_events = FundraisingEvent.where(user: current_user)
   end
 
 end
