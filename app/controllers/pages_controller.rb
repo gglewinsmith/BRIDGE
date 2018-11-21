@@ -8,4 +8,9 @@ class PagesController < ApplicationController
     @fundraising_events = FundraisingEvent.where(user: current_user)
   end
 
+  def applicant
+  end
+
+  def lender
+  end
 end

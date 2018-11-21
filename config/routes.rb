@@ -21,4 +21,3 @@ Rails.application.routes.draw do
     patch '/update_applicant', to: 'users#update_applicant', as: 'update_applicant'
 
 
-end
