@@ -1,8 +1,16 @@
 <%= link_to fundraising_event_path(fundraising_event) do %>
   <div class="card" style="background-image: linear-gradient(-100deg, rgba(200,200,200,0.2) 0%, rgba(100,100,100,0.5) 50%), url('https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4791/s300/logo-big.png');">
-    <div class="card-category"><%= fundraising_event.user_id %></div>
-    <div class="card-description"><%= fundraising_event.amount %></div>
-    <div class="card-condition">Course name: <%= fundraising_event.course %>
+      <div class="card-category">
+        <h3>User: <%= fundraising_event.user_id %></h3>
+      </div>
+      <div class="card-description">
+        <h3>Amount: £<%=fundraising_event.amount %></h3>
+      </div>
+      <div class="card-condition">
+        <p>Course name: <%= fundraising_event.course %>
+        </p>
+      <div>
+    </div>
   </div>
-  </div>
+</div>
 <% end %>
