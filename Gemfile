@@ -23,6 +23,8 @@ gem "pundit"
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'money-rails'
+gem 'stripe'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
