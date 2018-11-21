@@ -5,20 +5,20 @@
       <div class="applicant">
         <h3 class="homepage-h3">Applicant</h3>
         <button type="button" class="btn btn-danger btn-homepage">
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.applicant? %>
             <%= link_to(name = 'New Post', applicant_dashboard_path) %>
           <% else %>
-            <%= link_to "Applicant", applicant_path %>
+            <%= link_to "Sign Up", new_user_registration_path(:applicant => { :applicant => true }) %>
           <% end %>
         </button>
       </div>
       <div class="lender">
         <h3 class="homepage-h3">Lender</h3>
         <button type="button" class="btn btn-danger btn-homepage">
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.lender? %>
             <%= link_to(name = 'New Post', lender_dashboard_path) %>
           <% else %>
-            <%= link_to "Sign in", lender_path %>
+            <%= link_to "Sign Up", new_user_registration_path(:applicant => { :applicant => false }) %>
           <% end %>
         </button>
       </div>
