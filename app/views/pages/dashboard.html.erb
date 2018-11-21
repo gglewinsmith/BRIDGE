@@ -1,13 +1,13 @@
 <div class="container dashboard">
   <div class="profile">
     <div class="avatar">
-      <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+      <%= image_tag current_user.photo_url(:bright_face), class: "avatar-large" %>
       <br>
       <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
     </div>
     <div class="width">
-      <h2 class="username">Kate Buxton</h2>
-      <p class="email">k8hunter@hotmail.com</p>
+      <h2 class="username"> <%= current_user.name %></h2>
+      <p class="email"><%= current_user.email %></p>
         <div class="stats">
           <p>1 loan maturing</p>
           <p>5 loan applications</p>

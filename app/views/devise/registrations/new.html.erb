@@ -25,6 +25,7 @@
                 require: true,
                 autofocus: true,
                 label: "Please upload a profile picture." %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.label "Are you 18 or older?" %>
     <%= f.check_box :agecheck,
                 as: :boolean,
