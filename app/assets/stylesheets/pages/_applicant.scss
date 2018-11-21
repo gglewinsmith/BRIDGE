@@ -1,0 +1,17 @@
+.applicant-page {
+  display: flex;
+  height: 100vh;
+}
+.bridge-info {
+  flex-basis: 50%;
+  background-color: #2E4455;
+  color: white;
+}
+.bridge-link {
+  flex-basis: 50%;
+  background-image: image-url('blue-bright-clouds.jpg');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  align-items: center;
+}

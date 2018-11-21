@@ -1,21 +1,26 @@
 <% if current_user.applicant? %>
   <div class="container dashboard">
-    <div class="profile">
-      <div class="avatar">
-        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-        <br>
-        <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
-      </div>
-      <div class="width">
-        <h2 class="username">Kate Buxton</h2>
-        <p class="email">k8hunter@hotmail.com</p>
-          <div class="stats">
-            <p>1 loan maturing</p>
-            <p>5 loan applications</p>
-            <p>5 people invested in you</p>
-          </div>
-        <p class="email">Motivation / About - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
+  <div class="profile">
+    <div class="avatar">
+      <% if current_user.photo? %>
+        <% photo_url =  current_user.photo_url(:bright_face) %>
+      <% else %>
+        <% photo_url = "https://via.placeholder.com/150" %>
+      <% end %>
+      <%= image_tag photo_url, class: "avatar-large" %>
+      <br>
+      <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
+    </div>
+    <div class="width">
+      <h2 class="username"> <%= current_user.name %></h2>
+      <p class="email"><%= current_user.email %></p>
+        <div class="stats">
+          <p>1 loan maturing</p>
+          <p>5 loan applications</p>
+          <p>5 people invested in you</p>
+        </div>
+      <p class="email">Motivation / About - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
     </div>
     <div class="tabs">
       <p class="tab-selected">Pending loan applications</p>
