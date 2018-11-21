@@ -23,6 +23,7 @@ class FundraisingEventsController < ApplicationController
     @fundraising_event.user = current_user
     # authorize @fundraising_event
     if @fundraising_event.save
+      raise
       redirect_to fundraising_event_path(@fundraising_event)
     else
       render :new
@@ -32,6 +33,6 @@ class FundraisingEventsController < ApplicationController
   private
 
   def fundraising_event_params
-    params.require(:fundraising_event).permit(:amount, :course, :career_goals, :date_from, :date_until, :cv, :guarantor, :payback_from,  :payback_until)
+    params.require(:fundraising_event).permit(:amount, :course, :career_goals, :date_from, :date_until, :cv, :guarantor, :payback_from,  :payback_until, :price)
   end
 end
