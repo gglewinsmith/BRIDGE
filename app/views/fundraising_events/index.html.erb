@@ -1,15 +1,12 @@
-<h1>Loan Requests:</h1>
+<h1>View Loan Requests (for Lenders):</h1>
 
-<% @fundraising_events.each do |fundraising_event| %>
-  <p><%= fundraising_event.course %></p>
-<% end %>
 
 
 <div class="container" id="homepage-cards">
     <div class="row">
       <% @fundraising_events.each do |f| %>
         <div class="col-xs-6 col-sm-4">
-          <%= render "shared/_loan_card", fundraising_event: f %>
+          <%= render "shared/loan_card", fundraising_event: f %>
         </div>
       <% end %>
     </div>
@@ -17,4 +14,4 @@
 </div>
 
 
-<%= link_to 'Back to dashboard', applicant_dashboard_path, class: "btn btn-secondary" %>
+<%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-secondary" %>

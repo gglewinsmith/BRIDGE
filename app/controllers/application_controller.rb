@@ -16,10 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.applicant
-      return applicant_dashboard_url
-    elsif resource.lender
-      return lender_dashboard_url
+    if resource.applicant || resource.lender
+      return dashboard_url
     else
       root_path
     end

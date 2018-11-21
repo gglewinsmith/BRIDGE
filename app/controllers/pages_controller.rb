@@ -5,9 +5,8 @@ class PagesController < ApplicationController
 
   end
 
-  def applicant_dashboard
+  def dashboard
+    @fundraising_events = FundraisingEvent.where(user: current_user)
   end
 
-  def lender_dashboard
-  end
 end

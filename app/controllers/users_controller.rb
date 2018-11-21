@@ -11,12 +11,12 @@ class UsersController < ApplicationController
 
   def update_applicant
     current_user.update(applicant_params)
-    redirect_to applicant_dashboard_path
+    redirect_to dashboard_path
   end
 
   def update_lender
     current_user.update(lender_params)
-    redirect_to lender_dashboard_path
+    redirect_to dashboard_path
   end
 
   private
