@@ -1,11 +1,8 @@
 <div class="applicant-page">
-  <div class="bridge-info">
-  <h1 class="info">bridge. information for applicants</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eveniet error, ipsum odio tenetur repellat sapiente officia? Voluptas tempora tenetur pariatur nesciunt amet deleniti veniam blanditiis, delectus, possimus ad accusantium!</p>
-  <h3>If this site is for you create a profile [otherwise sign in through the navbar]</h3>
-  </div>
-  <div class="bridge-link text-center">
-    <%= link_to "Create an Account", new_user_registration_path(:applicant => { :applicant => true }), class: "btn btn-danger dashboard-btn btn-homepage" %>
-  </div>
+  <h1 class="applicant-title">bridge. information for applicants</h1>
+  <p class="applicant-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eveniet error, ipsum odio tenetur repellat sapiente officia? Voluptas tempora tenetur pariatur nesciunt amet deleniti veniam blanditiis, delectus, possimus ad accusantium!</p>
+  <h3 class="applicant-text">If this site is for you create a profile [otherwise sign in through the navbar]</h3>
+  <%= link_to "Create an Account", new_user_registration_path(:applicant => { :applicant => true }), class: "btn btn-primary btn-homepage btn-justified" %>
 </div>
+
 
