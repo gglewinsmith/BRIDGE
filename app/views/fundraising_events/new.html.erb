@@ -6,7 +6,7 @@
 <h1>Create your loan request.</h1>
 
   <%= simple_form_for @fundraising_event do |f| %>
-        <%= f.input :amount, label: "How much do you need to borrow" %>
+        <%= f.input :price_cents, label: "How much do you need to borrow" %>
         <%= f.input :course, label: "Enter the name of your course" %>
         <%= f.input :date_from, as: :string, label: "When does the course start? (your loan will be paid on this date)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
         <%= f.input :date_until, as: :string, label: "End date of the course?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>

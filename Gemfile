@@ -20,6 +20,8 @@ gem 'webpacker'
 gem "pundit"
 gem 'devise'
 gem 'money-rails'
+gem 'stripe'
+
 
 
 

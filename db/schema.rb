@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_142112) do
+ActiveRecord::Schema.define(version: 2018_11_21_150039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2018_11_21_142112) do
     t.integer "amount"
     t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_fundraising_events_on_user_id"
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.string "state"
+    t.string "funding_event_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,4 +68,5 @@ ActiveRecord::Schema.define(version: 2018_11_21_142112) do
   end
 
   add_foreign_key "fundraising_events", "users"
+  add_foreign_key "loans", "users"
 end
