@@ -1,0 +1,69 @@
+.dashboard {
+  padding: 40px 160px 0 160px;
+  background-color: white;
+  width: 100%;
+}
+.profile {
+  display: flex;
+}
+.avatar {
+  flex-basis: 20%;
+  text-align: center;
+}
+.avatar-large {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.username {
+  font-size: 28px;
+}
+.email {
+  font-size: 14px
+}
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+}
+.text-center {
+  display: inline-block;
+  text-decoration: none;
+  color: grey;
+}
+.text-center {
+  display: inline-block;
+  color: grey;
+  font-size: 14px;
+  &:hover {
+    text-decoration: none;
+    color: grey;
+  }
+}
+.width {
+  flex-basis: 80%;
+}
+.tabs {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  padding: 20px 0 0 0;
+}
+.tab-selected {
+  flex-basis: 42%;
+  border-bottom: 3px solid black;
+  font-size: 16px;
+  margin-bottom: 0px;
+  padding: 8px 0
+}
+.tab {
+  flex-basis: 55%;
+  font-size: 16px;
+  margin-bottom: 0px;
+  color: grey;
+  padding: 8px 0
+}
+.wrapper {
+  background-color: #grey;
+}

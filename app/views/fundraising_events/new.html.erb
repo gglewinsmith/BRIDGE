@@ -1,0 +1,29 @@
+
+<%= render 'shared/modal' %>
+
+<!-- Booking form -->
+
+<h1>Create your loan request.</h1>
+
+  <%= simple_form_for @fundraising_event do |f| %>
+        <%= f.input :amount, label: "How much do you need to borrow" %>
+        <%= f.input :course, label: "Enter the name of your course" %>
+        <%= f.input :date_from, as: :string, label: "When does the course start? (your loan will be paid on this date)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
+        <%= f.input :date_until, as: :string, label: "End date of the course?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
+
+        <%= f.input :guarantor, label: "Who is your legal guarantor?", label_html: { class: "form_text" } %>
+        <%= f.input :loan_length, label: "Over what duration will you pay back your loan?", label_html: { class: "form_text" } %>
+
+
+        <%= f.input :payback_from, as: :string, label: "When will you start paying the loan back?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
+        <%= f.input :payback_until, as: :string, label: "When do you want to stop paying back the loan", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %><!-- DEFINED BY LOAN LENGTH -->
+  <!--   calculated interest rate -->
+        <%= f.input :career_goals, label: "What are your career goals after you have completed the course?", label_html: { class: "form_text" } %>
+
+
+        <%= f.input :cv, label: "Please upload your cv", label_html: { class: "form_text" } %>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
+
+<% end %>
+

@@ -11,15 +11,18 @@ class UsersController < ApplicationController
 
   def update_applicant
     current_user.update(applicant_params)
+    redirect_to applicant_dashboard_path
   end
 
   def update_lender
     current_user.update(lender_params)
+    redirect_to lender_dashboard_path
   end
 
   private
 
   def applicant_params
+    params.require(:user).permit(:reasons_for_funding)
   end
 
   def lender_params

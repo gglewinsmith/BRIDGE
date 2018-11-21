@@ -1,0 +1,20 @@
+<!-- show specific fundraising event page dynamically -->
+<h1><%=@fundraising_event.user_id%>'s loan for <%=@fundraising_event.course%>, £<%=@fundraising_event.amount%></h1>
+      <ul>
+        <li><%= @fundraising_event.user_id %></li>
+        <li><%= @fundraising_event.amount %></li>
+        <li><%= @fundraising_event.course %></li>
+        <li><%= @fundraising_event.user_id %></li>
+        <li>Course from <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></li>
+        <li>Click her to view CV</li>
+        <li><%= @fundraising_event.guarantor %></li>
+        <li><%= @fundraising_event.loan_length%></li>
+        <li><%= @fundraising_event.career_goals%></li>
+      </ul>
+    </div>
+
+<%= link_to 'Back to dashboard', applicant_dashboard_path, class: "btn btn-secondary" %>
+
+
+
+
