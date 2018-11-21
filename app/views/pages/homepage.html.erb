@@ -3,18 +3,18 @@
     <h1 id="title">bridge.</h1>
     <div class="homepage">
       <div class="applicant">
-        <h3 class="homepage-h3">Applicant</h3>
+        <h3 class="homepage-h3">I am an:</h3>
         <button type="button" class="btn btn-danger btn-homepage">
           <%= link_to_if(((user_signed_in? == true) && (current_user.applicant? == true)), name = 'Applicant Dashboard', dashboard_path ) do %>
-            <%= link_to "Sign Up", new_user_registration_path(:applicant => { :applicant => true }) %>
+            <%= link_to "Applicant", applicant_path(:applicant => { :applicant => true }) %>
           <% end %>
         </button>
       </div>
       <div class="lender">
-        <h3 class="homepage-h3">Lender</h3>
+        <h3 class="homepage-h3">I am a:</h3>
         <button type="button" class="btn btn-danger btn-homepage">
           <%= link_to_if(((user_signed_in? == true) && (current_user.lender? == true)), name = 'Lender Dashboard', dashboard_path ) do %>
-            <%= link_to "Sign Up", new_user_registration_path(:lender => { :lender => true }) %>
+            <%= link_to "Lender", lender_path(:lender => { :lender => true }) %>
           <% end %>
         </button>
       </div>

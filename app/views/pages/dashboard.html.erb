@@ -1,7 +1,12 @@
 <div class="container dashboard">
   <div class="profile">
     <div class="avatar">
-      <%= image_tag current_user.photo_url(:bright_face), class: "avatar-large" %>
+      <% if current_user.photo? %>
+        <% photo_url =  current_user.photo_url(:bright_face) %>
+      <% else %>
+        <% photo_url = "https://via.placeholder.com/150" %>
+      <% end %>
+      <%= image_tag photo_url, class: "avatar-large" %>
       <br>
       <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
     </div>
