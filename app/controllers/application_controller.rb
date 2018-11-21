@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
     user = User.find(params[:user])
     if params[:sign_up]
       if user.applicant?
-        return applicant_url
-      elsif user.lender?
         return lender_url
+      elsif user.lender?
+        return applicant_url
       end
     else
       return root_path
