@@ -6,7 +6,7 @@
         <h3 class="homepage-h3">Applicant</h3>
         <button type="button" class="btn btn-danger btn-homepage">
           <% if user_signed_in? %>
-            <%= link_to(name = 'New Post', applicant_dashboard_path) %>
+            <%= link_to(name = 'New Post', dashboard_path) %>
           <% else %>
             <%= link_to "Applicant", applicant_path %>
           <% end %>
