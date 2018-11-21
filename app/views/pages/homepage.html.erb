@@ -1,37 +1,35 @@
-<div class="container" id=homepage-center>
+<div class="container" id=homepage>
   <div class="banner-content">
-    <h1 id="title">bridge.</h1>
+    <h2 id=homepage-tagline>A peer-to-peer lending platform connecting coding bootcamp applicants to a lending community.</h2>
+    <h1 id="title">That's bridge.</h1>
     <div class="homepage">
       <div class="applicant">
-        <h3 class="homepage-h3">Applicant</h3>
         <% if user_signed_in? && current_user.applicant? %>
-          <button type="button" class="btn btn-danger btn-homepage">
-            <%= link_to 'Applicant Dashboard', dashboard_path %>
+          <button type="button" class="btn btn-primary btn-homepage">
+            <%= link_to 'Go to my dashboard', dashboard_path %>
           </button>
         <% elsif user_signed_in? && current_user.lender? %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homepageModal">Sign Up</button>
+          <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
         <% else %>
-          <button type="button" class="btn btn-danger btn-homepage">
-            <%= link_to "Sign Up", applicant_path %>
+          <button type="button" class="btn btn-primary btn-homepage">
+            <%= link_to "Apply for a loan", applicant_path %>
           </button>
         <% end %>
       </div>
       <div class="lender">
-        <h3 class="homepage-h3">Lender</h3>
         <% if user_signed_in? && current_user.lender? %>
-          <button type="button" class="btn btn-danger btn-homepage">
-            <%= link_to 'Lender Dashboard', dashboard_path %>
+          <button type="button" class="btn btn-primary btn-homepage">
+            <%= link_to 'Go to my dashboard', dashboard_path %>
           </button>
         <% elsif user_signed_in? && current_user.applicant? %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homepageModal">Sign Up</button>
+          <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Invest</button>
         <% else %>
-          <button type="button" class="btn btn-danger btn-homepage">
-            <%= link_to "Sign Up", lender_path %>
+          <button type="button" class="btn btn-primary btn-homepage">
+            <%= link_to "Invest", lender_path %>
           </button>
         <% end %>
       </div>
     </div>
-    <h2 id=homepage-tagline>Connecting coding bootcamp applicants to a lending community.</h2>
   </div>
 </div>
 
