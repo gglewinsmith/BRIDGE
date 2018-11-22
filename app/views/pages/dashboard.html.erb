@@ -31,7 +31,7 @@
       <p class="tab-selected">My current maturing loans</p>
       <p class="tab">Pending loan applications</p>
       <p class="tab">Outstanding loan offers</p>
-      <p class="tab"><%= link_to 'Create a Loan', new_fundraising_event_path, class: "btn btn-danger dashboard-btn" %></p>
+      <p class="tab"><%= link_to 'Create a Loan', new_fundraising_event_path%></p>
     <% elsif current_user.lender? %>
       <p class="tab-selected">Current Investments</p>
       <p class="tab">Pending loan offers made</p>
@@ -42,7 +42,7 @@
   <div class="container">
     <div class="row">
     <% if current_user.applicant? %>
-      <% @fundraising_event.each do |f| %>
+      <% @fundraising_events.each do |f| %>
         <div class="col-xs-12">
           <%= render "shared/applicant_card", fundraising_event: f %>
         </div>

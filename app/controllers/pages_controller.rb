@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @fundraising_events = FundraisingEvent.where(user: current_user)
+    @fundraising_events = []
+    @fundraising_events = FundraisingEvent.where(user: current_user) unless FundraisingEvent.where(user: current_user).nil?
   end
 
   def applicant
