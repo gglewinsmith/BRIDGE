@@ -1,6 +1,6 @@
 <div class="card">
   <h1 class="course-name"><%= fundraising_event.course %></h1>
-  <h2 class="cost">£<%= fundraising_event.amount %></h2>
+  <h2 class="cost"><%= humanized_money_with_symbol(fundraising_event.price) %></h2>
   <div class="counter">
     <p class="counters">Individuals</p>
     <p class="orange-counter">25%</p>
