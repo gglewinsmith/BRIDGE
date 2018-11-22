@@ -18,7 +18,7 @@ class PaymentsController < ApplicationController
     )
 
     @loan.update(payment: charge.to_json, state: 'fulfilled')
-    redirect_to loan_path(@loan)
+    redirect_to fundraising_event_loan_path(params[:fundraising_event_id], params[:loan_id])
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
