@@ -1,7 +1,7 @@
 <!-- show specific fundraising event page dynamically -->
-<h1><%=@fundraising_event.user_id%>'s request for a loan for <%=@fundraising_event.course%>, <%= humanized_money_with_symbol(@fundraising_event.price_cents)%></h1>
+<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course%>, <%= humanized_money_with_symbol(@fundraising_event.price_cents)%></h1>
       <ul>
-        <li><h3>Name: <%= @fundraising_event.user_id %></h3></li>
+        <li><h3>Name: <%= @fundraising_event.user.name %></h3></li>
         <li><h3>Amount: <%= humanized_money_with_symbol(@fundraising_event.price_cents) %></h3></li>
         <li><h3>Course name:<%= @fundraising_event.course %></h3></li>
         <li><h3>Financial guarantor: <%= @fundraising_event.guarantor %></li>

@@ -6,10 +6,10 @@
       </div>
 <%= link_to fundraising_event_path(fundraising_event) do %>
       <div class="card-category">
-        <h3>User: <%= fundraising_event.user_id %></h3>
+        <h3>User: <%= fundraising_event.user.name %></h3>
       </div>
       <div class="card-description">
-        <h3>Amount: £<%=fundraising_event.amount %></h3>
+        <h3>Amount: £<%=fundraising_event.price_cents %></h3>
       </div>
       <div class="card-condition">
         <p>Course name: <%= fundraising_event.course %>
