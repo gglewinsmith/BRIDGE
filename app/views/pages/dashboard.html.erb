@@ -1,12 +1,5 @@
 <% if current_user.applicant? %>
 
-
-
-
-
-
-
-
 <div class="container dashboard">
   <div class="profile">
     <div class="avatar">
@@ -51,7 +44,7 @@
             <div class="row">
               <% @loans.each do |l| %>
                 <div class="col-xs-12">
-                  <%= render "shared/loan_card", loan: l %>
+                  <%= render "shared/lender_card", loan: l %>
                 </div>
               <% end %>
             </div>
