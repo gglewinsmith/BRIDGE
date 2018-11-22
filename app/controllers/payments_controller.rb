@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
     )
 
     charge = Stripe::Charge.create(
-      customer:     customer.id,   # You should store this customer id and re-use it.
+      customer:     customer.id,  # You should store this customer id and re-use it.
       amount:       @loan.amount_cents,
       description:  "Payment for fundraising-event #{@loan.funding_event_sku} for loan #{@loan.id}",
       currency:     @loan.amount.currency
@@ -25,12 +25,9 @@ class PaymentsController < ApplicationController
     redirect_to new_order_payment_path(@order)
   end
 
-
   private
 
   def set_loan
     @loan = Loan.find(params[:loan_id])
   end
 end
-
-
