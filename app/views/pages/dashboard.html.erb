@@ -31,10 +31,23 @@
   </div>
   <div class="wrapper">
     <div class="container">
+      <h1>Fundraising Events</h1>
       <div class="row">
         <% @fundraising_events.each do |f| %>
           <div class="col-xs-12">
             <%= render "shared/applicant_card", fundraising_event: f %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="container">
+      <h1>Loans Recieved</h1>
+      <div class="row">
+        <% @loans.each do |l| %>
+          <div class="col-xs-12">
+            <%= render "shared/loan_card", loan: l %>
           </div>
         <% end %>
       </div>
@@ -47,6 +60,11 @@
   <div class="dashboard-btns">
     <%= link_to 'View Loan Oppurtunities', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
   </div>
+  <% @loans.each do |loan| %>
+    <div class="col-xs-12">
+      <%= render "shared/loan_card", loan: loan %>
+    </div>
+  <% end %>
 <% end %>
 
 
