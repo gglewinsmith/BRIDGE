@@ -1,16 +1,19 @@
-<div class="card">
-  <h1 class="course-name"><%= fundraising_event.course %></h1>
-  <div class="counter">
-    <p class="counters">Individuals</p>
-    <p class="orange-counter">25%</p>
-    <p class="counters">Companies</p>
-    <p class="green-counter"></p>
-    <div>
-      <p class="counters">Amount Raised: <%= humanized_money_with_symbol(@loan) %></p>
-    </div>
-    <div>
-      <p class="counters">Amount Desired: <%= humanized_money_with_symbol(@total) %></p>
+<%= link_to fundraising_event_path(fundraising_event) do %>
+  <div class="card">
+    <h2 class="course-name"><%= fundraising_event.course %></h2>
+    <h5>Course start date:<%= fundraising_event.date_from %></h5>
+    <h2 class="cost"><%= humanized_money_with_symbol(fundraising_event.price) %></h2>
+    <div class="counter">
+      <p class="counters">Individuals</p>
+      <p class="orange-counter">25%</p>
+      <p class="counters">Companies</p>
+      <p class="green-counter"></p>
+      <div>
+        <p class="counters">Amount Raised: <%= humanized_money_with_symbol(@loan) %></p>
+      </div>
+      <div>
+        <p class="counters">Amount Desired: <%= humanized_money_with_symbol(@total) %></p>
+      </div>
     </div>
   </div>
-</div>
-
+<% end %>

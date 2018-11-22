@@ -22,7 +22,8 @@ class PagesController < ApplicationController
   private
 
   def tally
-    @fundraising_events = FundraisingEvent.where(user: current_user)
+    @fundraising_events = []
+    @fundraising_events = FundraisingEvent.where(user: current_user) unless FundraisingEvent.where(user: current_user).nil?
     @fundraising_events.each do |fundraising_event|
       @total = fundraising_event.price
       @loan = 0
