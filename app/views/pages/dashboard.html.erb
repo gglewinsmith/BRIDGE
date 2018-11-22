@@ -1,5 +1,4 @@
-<% if current_user.applicant? %>
-  <div class="container dashboard">
+<div class="container dashboard">
   <div class="profile">
     <div class="avatar">
       <% if current_user.photo? %>
@@ -15,51 +14,55 @@
       <h2 class="username"> <%= current_user.name %></h2>
       <p class="email"><%= current_user.email %></p>
         <div class="stats">
-          <p>1 loan maturing</p>
-          <p>5 loan applications</p>
-          <p>5 people invested in you</p>
-        </div>
-      <p class="email">Motivation: <%= current_user.motivation %></p>
-    </div>
-    </div>
-
-    <div class="tabs">
-      <p class="tab-selected">Pending loan applications</p>
-      <p class="tab">Maturing loans</p>
-      <p class="tab-selected">Pending loan offers</p>
-      <p class="tab">Maturing loans</p>
-      <p class="tab-selected"><%= link_to 'Create a Loan', new_fundraising_event_path, class: "btn btn-danger dashboard-btn" %></p>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <h3>My application(s) for funding</h3>
-        <% @fundraising_events.each do |f| %>
-        <% if f.user == current_user %>
-          <div class="col-xs-12">
-            <%= render "shared/applicant_card", fundraising_event: f %>
-          </div>
+        <% if current_user.applicant? %>
+          <p>1 loan(s) maturing</p>
+          <p>5 loan application(s)</p>
+          <p>5 lender(s) invested in you</p>
+        <% elsif current_user.lender? %>
+          <p>5 investments</p>
+          <p>1 loan(s) offered</p>
         <% end %>
-       <% end %>
-      </div>
+        </div>
+      <p class="email">Motivation | <%= current_user.motivation %></p>
     </div>
   </div>
-<% elsif current_user.lender? %>
-  <h1>Lender Dashboard</h1>
+  <div class="tabs">
+    <% if current_user.applicant? %>
+      <p class="tab-selected">My current maturing loans</p>
+      <p class="tab">Pending loan applications</p>
+      <p class="tab">Outstanding loan offers</p>
+      <p class="tab"><%= link_to 'Create a Loan', new_fundraising_event_path, class: "btn btn-danger dashboard-btn" %></p>
+    <% elsif current_user.lender? %>
+      <p class="tab-selected">Current Investments</p>
+      <p class="tab">Pending loan offers made</p>
+    <% end %>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+    <% if current_user.applicant? %>
+      <% @fundraising_event.each do |f| %>
+        <div class="col-xs-12">
+          <%= render "shared/applicant_card", fundraising_event: f %>
+        </div>
+      <% end %>
+    <% elsif current_user.lender? %>
+     <% current_user.loans.each do |loan| %>
+        <div class="col-xs-12">
+          <%= render "shared/lender_card", loan: loan %>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<% if current_user.lender? %>
   <div class="dashboard-btns">
-    <%= link_to 'View Loan Oppurtunities', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
+    <%= link_to 'View Loan Opportunities', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
   </div>
   <%= link_to 'View outstanding loans', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
 <% end %>
-
-
-
-
-
-
-
-
 
 
 

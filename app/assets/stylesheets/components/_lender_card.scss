@@ -1,48 +1,53 @@
-.card {
-  height: 150px;
-  width: 75%;
-  margin: 20px;
-  background-color: white;
-  position: relative;
-  margin-left: 150px;
-  margin-right: 150px;
-  box-shadow: 1px 1px 1px 1px rgba(150,150,150,0.3);
-}
-.counter {
-  display: flex;
+.debtor-name {
+  font-size: 16px;
   position: absolute;
-  left: 20px;
-  bottom: 20px;
+  left: 120px;
 }
-.course-name {
-  font-size: 24px;
+.avatar-lender {
+  flex-basis: 15%;
+  text-align: center;
+}
+.course-detail {
+  font-size: 16px;
   position: absolute;
-  left: 20px;
+  left: 120px;
+  top: 30px;
+  width: 100%;
 }
-.cost {
+.loan-os {
+  font-size: 28px;
+  text-weight: 800px;
+  margin-top: 40px;
+}
+.outstanding {
+  font-size: 16px;
+  text-weight: 600px;
+  margin-top: 10px;
+}
+.amount-left {
   font-size: 56px;
   text-weight: 600px;
+}
+.avatar-small {
+  width: 60px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.width-lender-card {
+  flex-basis: 70%;
+}
+.width-loan {
+  flex-basis: 15%;
+  text-align: center;
+}
+.counter-lender {
+  display: flex;
   position: absolute;
-  right: 20px;
-  top: 30px;
+  bottom: 15px;
+  left: 120px;
 }
-.counters {
-  font-size: 16px;
+.lender-counters {
+  font-size: 12px !important;
   flex-basis: 20%;
-  color: grey;
-}
-.orange-counter {
-  font-size: 16px;
-  flex-basis: 5%;
-  background-color: orange;
-  color: white;
-  margin: 0 10px;
-}
-.green-counter {
-  display: inline-block;
-  font-size: 16px;
-  flex-basis: 5%;
-  background-color: green;
-  color: white;
-  margin: 0 10px;
+  margin: 0px;
 }
