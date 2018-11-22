@@ -4,7 +4,7 @@
     <div class="row">
       <% @fundraising_events.each do |f| %>
         <div class="col-xs-6 col-sm-4">
-          <%= render "shared/loan_card", fundraising_event: f %>
+          <%= render "shared/fundraising_events_card", fundraising_event: f %>
         </div>
       <% end %>
     </div>

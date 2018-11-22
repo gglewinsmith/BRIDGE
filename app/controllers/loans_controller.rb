@@ -1,8 +1,4 @@
 class LoansController < ApplicationController
-  def index
-    @loans = Loans.all.select { |loan| current_user == loan.user_id }
-  end
-
   def create
     @fundraising_event = FundraisingEvent.find(params[:fundraising_event_id])
     #line below: here is where we define how much the loan is going to be
@@ -14,6 +10,8 @@ class LoansController < ApplicationController
       user: current_user,
       fundraising_event_id: @fundraising_event.id
     )
+    @fundraising_event.amount_raised = @loan.amount
+    @fundraising_event.save
     redirect_to new_fundraising_event_loan_payment_path(@fundraising_event, @loan)
   end
 

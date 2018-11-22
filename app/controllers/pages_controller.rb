@@ -5,8 +5,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @fundraising_events = []
-    @fundraising_events = FundraisingEvent.where(user: current_user) unless FundraisingEvent.where(user: current_user).nil?
+    if current_user.applicant?
+      @loans = Loan.all.select { |loan| current_user == loan.fundraising_event.user }
+      @fundraising_events = FundraisingEvent.where(user: current_user)
+    elsif current_user.lender?
+      @loans = Loan.all.select { |loan| current_user == loan.user }
+    end
   end
 
   def applicant
