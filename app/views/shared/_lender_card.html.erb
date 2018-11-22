@@ -1,33 +1,35 @@
 <div class="card">
-  <div class="profile">
+  <%= link_to fundraising_event_loan_path(loan.fundraising_event_id, loan.id) do %>
+    <div class="profile">
 
-    <div class="avatar-lender">
-    <% if loan.fundraising_event.user.photo? %>
-      <% photo_url =  loan.fundraising_event.user.photo_url(:bright_face) %>
-    <% else %>
-      <% photo_url = "https://via.placeholder.com/150" %>
-    <% end %>
-    <%= image_tag photo_url, class: "avatar-small" %>
-    </div>
+      <div class="avatar-lender">
+      <% if loan.fundraising_event.user.photo? %>
+        <% photo_url =  loan.fundraising_event.user.photo_url(:bright_face) %>
+      <% else %>
+        <% photo_url = "https://via.placeholder.com/150" %>
+      <% end %>
+      <%= image_tag photo_url, class: "avatar-small" %>
+      </div>
 
-    <div class="width-lender-card">
-      <h1 class="debtor-name">Name of debtor: <%= loan.fundraising_event.user.name %></h1>
-      <h2 class="course-detail">Loan for tuition at <%= loan.fundraising_event.course %></h2>
-      <div class="counter-lender">
-        <h4 class="lender-counters">Total amount of loan:</h4>
-        <h4 class="orange-counter"><%= loan.amount_cents %></h4>
-        <h4 class="lender-counters">Maturity date:</h4>
-        <h4 class="green-counter"> <%= loan.fundraising_event.payback_until %></h4>
-        <h4 class="lender-counters">Interest rate:</h4>
-        <h4 class="green-counter">4%</h4>
+      <div class="width-lender-card">
+        <h1 class="debtor-name">Name of debtor: <%= loan.fundraising_event.user.name %></h1>
+        <h2 class="course-detail">Loan for tuition at <%= loan.fundraising_event.course %></h2>
+        <div class="counter-lender">
+          <h4 class="lender-counters">Total amount of loan:</h4>
+          <h4 class="orange-counter"><%= loan.amount %></h4>
+          <h4 class="lender-counters">Maturity date:</h4>
+          <h4 class="green-counter"> <%= loan.fundraising_event.payback_until %></h4>
+          <h4 class="lender-counters">Interest rate:</h4>
+          <h4 class="green-counter">4%</h4>
+        </div>
+      </div>
+
+      <div class="width-loan">
+        <h2 class="loan-os">£xxx</h2>
+        <h2 class="outstanding">outstanding</h2>
       </div>
     </div>
-
-    <div class="width-loan">
-      <h2 class="loan-os">£££</h2>
-      <h2 class="outstanding">outstanding</h2>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 
