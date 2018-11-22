@@ -5,13 +5,33 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @fundraising_events = []
-    @fundraising_events = FundraisingEvent.where(user: current_user) unless FundraisingEvent.where(user: current_user).nil?
+    if current_user.applicant?
+      @loans = Loan.all.select { |loan| current_user == loan.fundraising_event.user }
+      tally
+    elsif current_user.lender?
+      @loans = Loan.all.select { |loan| current_user == loan.user }
+    end
   end
 
   def applicant
   end
 
   def lender
+  end
+
+  private
+
+  def tally
+    @fundraising_events = []
+    @fundraising_events = FundraisingEvent.where(user: current_user) unless FundraisingEvent.where(user: current_user).nil?
+    @fundraising_events.each do |fundraising_event|
+      @total = fundraising_event.price
+      @loan = 0
+      until @total >= @loan
+        fundraising_event.loans.each do |loan|
+          @loan += loan.amount
+        end
+      end
+    end
   end
 end

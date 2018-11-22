@@ -11,6 +11,7 @@ class FundraisingEventsController < ApplicationController
   def show
     @fundraising_event = FundraisingEvent.find(params[:id])
     # authorize @fundraising_event
+
   end
 
   def new

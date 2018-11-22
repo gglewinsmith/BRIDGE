@@ -47,6 +47,18 @@
           <%= render "shared/applicant_card", fundraising_event: f %>
         </div>
       <% end %>
+      <div class="wrapper">
+        <div class="container">
+          <h1>Loans Recieved</h1>
+            <div class="row">
+              <% @loans.each do |l| %>
+                <div class="col-xs-12">
+                  <%= render "shared/loan_card", loan: l %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
     <% elsif current_user.lender? %>
      <% current_user.loans.each do |loan| %>
         <div class="col-xs-12">
@@ -61,7 +73,11 @@
   <div class="dashboard-btns">
     <%= link_to 'View Loan Opportunities', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
   </div>
-  <%= link_to 'View outstanding loans', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
+  <% @loans.each do |loan| %>
+    <div class="col-xs-12">
+      <%= render "shared/loan_card", loan: loan %>
+    </div>
+  <% end %>
 <% end %>
 
 
