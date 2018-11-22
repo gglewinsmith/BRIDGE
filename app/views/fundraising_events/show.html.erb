@@ -1,5 +1,7 @@
 <!-- show specific fundraising event page dynamically -->
-<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course%>, <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
+
+<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course%>: <%= humanized_money_with_symbol(@fundraising_event.price_cents)%></h1>
+
       <ul>
         <li><h3>Name: <%= @fundraising_event.user.name %></h3></li>
         <li><h3>Required: <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
@@ -11,7 +13,8 @@
         <li>Click here to view CV ___</li>
       </ul>
     </div>
-<%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-secondary" %>
+<%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary" %>
+
 
 <% if current_user.lender? %>
   <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans" do %>
@@ -19,6 +22,7 @@
     <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
     <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary' %>
   <% end %>
+
 <% end %>
 
 

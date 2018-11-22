@@ -19,34 +19,38 @@
           <p>5 loan applications</p>
           <p>5 people invested in you</p>
         </div>
-      <p class="email">Motivation / About - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="email">Motivation: <%= current_user.motivation %></p>
     </div>
     </div>
+
     <div class="tabs">
       <p class="tab-selected">Pending loan applications</p>
       <p class="tab">Maturing loans</p>
       <p class="tab-selected">Pending loan offers</p>
       <p class="tab">Maturing loans</p>
+      <p class="tab-selected"><%= link_to 'Create a Loan', new_fundraising_event_path, class: "btn btn-danger dashboard-btn" %></p>
     </div>
   </div>
   <div class="wrapper">
     <div class="container">
       <div class="row">
+        <h3>My application(s) for funding</h3>
         <% @fundraising_events.each do |f| %>
+        <% if f.user == current_user %>
           <div class="col-xs-12">
             <%= render "shared/applicant_card", fundraising_event: f %>
           </div>
         <% end %>
+       <% end %>
       </div>
     </div>
   </div>
-  <%= link_to 'Create a Loan', new_fundraising_event_path, class: "btn btn-danger dashboard-btn" %>
-  <%= link_to 'View outstanding loans', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
 <% elsif current_user.lender? %>
   <h1>Lender Dashboard</h1>
   <div class="dashboard-btns">
     <%= link_to 'View Loan Oppurtunities', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
   </div>
+  <%= link_to 'View outstanding loans', fundraising_events_path, class: "btn btn-danger dashboard-btn" %>
 <% end %>
 
 
