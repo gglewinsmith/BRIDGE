@@ -1,6 +1,6 @@
 <!-- show specific fundraising event page dynamically -->
 
-<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course%>: <%= humanized_money_with_symbol(@fundraising_event.price_cents)%></h1>
+<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
 
       <ul>
         <li><h3>Name: <%= @fundraising_event.user.name %></h3></li>
