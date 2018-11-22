@@ -1,8 +1,6 @@
 class LoansController < ApplicationController
   def create
     @fundraising_event = FundraisingEvent.find(params[:fundraising_event_id])
-    #line below: here is where we define how much the loan is going to be
-    #difference between an sku and an id: sku is just a description
     @loan = Loan.create!(
       funding_event_sku: @fundraising_event.course,
       amount_cents: params[:amount].to_i * 100,

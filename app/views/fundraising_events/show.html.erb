@@ -1,5 +1,4 @@
 <!-- show specific fundraising event page dynamically -->
-
 <h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
 
       <ul>
@@ -15,6 +14,16 @@
     </div>
 <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary" %>
 
+<div class="progress-pie-chart" data-percent="<%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
+  <div class="ppc-progress">
+    <div class="ppc-progress-fill"></div>
+  </div>
+  <div class="ppc-percents">
+    <div class="pcc-percents-wrapper">
+      <span><%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %></span>
+    </div>
+  </div>
+</div>
 
 <% if current_user.lender? %>
   <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans" do %>
@@ -25,4 +34,16 @@
 
 <% end %>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function(){
+  var $ppc = $('.progress-pie-chart'),
+    percent = parseInt($ppc.data('percent')),
+    deg = 360*percent/100;
+  if (percent > 50) {
+    $ppc.addClass('gt-50');
+  }
+  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
+  $('.ppc-percents span').html(percent+'%');
+});
+</script>
