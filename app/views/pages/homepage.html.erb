@@ -29,7 +29,11 @@
       <% end %>
     </div>
   </div>
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn-medium sign-out-btn"%>
+<% end %>
 </div>
+
 
 <%= render 'shared/homepage_modal', user: current_user %>
 
