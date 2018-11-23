@@ -1,7 +1,9 @@
 <% unless params[:controller] == "pages" && params[:action] == "homepage" %>
   <div class="navbar-wagon">
     <div class="navbar-wagon-item navbar-wagon-left">
-        <%= link_to 'bridge.', root_path, class: "logo_styling" %>
+        <%= link_to root_path, class: "logo_styling" do %>
+        <%= image_tag 'logo-light.png', height: 40, width: 60%>
+        <% end  %>
     </div>
     <div class="navbar-wagon-right">
       <% if user_signed_in? %>
