@@ -1,49 +1,54 @@
 <!-- show specific fundraising event page dynamically -->
-<h1><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
+<div class="container" id=homepage>
+  <h1 class="show-title"><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
 
-      <ul>
-        <li><h3>Name: <%= @fundraising_event.user.name %></h3></li>
-        <li><h3>Required: <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
-        <li><h3>Course name:<%= @fundraising_event.course %></h3></li>
-        <li><h3>Financial guarantor: <%= @fundraising_event.guarantor %></li>
-        <li><h3>Loan length:<%= @fundraising_event.loan_length%></h3></li>
-        <li><h3>Career goals: <%= @fundraising_event.career_goals%></li></h3>
-        <li>Course from: <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></li>
-        <li>Click here to view CV ___</li>
-      </ul>
-    </div>
-<%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary" %>
+        <ul class="homepage-tagline">
+          <li><h3 class="white-text">Name | <%= @fundraising_event.user.name %></h3></li>
+          <li><h3 class="white-text">Required | <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
+          <li><h3 class="white-text">Course name | <%= @fundraising_event.course %></h3></li>
+          <li><h3 class="white-text">Financial guarantor | <%= @fundraising_event.guarantor %></li>
+          <li><h3 class="white-text">Loan length | <%= @fundraising_event.loan_length%></h3></li>
+          <li><h3 class="white-text">Career goals | <%= @fundraising_event.career_goals%></h3></li>
+          <li><h3 class="white-text">Course from | <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></h3></li>
+          <li><h3 class="white-text">Click here to view CV ___</h3></li>
+        </ul>
 
-<div class="progress-pie-chart" data-percent="<%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
-  <div class="ppc-progress">
-    <div class="ppc-progress-fill"></div>
-  </div>
-  <div class="ppc-percents">
-    <div class="pcc-percents-wrapper">
-      <span><%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %></span>
+  <div class="progress-pie-chart" data-percent="<%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
+    <div class="ppc-progress">
+      <div class="ppc-progress-fill"></div>
+    </div>
+    <div class="ppc-percents">
+      <div class="pcc-percents-wrapper">
+        <span><%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %></span>
+      </div>
     </div>
   </div>
+
+    <% if current_user.lender? %>
+      <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans" do %>
+        <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
+        <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
+        <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary' %>
+      <% end %>
+
+    <% end %>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+    var $ppc = $('.progress-pie-chart'),
+      percent = parseInt($ppc.data('percent')),
+      deg = 360*percent/100;
+    if (percent > 50) {
+      $ppc.addClass('gt-50');
+    }
+    $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
+    $('.ppc-percents span').html(percent+'%');
+  });
+  </script>
+          <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary btn-homepage btn-show" %>
 </div>
 
-<% if current_user.lender? %>
-  <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans" do %>
-    <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
-    <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
-    <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary' %>
-  <% end %>
 
-<% end %>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-  $(function(){
-  var $ppc = $('.progress-pie-chart'),
-    percent = parseInt($ppc.data('percent')),
-    deg = 360*percent/100;
-  if (percent > 50) {
-    $ppc.addClass('gt-50');
-  }
-  $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-  $('.ppc-percents span').html(percent+'%');
-});
-</script>
