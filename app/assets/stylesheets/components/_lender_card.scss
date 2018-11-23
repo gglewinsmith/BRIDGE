@@ -2,6 +2,7 @@
   font-size: 16px;
   position: absolute;
   left: 120px;
+  color: black !important;
 }
 .avatar-lender {
   flex-basis: 15%;
@@ -13,16 +14,19 @@
   left: 120px;
   top: 30px;
   width: 100%;
+  color: black !important;
 }
 .loan-os {
   font-size: 28px;
   text-weight: 800px;
   margin-top: 40px;
+  color: black !important;
 }
 .outstanding {
   font-size: 16px;
   text-weight: 600px;
   margin-top: 10px;
+  color: black !important;
 }
 .amount-left {
   font-size: 56px;
@@ -50,4 +54,5 @@
   font-size: 12px !important;
   flex-basis: 20%;
   margin: 0px;
+  color: black !important;
 }
