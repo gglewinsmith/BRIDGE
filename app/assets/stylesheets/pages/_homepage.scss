@@ -42,5 +42,8 @@
 .sign-out-btn {
   position: absolute;
   bottom: 10px;
+}
 
+.100vh-content {
+  min-height: calc(100vh - 50px);
 }
