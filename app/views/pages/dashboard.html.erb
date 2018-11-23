@@ -15,42 +15,55 @@
         <h2 class="username"> <%= current_user.name %></h2>
         <p class="email"><%= current_user.email %></p>
           <div class="stats">
-            <p>1 loan(s) maturing</p>
-            <p>5 loan application(s)</p>
-            <p>5 lender(s) invested in you</p>
+            <p><%= current_user.fundraising_events.count %> loan application(s)</p>
+            <p><%= @loans.select { |loan| loan.payment.present? }.count  %> lender(s) invested in you</p>
           </div>
         <p class="email">Motivation | <%= current_user.motivation %></p>
       </div>
     </div>
-    <div class="tabs">
-      <p class="tab-selected">My current maturing loans</p>
-      <p class="tab">Pending loan applications</p>
-      <p class="tab">Outstanding loan offers</p>
-      <p class="tab"><%= link_to 'Create a Loan', new_fundraising_event_path%></p>
-    </div>
-  </div>
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <% @fundraising_events.each do |f| %>
-          <div class="col-xs-12">
-            <%= render "shared/applicant_card", fundraising_event: f %>
-          </div>
-        <% end %>
-        <div class="wrapper">
-          <div class="container">
-            <h1>Loans Recieved</h1>
-              <div class="row">
-                <% @loans.each do |l| %>
-                  <div class="col-xs-12">
-                    <%= render "shared/lender_card", loan: l %>
+    <div class="wrapper">
+      <div class="container">
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                <span class="text">My Fundraising Events</span>
+              </a>
+            </li>
+            <li role="presentation" class="next">
+              <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+                <span class="text">Current Loans</span>
+              </a>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+              <div class="container" id="homepage-cards">
+                <div class="row">
+                  <% @loans.each do |l| %>
+                    <div class="col-xs-12">
+                      <%= render "shared/lender_card", loan: l %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+              <div class="wrapper">
+                <div class="container">
+                  <div class="row">
+                    <% @fundraising_events.each do |f| %>
+                      <div class="col-xs-12">
+                        <%= render "shared/applicant_card", fundraising_event: f %>
+                      </div>
+                    <% end %>
                   </div>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
-    </div>
   </div>
 <% elsif current_user.lender? %>
   <div class="container dashboard">
