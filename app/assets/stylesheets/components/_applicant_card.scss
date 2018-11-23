@@ -13,9 +13,17 @@
   bottom: 20px;
 }
 .course-name {
-  font-size: 24px;
+  font-size: 16px;
   position: absolute;
   left: 20px;
+  color: black;
+}
+.course-start {
+  font-size: 16px;
+  position: absolute;
+  left: 20px;
+  top: 35px;
+  color: black;
 }
 .cost {
   font-size: 56px;
@@ -32,15 +40,18 @@
 .orange-counter {
   font-size: 16px;
   flex-basis: 5%;
-  background-color: orange;
-  color: white;
+  // background-color: orange;
+  color: black;
   margin: 0 10px;
+  width: 100px;
+  font-weight: bold;
 }
 .green-counter {
   display: inline-block;
   font-size: 16px;
   flex-basis: 5%;
-  background-color: green;
-  color: white;
+  // background-color: green;
+  color: black;
   margin: 0 10px;
+  width: 100px;
 }
