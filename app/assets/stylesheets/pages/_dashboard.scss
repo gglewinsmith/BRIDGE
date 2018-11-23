@@ -9,6 +9,7 @@
 }
 .profile {
   display: flex;
+  margin-bottom: 30px;
 }
 .avatar {
   flex-basis: 20%;
@@ -24,9 +25,11 @@
   width: 150px;
   border-radius: 50%;
   margin-top: 20px;
+  border: 0.5px solid rgb(170, 170, 170);
 }
 .username {
   font-size: 28px;
+  font-weight: 300
 }
 .email {
   font-size: 14px
@@ -38,6 +41,7 @@
 }
 .stat {
   margin-right: 30px;
+  margin-bottom: 20px;
 }
 .text-center {
   display: inline-block;
@@ -55,7 +59,7 @@
 }
 .width {
   flex-basis: 80%;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 .tabs {
   display: flex;
