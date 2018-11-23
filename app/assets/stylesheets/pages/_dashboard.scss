@@ -3,12 +3,22 @@
   background-color: white;
   width: 100%;
 }
+.dashboard-height {
+  min-height: calc(100vh - 90px);
+  padding-bottom: 50px;
+}
 .profile {
   display: flex;
 }
 .avatar {
   flex-basis: 20%;
   text-align: center;
+}
+.tab-text {
+  color: black !important;
+  &:hover {
+    color: black !important;
+  }
 }
 .avatar-large {
   width: 150px;
