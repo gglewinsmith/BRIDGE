@@ -33,9 +33,11 @@
 }
 .stats {
   display: flex;
-  justify-content: space-between;
   font-size: 14px;
   font-weight: bold;
+}
+.stat {
+  margin-right: 30px;
 }
 .text-center {
   display: inline-block;
