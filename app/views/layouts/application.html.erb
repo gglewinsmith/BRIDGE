@@ -17,9 +17,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="100vh-content"><%= yield %></div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-  </body>
     <%= render 'shared/footer' %>
+  </body>
 </html>

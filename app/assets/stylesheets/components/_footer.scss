@@ -3,9 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 40px;
   padding: 0px 15px;
   color: #2F4455;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 .footer-links {
   display: flex;
@@ -21,3 +24,5 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+
