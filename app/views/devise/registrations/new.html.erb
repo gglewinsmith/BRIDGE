@@ -46,7 +46,8 @@
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
-    <% elsif params[:user][:lender] == "true" %>
+
+    <% elsif params[:user][:applicant] == "false" %>
     <h2 class="devise-h2">Lender Sign Up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
