@@ -40,7 +40,6 @@
 .orange-counter {
   font-size: 16px;
   flex-basis: 5%;
-  // background-color: orange;
   color: black;
   margin: 0 10px;
   width: 100px;
@@ -50,8 +49,9 @@
   display: inline-block;
   font-size: 16px;
   flex-basis: 5%;
-  // background-color: green;
   color: black;
   margin: 0 10px;
-  width: 100px;
+  min-width: 100px;
+  font-weight: bold;
+
 }
