@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_204233) do
     t.bigint "user_id"
     t.date "date_from"
     t.date "date_until"
-    t.string "cv"
+    t.string "photo"
     t.string "guarantor"
     t.date "payback_from"
     t.date "payback_until"

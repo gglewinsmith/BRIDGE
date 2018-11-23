@@ -1,6 +1,7 @@
 <div class="devise-form-box">
   <div class="row">
-    <% if params[:applicant][:applicant] == "true" %>
+    <%# if params[:applicant][:applicant] == "true" || params[:user][:applicant] == "true" %>
+    <% if params[:user][:applicant] == "true" %>
     <h2 class="devise-h2">Bootcamp Applicant Sign Up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
