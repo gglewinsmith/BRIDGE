@@ -1,34 +1,32 @@
 <div class="container" id=homepage>
-  <div class="banner-content">
-    <h2 class="homepage-tagline">A peer-to-peer lending platform connecting coding bootcamp applicants to a lending community.</h2>
-    <h1 class="title">That's bridge.</h1>
-    <div class="homepage">
-      <div class="applicant">
-        <% if user_signed_in? && current_user.applicant? %>
-          <button type="button" class="btn btn-primary btn-homepage">
-            <%= link_to 'Go to my dashboard', dashboard_path %>
-          </button>
-        <% elsif user_signed_in? && current_user.lender? %>
-          <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
-        <% else %>
-          <button type="button" class="btn btn-primary btn-homepage">
-            <%= link_to "Apply for a loan", applicant_path %>
-          </button>
-        <% end %>
-      </div>
-      <div class="lender">
-        <% if user_signed_in? && current_user.lender? %>
-          <button type="button" class="btn btn-primary btn-homepage">
-            <%= link_to 'Go to my dashboard', dashboard_path %>
-          </button>
-        <% elsif user_signed_in? && current_user.applicant? %>
-          <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Invest</button>
-        <% else %>
-          <button type="button" class="btn btn-primary btn-homepage">
-            <%= link_to "Invest", lender_path %>
-          </button>
-        <% end %>
-      </div>
+  <h2 class="homepage-tagline">A peer-to-peer lending platform connecting coding bootcamp applicants to a lending community.</h2>
+  <h1 class="title">That's bridge.</h1>
+  <div class="homepage">
+    <div class="applicant">
+      <% if user_signed_in? && current_user.applicant? %>
+        <button type="button" class="btn btn-primary btn-homepage">
+          <%= link_to 'Go to my dashboard', dashboard_path %>
+        </button>
+      <% elsif user_signed_in? && current_user.lender? %>
+        <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
+      <% else %>
+        <button type="button" class="btn btn-primary btn-homepage">
+          <%= link_to "Apply for a loan", applicant_path %>
+        </button>
+      <% end %>
+    </div>
+    <div class="lender">
+      <% if user_signed_in? && current_user.lender? %>
+        <button type="button" class="btn btn-primary btn-homepage">
+          <%= link_to 'Go to my dashboard', dashboard_path %>
+        </button>
+      <% elsif user_signed_in? && current_user.applicant? %>
+        <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Invest</button>
+      <% else %>
+        <button type="button" class="btn btn-primary btn-homepage">
+          <%= link_to "Invest", lender_path %>
+        </button>
+      <% end %>
     </div>
   </div>
 </div>
