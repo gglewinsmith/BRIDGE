@@ -36,7 +36,7 @@ class FundraisingEventsController < ApplicationController
   private
 
   def fundraising_event_params
-    params.require(:fundraising_event).permit(:price, :course, :career_goals,
-      :date_from, :date_until, :cv, :guarantor, :payback_from, :payback_until)
+    params.require(:fundraising_event).permit(:price, :course, :career_goals, :loan_length,
+      :date_from, :date_until, :photo, :guarantor, :payback_from, :payback_until)
   end
 end

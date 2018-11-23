@@ -5,7 +5,7 @@ class CreateFundraisingEvents < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.date :date_from
       t.date :date_until
-      t.string :cv
+      t.string :photo
       t.string :guarantor
       t.date :payback_from
       t.date :payback_until
