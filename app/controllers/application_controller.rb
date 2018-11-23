@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options
+    { host: ENV["www.bridgeloans.website"] || "localhost:3000" }
+  end
+
   private
 
   def skip_pundit?

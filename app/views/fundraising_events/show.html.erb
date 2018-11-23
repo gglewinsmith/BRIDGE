@@ -1,4 +1,7 @@
 <!-- show specific fundraising event page dynamically -->
+<% content_for :meta_title, "#{@fundraising_event.user.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @fundraising_event.course %>
+
 <div class="container" id=homepage>
   <h1 class="show-title"><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
 
