@@ -1,13 +1,12 @@
 <h1>View Loan Requests (for Lenders):</h1>
 
 <div class="container" id="homepage-cards">
-    <div class="row">
-      <% @fundraising_events.each do |f| %>
-        <div class="col-xs-6 col-sm-4">
-          <%= render "shared/fundraising_events_card", fundraising_event: f %>
-        </div>
-      <% end %>
-    </div>
+  <div class="row">
+    <% @fundraising_events.each do |f| %>
+      <div class="col-xs-6 col-sm-4">
+        <%= render "shared/fundraising_events_card", fundraising_event: f %>
+      </div>
+    <% end %>
   </div>
 </div>
 

@@ -25,7 +25,7 @@
       </div>
 
       <div class="width-loan">
-        <h2 class="loan-os">£xxx</h2>
+        <h2 class="loan-os"><%= humanized_money_with_symbol(loan.amount) %></h2>
         <h2 class="outstanding">outstanding</h2>
       </div>
     </div>
