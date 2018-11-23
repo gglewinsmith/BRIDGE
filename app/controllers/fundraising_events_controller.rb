@@ -11,7 +11,10 @@ class FundraisingEventsController < ApplicationController
   def show
     @fundraising_event = FundraisingEvent.find(params[:id])
     # authorize @fundraising_event
-
+    respond_to do |format|
+        format.html { render 'fundraising_events/show' }
+        format.js
+      end
   end
 
   def new
