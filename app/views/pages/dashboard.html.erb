@@ -21,8 +21,10 @@
         <p class="email">Motivation | <%= current_user.motivation %></p>
       </div>
     </div>
+
+
     <div class="wrapper">
-      <div class="container">
+
         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
           <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
             <li role="presentation" class="active">
@@ -88,7 +90,6 @@
       </div>
     </div>
     <div class="wrapper">
-      <div class="container">
         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
           <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
             <li role="presentation" class="active">
@@ -98,14 +99,13 @@
             </li>
             <li role="presentation" class="next">
               <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
-                <span class="text">Loan Oppurtunities</span>
+                <span class="text">Loan Opportunities</span>
               </a>
             </li>
           </ul>
           <div id="myTabContent" class="tab-content">
             <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-              <div class="wrapper">
-                <div class="container">
+
                   <div class="row">
                     <% current_user.loans.each do |loan| %>
                       <% if loan.payment.present? %>
@@ -115,11 +115,9 @@
                       <% end %>
                     <% end %>
                   </div>
-                </div>
-              </div>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-              <div class="container" id="homepage-cards">
+              <div id="homepage-cards">
                 <div class="row">
                   <% @fundraising_events.each do |f| %>
                     <div class="col-xs-6 col-sm-4">
@@ -131,8 +129,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 <% end %>
 <!--
