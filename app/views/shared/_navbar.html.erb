@@ -1,45 +1,21 @@
-<% if params[:controller] == "pages" && params[:action] == "homepage" %>
-
-<div class="navbar-wagon navbar-inner">
-  <div class="navbar-wagon-item navbar-wagon-left">
-      <%= link_to 'bridge.', root_path, class: "logo_styling" %>
-  </div>
-  <div class="navbar-wagon-right">
-    <% if user_signed_in? %>
-      <div class='sign-out'>
-        <div id="navbar-email">
-          <%= link_to current_user.name, dashboard_path, class: "navbar-wagon-item navbar-wagon-link"%>
+<% unless params[:controller] == "pages" && params[:action] == "homepage" %>
+  <div class="navbar-wagon">
+    <div class="navbar-wagon-item navbar-wagon-left">
+        <%= link_to 'bridge.', root_path, class: "logo_styling" %>
+    </div>
+    <div class="navbar-wagon-right">
+      <% if user_signed_in? %>
+        <div class='sign-out'>
+          <div id="navbar-email">
+            <%= link_to current_user.name, dashboard_path, class: "navbar-wagon-item navbar-wagon-link"%>
+          </div>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
         </div>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
-    <% else %>
-      <div class="sign-in">
-        <%= link_to 'Sign In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<% else %>
-
-<div class="navbar-wagon">
-  <div class="navbar-wagon-item navbar-wagon-left">
-      <%= link_to 'bridge.', root_path, class: "logo_styling" %>
-  </div>
-  <div class="navbar-wagon-right">
-    <% if user_signed_in? %>
-      <div class='sign-out'>
-        <div id="navbar-email">
-          <%= link_to current_user.name, dashboard_path, class: "navbar-wagon-item navbar-wagon-link"%>
+      <% else %>
+        <div class="sign-in">
+          <%= link_to 'Sign In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </div>
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
-    <% else %>
-      <div class="sign-in">
-        <%= link_to 'Sign In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
-
 <% end %>

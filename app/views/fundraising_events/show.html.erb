@@ -5,7 +5,7 @@
 <div class="container" id=homepage>
   <h1 class="show-title"><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
     <div class="show-flex">
-        <ul class="homepage-tagline show-text">
+        <ul class="fundraising-text show-text">
           <li><h3 class="white-text">Name | <%= @fundraising_event.user.name %></h3></li>
           <li><h3 class="white-text">Loan required | <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
           <li><h3 class="white-text">Course name | <%= @fundraising_event.course %></h3></li>
@@ -28,10 +28,10 @@
         </div>
 
     <% if current_user.lender? %>
-      <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans" do %>
+      <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
         <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
         <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
-        <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary' %>
+        <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
       <% end %>
     <% end %>
   </div>

@@ -1,17 +1,19 @@
-<h1>Make a loan for <%= @loan.funding_event_sku %></h1>
-<%= form_tag fundraising_event_loan_payments_path(@loan) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@loan.amount) %></span>
-    </label>
-  </article>
+<div class="payment-new">
+  <h1>Payment for <%= @loan.funding_event_sku %></h1>
+  <%= form_tag fundraising_event_loan_payments_path(@loan) do %>
+    <article>
+      <label class="amount">
+        <span>Amount: <%= humanized_money_with_symbol(@loan.amount) %></span>
+      </label>
+    </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="FundraisingEvent"
-    data-email="<%= current_user.email %>"
-    data-description="Loan <%= @loan.funding_event_sku %>"
-    data-amount="<%= @loan.amount_cents %>"
-    data-currency="<%= @loan.amount.currency %>"></script>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="FundraisingEvent"
+      data-email="<%= current_user.email %>"
+      data-description="Loan <%= @loan.funding_event_sku %>"
+      data-amount="<%= @loan.amount_cents %>"
+      data-currency="<%= @loan.amount.currency %>"></script>
 
-<% end %>
+  <% end %>
+</div>

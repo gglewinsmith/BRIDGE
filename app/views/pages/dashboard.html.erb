@@ -1,5 +1,5 @@
 <% if current_user.applicant? %>
-  <div class="container dashboard">
+  <div class="dashboard dashboard-height">
     <div class="profile">
       <div class="avatar">
         <% if current_user.photo? %>
@@ -25,12 +25,12 @@
       <div class="tab-flexbox">
         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
           <li role="presentation" class="active">
-            <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+            <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
               <span class="text">My Fundraising Events</span>
             </a>
           </li>
           <li role="presentation" class="next">
-            <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+            <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
               <span class="text">Current Loans</span>
             </a>
           </li>
@@ -64,7 +64,7 @@
     </div>
   </div>
 <% elsif current_user.lender? %>
-  <div class="container dashboard">
+  <div class="container dashboard dashboard-height">
     <div class="profile">
       <div class="avatar">
         <% if current_user.photo? %>
@@ -88,12 +88,12 @@
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
       <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
         <li role="presentation" class="active">
-          <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+          <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
             <span class="text">Outstanding Loans</span>
           </a>
         </li>
         <li role="presentation" class="next">
-          <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">
+          <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
             <span class="text">Loan Opportunities</span>
           </a>
         </li>

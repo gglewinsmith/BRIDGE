@@ -63,7 +63,10 @@ body {
 }
 .btn-show {
   margin-left: 200px;
-  margin-top: 20px;
+  padding-top: 11px;
+}
+.btn-loan {
+  padding-top: 11px;
 }
 .show-title  {
   font-size: 32px !important;
@@ -80,4 +83,12 @@ body {
 }
 .show-text {
   flex-basis: 35%;
+}
+.fundraising-text {
+  margin-left: 100px;
+  width: 450px;
+  // margin-top: 150px;
+}
+.black-text input {
+  color: black !important;
 }
