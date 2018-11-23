@@ -52,13 +52,32 @@ $size: 200px;
   display: table-cell;
   vertical-align: middle;
 }
-
-
-
 body {
   font-family: Arial;
   background: #f7f7f7;
 }
 .progress-pie-chart {
   margin: 50px auto 0;
+  flex-basis: 16.5%;
+  margin-left: 0px !important;
+}
+.btn-show {
+  margin-left: 200px;
+  margin-top: 20px;
+}
+.show-title  {
+  font-size: 32px !important;
+  width: 600px;
+  margin: 50px 0 50px 100px;
+}
+ .white-text {
+  color: white;
+  font-size: 16px !important;
+  margin-top: 15px;
+}
+.show-flex {
+  display: flex;
+}
+.show-text {
+  flex-basis: 35%;
 }

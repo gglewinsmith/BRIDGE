@@ -1,7 +1,7 @@
 <div class="devise-form-box">
   <div class="row">
-    <h2 class="devise-h2">Bootcamp Applicant Sign Up</h2>
     <% if params[:applicant][:applicant] == "true" %>
+    <h2 class="devise-h2">Bootcamp Applicant Sign Up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -47,6 +47,7 @@
       <% end %>
       <%= render "devise/shared/links" %>
     <% elsif params[:applicant][:applicant] == "false" %>
+    <h2 class="devise-h2">Lender Sign Up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
