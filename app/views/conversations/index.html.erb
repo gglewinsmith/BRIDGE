@@ -3,13 +3,15 @@
  <div class="ui list">
   <div class="item">
    <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
+   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
     <% if conversation.sender_id == current_user.id %>
       <% recipient = User.find(conversation.recipient_id) %>
     <% else %>
       <% recipient = User.find(conversation.sender_id) %>
     <% end %>
-    <%= link_to recipient.name,   conversation_messages_path(conversation)%>
+
+    <p class="message_index" id="<%= recipient.id %>"> <%= recipient.name %></p>
+    <%= render "message", messages: conversation.messages, conversation: conversation, message: Message.new%>
    <% end %>
   <% end %>
   </div>
@@ -27,3 +29,18 @@
  <% end %>
  </div>
 </div>
+
+<script>
+  const messageIndex = document.querySelectorAll(".message_index")
+  messageIndex.forEach((message)=> {
+    message.addEventListener("click", (event)=> {
+     let messageId = event.currentTarget.attributes.id.value
+     let messageDiv = document.getElementById(`message_${messageId}`)
+      messageDiv.classList.toggle("displayed_messages")
+      messageDiv.classList.toggle("message_list")
+
+    })
+
+
+  })
+</script>
