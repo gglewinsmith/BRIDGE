@@ -29,10 +29,17 @@
 }
 .username {
   font-size: 28px;
-  font-weight: 300
+  font-weight: 300;
 }
 .email {
-  font-size: 14px
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "Raleway", "Helvetica", "sans-serif" !important;
+}
+.bio {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Raleway", "Helvetica", "sans-serif" !important;
 }
 .stats {
   display: flex;
@@ -40,8 +47,17 @@
   font-weight: bold;
 }
 .stat {
-  margin-right: 30px;
-  margin-bottom: 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-family: "Raleway", "Helvetica", "sans-serif" !important;
+
+}
+.stat-text {
+  margin-right: 20px;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 300;
+  font-family: "Raleway", "Helvetica", "sans-serif" !important;
 }
 .text-center {
   display: inline-block;
