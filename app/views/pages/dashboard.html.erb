@@ -34,7 +34,10 @@
               <span class="text">Current Loans</span>
             </a>
           </li>
-          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %></li>
+          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
+          </li>
+          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          </li>
         </ul>
       </div>
       <div id="myTabContent" class="tab-content">
@@ -97,6 +100,8 @@
             <span class="text">Loan Opportunities</span>
           </a>
         </li>
+        <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
