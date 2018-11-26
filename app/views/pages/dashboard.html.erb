@@ -9,16 +9,16 @@
         <% end %>
         <%= image_tag photo_url, class: "avatar-large" %>
         <br>
-        <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
+        <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
       </div>
       <div class="width">
         <h2 class="username"> <%= current_user.name %></h2>
         <div class="stats">
-            <p class="stat"><%= current_user.fundraising_events.count %> loan application(s)</p>
-            <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %> lender(s) currently invested in you</p>
+            <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
+            <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
         </div>
         <p class="email"><%= current_user.email %></p>
-        <p class="email">Motivation | <%= current_user.motivation %></p>
+        <p class="bio">Bio | <%= current_user.motivation %></p>
       </div>
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">

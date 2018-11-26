@@ -38,9 +38,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def default_url_options
-  #   { host: "www.bridgeloans.website" || "localhost:3000" }
-  # end
+  def default_url_options
+    # { host: "www.bridgeloans.website" }
+    { host: ENV["www.bridgeloans.website"] || "localhost:3000" }
+  end
 
   private
 

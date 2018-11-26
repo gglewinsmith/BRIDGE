@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :fundraising_events do
+    get 'cv', to: 'fundraising_events#cv'
     resources :loans, only: [:show, :create, :index] do
       resources :payments, only: [:new, :create]
     end
