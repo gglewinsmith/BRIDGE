@@ -33,6 +33,12 @@ class FundraisingEventsController < ApplicationController
     end
   end
 
+  def destroy
+    @fundraising_event = FundraisingEvent.find(params[:id])
+    @fundraising_event.destroy
+    redirect_to dashboard_path
+  end
+
   def cv
     @fundraising_event = FundraisingEvent.find(params[:fundraising_event_id])
   end
