@@ -8,8 +8,13 @@ Rails.application.routes.draw do
     get 'cv', to: 'fundraising_events#cv'
     resources :loans, only: [:show, :create, :index] do
       resources :payments, only: [:new, :create]
+      resources :repayments, only: [:show, :create, :new] do
+        resources :payments, only: [:new, :create]
+      end
     end
   end
+
+
 
   get 'pages/homepage', to: 'pages#homepage', as: 'homepage'
   get 'pages/dashboard', to: 'pages#dashboard', as: 'dashboard'

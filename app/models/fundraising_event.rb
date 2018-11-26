@@ -1,10 +1,14 @@
 class FundraisingEvent < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
+
   has_many :loans
+  has_many :repayments
 
   monetize :price_cents
   monetize :amount_raised_cents
+  monetize :amount_due_cents
+
 
   # validates :course, presence: true
   # validates :date_from, presence: true

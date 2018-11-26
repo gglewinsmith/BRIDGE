@@ -7,9 +7,7 @@
           <%= f.input :date_from, as: :string, label: "When does the course start? (your loan will be paid directly to your course on this date)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :date_until, as: :string, label: "When does the course finish?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :guarantor, label: "What is the name and email address of your guarantor? (by providing this information you are confirming that Bridge. can contact your guarantor directly for confirmation of this guarantee)", label_html: { class: "form_text" } %>
-          <%= f.input :loan_length, label: "Over what duration will you pay back the loan (in years, maximum 5)?", label_html: { class: "form_text" } %>
-          <%= f.input :payback_from, as: :string, label: "What date will you start paying the loan back? (must be within one year of the course completing)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
-          <%= f.input :payback_until, as: :string, label: "When do you want to stop paying back the loan", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
+          <%= f.input :loan_length, label: "Over what duration will you pay back the loan (in months)?", priority: [6], collection: [6, 12, 18, 24], label_html: { class: "form_text" } %>
           <%= f.input :career_goals, label: "Please give a summary of your career aspirations following completion of your chosen course (the more detail you are able to provide prospective lenders, the higher chance of securing a loan)", label_html: { class: "form_text" } %>
           <%= f.input :photo, label: "Please upload your cv", label_html: { class: "form_text" } %>
           <%= f.input :status, as: :hidden, default: 'pending' %>

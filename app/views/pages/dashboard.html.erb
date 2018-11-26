@@ -34,6 +34,11 @@
               <span class="text">Current Loans</span>
             </a>
           </li>
+          <li role="presentation" class="next">
+            <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
+              <span class="text">Repay Loan</span>
+            </a>
+          </li>
           <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
           </li>
           <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
@@ -41,6 +46,17 @@
         </ul>
       </div>
       <div id="myTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+          <div class="container">
+            <div class="row">
+              <% @fundraising_events.each do |f| %>
+                <div class="col-xs-12">
+                  <%= render "shared/applicant_card", fundraising_event: f %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
         <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
           <div class="container" id="homepage-cards">
             <div class="row">
@@ -52,12 +68,12 @@
             </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+        <div role="tabpanel" class="tab-pane fade in active" id="repay" aria-labelledby="repay-tab">
           <div class="container">
             <div class="row">
-              <% @fundraising_events.each do |f| %>
+              <% @loans.each do |f| %>
                 <div class="col-xs-12">
-                  <%= render "shared/applicant_card", fundraising_event: f %>
+                  <%= render "shared/repayment_card", repayment: f %>
                 </div>
               <% end %>
             </div>
