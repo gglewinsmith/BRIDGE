@@ -11,9 +11,8 @@
           <%= f.input :payback_from, as: :string, label: "What date will you start paying the loan back? (must be within one year of the course completing)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :payback_until, as: :string, label: "When do you want to stop paying back the loan", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :career_goals, label: "Please give a summary of your career aspirations following completion of your chosen course (the more detail you are able to provide prospective lenders, the higher chance of securing a loan)", label_html: { class: "form_text" } %>
-
-          <%#= f.input :cv, label: "Please upload your cv", label_html: { class: "form_text" } %>
-          <%#= f.input :status, as: :hidden, default: 'pending' %>
+          <%= f.input :photo, label: "Please upload your cv", label_html: { class: "form_text" } %>
+          <%= f.input :status, as: :hidden, default: 'pending' %>
 
           <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#exampleModal">Submit</button>
     <% end %>

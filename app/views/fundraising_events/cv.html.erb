@@ -1,0 +1,8 @@
+<div>
+<%= link_to 'Back to Fundraising Event', fundraising_event_path(@fundraising_event), class: "btn btn-primary btn-cv" %>
+</div>
+<div class="center-cv"> <%= cl_image_tag @fundraising_event.photo.file.public_id, format: :jpg, density: 300, width: 600, crop: :fill %>
+</div>
+
+
+

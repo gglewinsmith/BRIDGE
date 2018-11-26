@@ -13,7 +13,8 @@
           <li><h3 class="white-text">Loan length | <%= @fundraising_event.loan_length%></h3></li>
           <li><h3 class="white-text">Career goals | <%= @fundraising_event.career_goals%></h3></li>
           <li><h3 class="white-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></h3></li>
-          <li><h3 class="white-text">Click here to view CV</h3></li>
+          <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
+
         </ul>
 
         <div class="progress-pie-chart" data-percent="<%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
