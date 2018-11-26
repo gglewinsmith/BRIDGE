@@ -9,16 +9,16 @@
         <% end %>
         <%= image_tag photo_url, class: "avatar-large" %>
         <br>
-        <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
+        <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
       </div>
       <div class="width">
         <h2 class="username"> <%= current_user.name %></h2>
+        <div class="stats">
+            <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
+            <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
+        </div>
         <p class="email"><%= current_user.email %></p>
-          <div class="stats">
-            <p class="stat"><%= current_user.fundraising_events.count %> loan application(s)</p>
-            <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %> lender(s) currently invested in you</p>
-          </div>
-        <p class="email">Motivation | <%= current_user.motivation %></p>
+        <p class="bio">Bio | <%= current_user.motivation %></p>
       </div>
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -39,7 +39,10 @@
               <span class="text">Repay Loan</span>
             </a>
           </li>
-          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %></li>
+          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
+          </li>
+          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          </li>
         </ul>
       </div>
       <div id="myTabContent" class="tab-content">
@@ -113,6 +116,8 @@
             <span class="text">Loan Opportunities</span>
           </a>
         </li>
+        <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">

@@ -15,12 +15,19 @@ ActiveRecord::Schema.define(version: 2018_11_26_145401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "fundraising_events", force: :cascade do |t|
     t.string "course"
     t.bigint "user_id"
     t.date "date_from"
     t.date "date_until"
-    t.string "photo"
+    t.string "cv"
     t.string "guarantor"
     t.text "career_goals"
     t.datetime "created_at", null: false
@@ -62,6 +69,16 @@ ActiveRecord::Schema.define(version: 2018_11_26_145401) do
     t.index ["fundraising_event_id"], name: "index_repayments_on_fundraising_event_id"
     t.index ["loan_id"], name: "index_repayments_on_loan_id"
     t.index ["user_id"], name: "index_repayments_on_user_id"
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

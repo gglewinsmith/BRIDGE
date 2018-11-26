@@ -6,6 +6,7 @@
       <h3 class="fund-card-text-top">User | <%= fundraising_event.user.name %></h3>
       <h3 class="fund-card-text">Amount | £<%=fundraising_event.price %></h3>
       <p class="fund-card-text">Course name | <%= fundraising_event.course %></p>
+      <%= link_to 'Message user', conversations_path(sender_id: current_user.id, recipient_id: fundraising_event.user.id), method: :post %>
   <% end %>
 </div>
 <% if current_user.lender? %>

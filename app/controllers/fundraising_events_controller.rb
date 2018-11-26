@@ -33,6 +33,10 @@ class FundraisingEventsController < ApplicationController
     end
   end
 
+  def cv
+    @fundraising_event = FundraisingEvent.find(params[:fundraising_event_id])
+  end
+
   private
 
   def fundraising_event_params
