@@ -1,19 +1,42 @@
-<div class="payment-new">
-  <h1>Payment for <%= @loan.funding_event_sku %></h1>
-  <%= form_tag fundraising_event_loan_payments_path(@loan) do %>
-    <article>
-      <label class="amount">
-        <span>Amount: <%= humanized_money_with_symbol(@loan.amount) %></span>
-      </label>
-    </article>
+<% if params[:repayment_id].present? %>
+  <div class="payment-new">
+    <h1>Repayment of Loan for <%= @repayment.fundraising_event_sku %></h1>
+    <%= form_tag fundraising_event_loan_repayment_payments_path(params[:fundraising_event_id], params[:loan_id], params[:repayment_id]) do %>
+      <article>
+        <label class="amount">
+          <span>Amount: <%= humanized_money_with_symbol(@repayment.amount) %></span>
+        </label>
+      </article>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-name="FundraisingEvent"
-      data-email="<%= current_user.email %>"
-      data-description="Loan <%= @loan.funding_event_sku %>"
-      data-amount="<%= @loan.amount_cents %>"
-      data-currency="<%= @loan.amount.currency %>"></script>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Repayment"
+        data-email="<%= current_user.email %>"
+        data-description="<%= @repayment.fundraising_event_sku %>"
+        data-amount="<%= @repayment.amount_cents %>"
+        data-currency="<%= @repayment.amount.currency %>"></script>
 
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  <% else %>
+  <div class="payment-new">
+    <h1>Payment for <%= @loan.funding_event_sku %></h1>
+    <%= form_tag fundraising_event_loan_payments_path(@loan) do %>
+      <article>
+        <label class="amount">
+          <span>Amount: <%= humanized_money_with_symbol(@loan.amount) %></span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="FundraisingEvent"
+        data-email="<%= current_user.email %>"
+        data-description="Loan <%= @loan.funding_event_sku %>"
+        data-amount="<%= @loan.amount_cents %>"
+        data-currency="<%= @loan.amount.currency %>"></script>
+
+    <% end %>
+  </div>
+<% end %>
+

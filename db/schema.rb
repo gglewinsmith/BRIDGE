@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_204233) do
+ActiveRecord::Schema.define(version: 2018_11_26_145401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 2018_11_22_204233) do
     t.date "date_until"
     t.string "photo"
     t.string "guarantor"
-    t.date "payback_from"
-    t.date "payback_until"
     t.text "career_goals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_204233) do
     t.integer "price_cents", default: 0, null: false
     t.integer "amount_raised_cents", default: 0, null: false
     t.string "status"
+    t.integer "amount_due_cents", default: 0, null: false
     t.index ["user_id"], name: "index_fundraising_events_on_user_id"
   end
 
@@ -43,8 +42,26 @@ ActiveRecord::Schema.define(version: 2018_11_22_204233) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "fundraising_event_id"
+    t.integer "amount_owed_cents", default: 0, null: false
+    t.integer "loan_length"
     t.index ["fundraising_event_id"], name: "index_loans_on_fundraising_event_id"
     t.index ["user_id"], name: "index_loans_on_user_id"
+  end
+
+  create_table "repayments", force: :cascade do |t|
+    t.string "state"
+    t.string "fundraising_event_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "GBP", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "fundraising_event_id"
+    t.bigint "loan_id"
+    t.jsonb "payment"
+    t.index ["fundraising_event_id"], name: "index_repayments_on_fundraising_event_id"
+    t.index ["loan_id"], name: "index_repayments_on_loan_id"
+    t.index ["user_id"], name: "index_repayments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +90,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_204233) do
   add_foreign_key "fundraising_events", "users"
   add_foreign_key "loans", "fundraising_events"
   add_foreign_key "loans", "users"
+  add_foreign_key "repayments", "fundraising_events"
+  add_foreign_key "repayments", "loans"
+  add_foreign_key "repayments", "users"
 end

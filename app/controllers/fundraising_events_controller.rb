@@ -24,6 +24,7 @@ class FundraisingEventsController < ApplicationController
   def create
     @fundraising_event = FundraisingEvent.new(fundraising_event_params)
     @fundraising_event.user = current_user
+    @fundraising_event.amount_due = @fundraising_event.price * (1.004167 ** @fundraising_event.loan_length)
     # authorize @fundraising_event
     if @fundraising_event.save
       redirect_to fundraising_event_path(@fundraising_event)

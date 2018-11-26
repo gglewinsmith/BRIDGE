@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :fundraising_events
   has_many :loans
+  has_many :repayments
 
   # validates :name, presence: true, uniqueness: true
   # validates :photo, presence: true
