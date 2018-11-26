@@ -13,11 +13,11 @@
       </div>
       <div class="width">
         <h2 class="username"> <%= current_user.name %></h2>
-        <p class="email"><%= current_user.email %></p>
-          <div class="stats">
+        <div class="stats">
             <p class="stat"><%= current_user.fundraising_events.count %> loan application(s)</p>
             <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %> lender(s) currently invested in you</p>
-          </div>
+        </div>
+        <p class="email"><%= current_user.email %></p>
         <p class="email">Motivation | <%= current_user.motivation %></p>
       </div>
     </div>
