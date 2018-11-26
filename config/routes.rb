@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
-
+  resources :conversations do
+    resources :messages
+  end
   resources :fundraising_events do
     resources :loans, only: [:show, :create, :index] do
       resources :payments, only: [:new, :create]
