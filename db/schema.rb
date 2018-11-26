@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_145401) do
     t.bigint "user_id"
     t.date "date_from"
     t.date "date_until"
-    t.string "cv"
+    t.string "photo"
     t.string "guarantor"
     t.text "career_goals"
     t.datetime "created_at", null: false

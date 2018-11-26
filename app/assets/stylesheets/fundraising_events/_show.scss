@@ -1,3 +1,4 @@
+// Amount Raised Pie Chart
 @mixin circle($size) {
   content: "";
   position: absolute;
@@ -61,6 +62,65 @@ body {
   flex-basis: 16.5%;
   margin-left: 0px !important;
 }
+// Amount Paid Back Pie Chart
+
+$size: 200px;
+.due-progress-pie-chart {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: #E5E5E5;
+  position: relative;
+  &.gt-50 {
+    background-color: #81CE97;
+  }
+}
+.due-ppc-progress {
+  @include circle($size);
+  clip: rect(0, $size, $size, #{$size/2});
+  .due-ppc-progress-fill {
+    @include circle($size);
+    clip: rect(0, #{$size/2}, $size, 0);
+    background: #81CE97;
+    transform: rotate(60deg);
+  }
+  .gt-50 & {
+    clip: rect(0, #{$size/2}, $size, 0);
+    .due-ppc-progress-fill {
+      clip: rect(0, $size, $size, #{$size/2});
+      background: #E5E5E5;
+    }
+  }
+}
+.due-ppc-percents {
+  @include circle(#{$size/1.15});
+  background: #fff;
+  text-align: center;
+  display: table;
+  span {
+    display: block;
+    font-size: 2.6em;
+    font-weight: bold;
+    color: #81CE97;
+  }
+}
+.due-pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+body {
+  font-family: Arial;
+  background: #f7f7f7;
+}
+.due-progress-pie-chart {
+  margin: 50px auto 0;
+  flex-basis: 16.5%;
+  margin-left: 0px !important;
+}
+
+
+
+
 .btn-show {
   margin-left: 200px;
   padding-top: 11px;
