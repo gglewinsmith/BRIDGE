@@ -1,20 +1,22 @@
-<%= link_to fundraising_event_path(fundraising_event) do %>
-  <div class="card">
-    <h2 class="course-name"><%= fundraising_event.course %></h2>
-    <h5 class="course-start">Course start date | <%= fundraising_event.date_from %></h5>
-    <div class="counter">
-      <p class="counters">Individuals</p>
-      <p class="orange-counter">
-        <%= ((fundraising_event.amount_raised / fundraising_event.price ) * 100).round %>%
-      </p>
-      <p class="counters">Companies</p>
-      <p class="green-counter"></p>
-      <div>
-        <p class="counters">Amount Raised: <%= humanized_money_with_symbol(fundraising_event.amount_raised) %></p>
+<%= link_to fundraising_event_path(fundraising_event), class: 'text-dec-none' do %>
+  <div class="card applicant-card-hover">
+    <div class="card-content-main">
+      <h2 class="course-name"><%= fundraising_event.course.capitalize %></h2>
+      <h5 class="course-start">Start Date | <%= fundraising_event.date_from %></h5>
+      <div class="counter">
+          <p class="counters">Raised:</p>
+          <p class="orange-counter">
+            <%= ((fundraising_event.amount_raised / fundraising_event.price ) * 100).round %>%
+          </p>
+          <p class="counters">Desired:</p>
+          <p class="orange-counter">
+            <%= humanized_money_with_symbol(fundraising_event.price) %>
+          </p>
       </div>
-      <div>
-        <p class="counters">Amount Desired: <%= humanized_money_with_symbol(fundraising_event.price) %></p>
-      </div>
+    </div>
+    <div class="width-loan margin-width-loan">
+      <h2 class="loan-os"><%= humanized_money_with_symbol(fundraising_event.amount_raised) %></h2>
+      <h2 class="outstanding">raised</h2>
     </div>
   </div>
 <% end %>
