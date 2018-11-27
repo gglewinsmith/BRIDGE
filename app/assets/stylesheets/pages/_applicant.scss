@@ -1,37 +1,63 @@
 .applicant-page-applicant {
-  color: black;
+  color: #2D2C28;
   background-color: #FCFCFC;
   font-family: 'Assistant', sans-serif;
 
 }
 .applicant-title {
-  padding-top: 120px;
   margin-left: 100px;
   margin-top: 0px !important;
+  font-family: 'Assistant', sans-serif;
+  width: 650px !important;
+  font-family: 'Assistant', sans-serif;
+  font-size: 56px;
 }
+
+
 .applicant-text-applicant {
   margin-top: 50px;
   margin-left: 80px;
-  font-size: 14px !important;
-  width: 450px;
-  color: black;
+  font-size: 24px !important;
+  width: 600px;
   font-family: 'Assistant', sans-serif;
-}
-.btn-justified {
-  margin-left: 230px;
-  margin-top: 40px;
 }
 
 .h2 {
-font-size: 18px;
-margin-left: 100px;
+  font-size: 32px;
+  margin-left: 100px;
+  font-family: 'Assistant', sans-serif;
 }
 
-.applicant-title {
-  width: 650px !important;
+.list_pad {
+  padding: 16px;
+  display: block;
+  margin-left: 44px;
+  font-size: 18px !important;
+  width: 600px;
+  font-family: 'Assistant', sans-serif;
 }
 
 
-// body {
-//   scroll-behavior: auto !important;
-// }
+.text_div_applicant {
+  text-align: center;
+  background-color: #084887;
+  border-radius: 8px;
+  width: 80%;
+  height: 50%;
+  color: #FCFCFC;
+  padding: 80px;
+  margin: auto;
+  margin-top: 32px;
+  margin-bottom: 80px;
+}
+
+.text_div_applicant p {
+  padding: 30px;
+  color: #FCFCFC;
+}
+
+.text_div_applicant h3 {
+ color: #FCFCFC;
+ margin-bottom: 32px;
+}
+

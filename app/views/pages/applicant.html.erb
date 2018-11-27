@@ -1,27 +1,26 @@
 
 <div class="applicant-page-applicant">
   <div class="application-item">
-    <h1 class="applicant-title">for applicants</h1>
+    <h1 class="applicant-title">For applicants</h1>
     <br>
     <h2 class="h2"> What we know:</h2>
-    <ul class="applicant-text-applicant">
-      <li>Coding bootcamp courses are very expensive. On average they cost ~£8000 </li>
-      <li>People do not have piles of cash lying around in savings, whether thats because you are a student straight out of university or in a low paid job and are undertaking the course to change your income potential!</li>
-      <li>You cannot always ask family or friends for such a large sum of money</li>
-      <li>The government Personal Career Development Loan scheme is closing as of January 2019</li>
-      <li>You will not be able to get a bank loan as they require proof of income. If you are on the course you can't have an income as you are learning rather than earning</li>
-      <li>Interest rates on government and predatory loans are extortinate! 10% or higher</li>
-      <li>Rates of employment after bootcamp courses is high</li>
-      <li>Jobs using web development skills are well paid</li>
+    <ul>
+      <li class="list_pad">Coding bootcamp courses are very expensive. On average they cost ~£8000 </li>
+      <li class ="list_pad">People do not have piles of cash lying around in savings, whether thats because you are a student straight out of university or in a low paid job and are undertaking the course to change your income potential!</li>
+      <li class="list_pad">You cannot always ask family or friends for such a large sum of money</li>
+      <li class="list_pad">The government Personal Career Development Loan scheme is closing as of January 2019</li>
+      <li class="list_pad">You will not be able to get a bank loan as they require proof of income. If you are on the course you won't have an income</li>
+      <li class="list_pad">Interest rates on government and predatory loans are extortinate! 10% or higher</li>
+      <li class="list_pad">Rates of employment after bootcamp courses is high</li>
+      <li class ="list_pad">Jobs using web development skills are well paid</li>
     </ul>
     <!-- <div> -->
-     <p class="h2">If you do not have the full amount for a course right now, but are motivated to get a good job using the skills aquired on the course, we can help. Through connecting you to the development community, you can fund your place at a rasonable interest rate on mutually beneficial and flexible terms. We hope that once you have benefitted from this service you may also one day help someone in the same way! </p>
-
-     <h3 class="h2">learn, earn, return </h3>
-
-     <h3 class="applicant-text-applicant">If you need this service, welcome friend </h3>
-     <%= link_to "Create an Account", new_user_registration_path(:user => { :applicant => true }), class: "btn btn-primary btn-homepage btn-justified btn-show" %>
-
+      <div class="text_div_applicant">
+        <h3 >Apply now</h3>
+        <p>If you do not have the full amount for a course right now, but are motivated to get a good job using the skills aquired on the course, we can help. Through connecting you to the development community, you can fund your place at a rasonable interest rate on mutually beneficial and flexible terms. We hope that once you have benefitted from this service you may also one day help someone in the same way! </p>
+        <p>Learn. Earn. Return. </p>
+     <%= link_to "CREATE AN ACCOUNT", new_user_registration_path(:user => { :applicant => true }), class: "btn btn-homepage" %>
+      </div>
    </div>
 
 
