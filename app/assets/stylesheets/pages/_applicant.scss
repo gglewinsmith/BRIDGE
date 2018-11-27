@@ -1,20 +1,19 @@
-.applicant-page {
-  background-image: image-url('bridge.png');
-  background-size: 100%;
-  color: white;
-  height: calc(100vh - 90px);
-  width: 100%;
+.applicant-page-applicant {
+  color: black;
+  background-color: #FCFCFC;
+
 }
 .applicant-title {
   padding-top: 120px;
   margin-left: 100px;
   margin-top: 0px !important;
 }
-.applicant-text {
+.applicant-text-applicant {
   margin-top: 50px;
   margin-left: 100px;
   font-size: 14px !important;
   width: 450px;
+  color: black;
 }
 .btn-justified {
   margin-left: 230px;
