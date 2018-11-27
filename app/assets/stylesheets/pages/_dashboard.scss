@@ -1,5 +1,5 @@
 .dashboard {
-  padding: 40px 160px 0 160px;
+  padding: 70px 160px 0 160px;
   background-color: white;
   width: 100%;
 }
@@ -16,10 +16,13 @@
   text-align: center;
 }
 .tab-text {
-  color: black !important;
+  color: #2D2C28 !important;
   &:hover {
-    color: black !important;
+    color: #2D2C28 !important;
   }
+}
+.messaging-btn {
+  background-color: #618AB2 !important;
 }
 .avatar-large {
   width: 150px;
@@ -50,7 +53,6 @@
   margin-right: 10px;
   font-size: 16px;
   font-family: "Raleway", "Helvetica", "sans-serif" !important;
-
 }
 .stat-text {
   margin-right: 20px;
@@ -62,20 +64,26 @@
 .text-center {
   display: inline-block;
   text-decoration: none;
-  color: grey;
+  color: #2D2C28;
 }
 .text-center {
   display: inline-block;
-  color: grey;
+  color: #2D2C28;
   font-size: 14px;
   &:hover {
     text-decoration: none;
-    color: grey;
+    color: #2D2C28;
   }
 }
 .width {
   flex-basis: 80%;
   margin-left: 40px;
+}
+.width h2 {
+  color: #2D2C28 !important;
+  }
+.width p {
+  color: #2D2C28 !important;
 }
 .tabs {
   display: flex;
