@@ -5,8 +5,7 @@
   background-position: center;
   color: white;
   width: 100vw;
-  height: 3373px;
-  background-size: 1200px 3373px;
+  height: calc(2.2 * 100vw);
   background-repeat: no-repeat;
  }
  #homepage a {
@@ -65,5 +64,86 @@
   margin-top: 300px;
 }
 .gap-about {
-  margin-top: 100px;
+  margin-top: 30px;
+  font-weight: 700;
 }
+.numbers {
+  font-size: 20px !important;
+  height: 46px;
+  width: 46px;
+  color: #335F7A;
+  border: 1.5px solid #335F7A;
+  font-family: 'Assistant', sans-serif !important;
+  border-radius: 23px;
+  margin-left: 100px;
+  text-align: center;
+  padding-top: 7px;
+  margin-top: 50px;
+}
+#details-box {
+  display: flex;
+  border-top: 1px solid #979797;
+  margin: 300px 100px 0 100px;
+}
+#lending {
+  flex-basis: 35%;
+  padding: 30px 0 30px 20px;
+  border-bottom: 1px solid #979797;
+  font-size: 20px;
+  color: #2D2C28 !important;
+  font-family: 'Assistant', sans-serif !important;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+}
+.bootcamps {
+  flex-basis: 65%;
+  padding: 30px 0 30px 100px;
+  font-size: 20px;
+  color: #2D2C28 !important;
+  font-family: 'Assistant', sans-serif !important;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+}
+#logos-box {
+  display: flex;
+  border-bottom: 1px solid #979797;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+.support {
+  width: 100px;
+  padding-top: 12px;
+  font-size: 14px;
+  color: #2D2C28 !important;
+  font-family: 'Assistant', sans-serif !important;
+  font-weight: 600;
+}
+.banks {
+  flex-basis: 35%;
+  display: flex;
+  padding: 0 70px 20px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.credit-cards {
+  width: 30px;
+  margin: 0 5px;
+}
+.lewagon-logo {
+  width: 113px;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+#thirty {
+  margin: 0;
+  font-size: 14px !important;
+  height: 100px;
+  width: 100px;
+  color: #335F7A;
+  border: 1.5px solid #335F7A;
+  font-family: 'Assistant', sans-serif !important;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 27px;
+}
+
