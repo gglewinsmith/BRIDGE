@@ -4,40 +4,33 @@
 
 <div class="container" id=homepage>
   <h1 class="show-title"><%=@fundraising_event.user.name %>'s request for a loan for <%=@fundraising_event.course %>: <%= humanized_money_with_symbol(@fundraising_event.price)%></h1>
-    <div class="show-flex">
-        <ul class="fundraising-text show-text">
-          <li><h3 class="white-text">Name | <%= @fundraising_event.user.name %></h3></li>
-          <li><h3 class="white-text">Loan required | <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
-          <li><h3 class="white-text">Course name | <%= @fundraising_event.course %></h3></li>
-          <li><h3 class="white-text">Financial guarantor | <%= @fundraising_event.guarantor %></li>
-          <li><h3 class="white-text">Loan length | <%= @fundraising_event.loan_length%></h3></li>
-          <li><h3 class="white-text">Career goals | <%= @fundraising_event.career_goals%></h3></li>
-          <li><h3 class="white-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></h3></li>
-          <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
+  <div class="show-flex">
+    <ul class="fundraising-text show-text">
+      <li><h3 class="white-text">Name | <%= @fundraising_event.user.name %></h3></li>
+      <li><h3 class="white-text">Loan required | <%= humanized_money_with_symbol(@fundraising_event.price) %></h3></li>
+      <li><h3 class="white-text">Course name | <%= @fundraising_event.course %></h3></li>
+      <li><h3 class="white-text">Financial guarantor | <%= @fundraising_event.guarantor %></li>
+      <li><h3 class="white-text">Loan length | <%= @fundraising_event.loan_length%></h3></li>
+      <li><h3 class="white-text">Career goals | <%= @fundraising_event.career_goals%></h3></li>
+      <li><h3 class="white-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></h3></li>
+      <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
+    </ul>
 
-        </ul>
-
-        <div class="progress-pie-chart" data-percent="<%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
-          <div class="ppc-progress">
-            <div class="ppc-progress-fill"></div>
-          </div>
-          <div class="ppc-percents">
-            <div class="pcc-percents-wrapper">
-              <span><%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %></span>
-            </div>
-          </div>
+    <div style="width: 400px; margin: 50px auto">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width: <%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>">
+        <span class="title"><%= ((@fundraising_event.amount_raised / @fundraising_event.price) * 100) %>%</span>
         </div>
+      </div>
+    </div>
 
-        <div class="due-progress-pie-chart" data-due="<%= 100 - ((@fundraising_event.amount_due / @fundraising_event.price) * 100) %>">
-          <div class="due-ppc-progress">
-            <div class="due-ppc-progress-fill"></div>
-          </div>
-          <div class="due-ppc-percents">
-            <div class="due-pcc-percents-wrapper">
-              <span><%= (100 - ((@fundraising_event.amount_due / @fundraising_event.amount_raised) * 100)).round %>%</span>
-            </div>
-          </div>
+    <div style="width: 400px; margin: 50px auto">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width: <%= (100 - ((@fundraising_event.amount_due / @fundraising_event.amount_raised) * 100)).round %>">
+        <span class="title"><%= (100 - ((@fundraising_event.amount_due / @fundraising_event.amount_raised) * 100)).round %>%</span>
         </div>
+      </div>
+    </div>
 
     <% if current_user.lender? %>
       <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
@@ -54,35 +47,4 @@
   </div>
   <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary btn-homepage btn-show" %>
 </div>
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>
-    $(function(){
-    var $ppc = $('.progress-pie-chart'),
-      percent = parseInt($ppc.data('percent')),
-      deg = 360*percent/100;
-    if (percent > 50) {
-      $ppc.addClass('gt-50');
-    }
-    $('.ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-    $('.ppc-percents span').html(percent+'%');
-  });
-  </script>
-
-  <script>
-
-    let ppc = document.querySelector('.due-progress-pie-chart')
-    let percent = parseInt(ppc.dataset["due"])
-    let deg = 360*percent/100;
-    console.log(deg)
-    if (percent > 50) {
-      ppc.classList.add('gt-50');
-    }
-    $('.due-ppc-progress-fill').css('transform','rotate('+ deg +'deg)');
-    $('.due-ppc-percents span').html(percent+'%');
-
-  </script>
 

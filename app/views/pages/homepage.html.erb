@@ -1,12 +1,12 @@
-<div class="container" id=homepage>
-  <h2 class="homepage-tagline">A peer-to-peer loans platform connecting bootcamp applicants to a lending community</h2>
-  <h1 class="title">Bridge.</h1>
+<div class="container" id="homepage">
+  <h2 class="homepage-tagline">Bridge.</h2>
+  <h1 class="title">A peer-to-peer loans platform connecting bootcamp applicants to a lending community</h1>
   <br>
   <div class="homepage">
     <div class="applicant">
       <% if user_signed_in? && current_user.applicant? %>
         <button type="button" class="btn btn-primary btn-homepage">
-          <%= link_to 'Go to my dashboard', dashboard_path %>
+          <%= link_to 'My dashboard', dashboard_path %>
         </button>
       <% elsif user_signed_in? && current_user.lender? %>
         <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
@@ -33,9 +33,23 @@
 <% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn-medium sign-out-btn"%>
 <% end %>
+  <h2 class="homepage-tagline gap-title">How it works.</h2>
+  <p class="numbers">1</p>
+  <h1 class="title gap-about">Sign up</h1>
+  <p class="title about">Log on to bridge with the details of your coding bootcamp, and apply for a loan for partial of full loan from an alumni or tech professional.</p>
+  <p class="numbers">2</p>
+  <h1 class="title gap-about">Peer to peer</h1>
+  <p class="title about">Applicants are matched directly with investors through our secure platform, while investors get to see and select exactly which loans they want to fund.</p>
+  <p class="numbers">3</p>
+  <h1 class="title gap-about">No hidden fees or rate rises</h1>
+  <p class="title about">Fixed monthly payments for applicants at lower, fixed rates of interest.</p>
+  <p class="numbers">4</p>
+  <h1 class="title gap-about">Social lending</h1>
+  <p class="title about">Sense of community by lending directly to peers, with the ability to spread your risk across lots of loans</p>
 </div>
 
-
 <%= render 'shared/homepage_modal', user: current_user %>
+
+
 
 
