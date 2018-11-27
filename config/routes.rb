@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   get 'pages/homepage', to: 'pages#homepage', as: 'homepage'
   get 'pages/dashboard', to: 'pages#dashboard', as: 'dashboard'
   get 'pages/applicant', to: 'pages#applicant', as: 'applicant'
