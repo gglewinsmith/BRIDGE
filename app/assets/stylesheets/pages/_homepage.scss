@@ -1,52 +1,71 @@
 body {
-  background-image: image-url('bridge.png');
+  background-image: image-url('bridge-homepage.png');
   background-size: 100%;
+  background-position: center;
 }
 #homepage {
   position: relative;
   color: white;
-  height: 100vh;
-  width: 100%;
+  width: 100vw;
+  height: 3373px;
+  background-size: 1200px 3373px;
+  background-repeat: no-repeat;
  }
  #homepage a {
   text-decoration: none !important;
   color: white !important;
 }
 .title {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 100px;
+  width: 350px;
+  font-size: 20px;
+  color: #2D2C28 !important;
+  font-family: 'Assistant', sans-serif !important;
+  font-weight: 600;
  }
 .homepage {
   display: flex;
-  margin-top: 30px;
 }
 .applicant {
-  margin-left: 120px;
+  margin-left: 100px;
 }
 .lender {
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .homepage-tagline{
   margin-left: 100px;
   width: 800px;
-  margin-top: 150px;
+  margin-top: 220px;
+  color: #335F7A !important;
+  font-family: 'Assistant', sans-serif !important;
+  font-size: 64px;
+  font-weight: 700;
 }
 .btn-homepage {
-  font-size: 14px !important;
-  height: 40px !important;
-  width: 160px !important;
+  font-size: 16px !important;
+  height: 60px !important;
+  width: 150px !important;
   color: white;
-  background-color: #F7DD72 !important;
+  background-color: #FACF0F !important;
   text-decoration: none;
   border: none;
-  text-shadow: 1px 1px 1px rgba(50,50,50,0.4)
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.4);
+  font-family: 'Assistant', sans-serif !important;
+  border-radius: 30px;
+  font-weight: bold;
 }
-
 .sign-out-btn {
   position: absolute;
   bottom: 10px;
+  font-family: 'Assistant', sans-serif !important;
 }
-
-.100vh-content {
-  min-height: calc(100vh - 50px);
+.about {
+  font-size: 14px;
+}
+.gap-title {
+  margin-top: 300px;
+}
+.gap-about {
+  margin-top: 100px;
 }
