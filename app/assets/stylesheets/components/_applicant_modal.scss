@@ -1,0 +1,20 @@
+.modal-header-styling {
+  padding: 25px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 22px !important;
+}
+.modal-content-color p {
+  color: #2D2C28;
+}
+.modal-content-color h4 {
+  color: #2D2C28;
+}
+.modal-content-color h5 {
+  color: #2D2C28;
+}
+.close-hover {
+  &:hover {
+    color: #2D2C28 !important;
+    background-color: #FBFBFB !important;
+  }
+}

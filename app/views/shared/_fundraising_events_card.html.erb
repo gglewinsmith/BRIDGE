@@ -1,22 +1,27 @@
 <div class="card lender-card-hover">
   <div class="profile">
-      <!-- needs to be changed to avatar as in lender -->
     <div class="avatar-lender">
-      <button type="button" class="no-button-border avatar-button" data-toggle="modal" data-target="#applicantModal">
-        <img src="<%= fundraising_event.user.photo %>" class="applicant-image">
-      </button>
-    </div>
-
+      <% if fundraising_event.user.photo? %>
+        <% photo_url =  fundraising_event.user.photo_url(:bright_face) %>
+      <% else %>
+        <% photo_url = "https://via.placeholder.com/150" %>
+      <% end %>
+      <%= image_tag photo_url, class: "avatar-small", data: { target: "#applicantModal", toggle: "modal"} %>
+      </div>
     <div class="width-lender-card">
       <%= link_to fundraising_event_path(fundraising_event) do %>
-        <h1 class="fund-card-text-top">User | <%= fundraising_event.user.name.capitalize %></h1>
-        <h1 class="fund-card-text">Amount | £<%=fundraising_event.price %></h1>
-        <h2 class="fund-card-text">Course name | <%= fundraising_event.course %></h2>
+        <h1 class="debtor-name">Debtor | <%= fundraising_event.user.name.capitalize %></h1>
+        <h2 class="course-detail">Course Name | <%= fundraising_event.course.capitalize %></h2>
       <% end %>
     </div>
-
-    <div class="width-lender-card">
-          <%= link_to 'Message user', conversations_path(sender_id: current_user.id, recipient_id: fundraising_event.user.id), method: :post %>
+    <div class="counter-lender">
+      <div class="orange-counter-loan">
+        <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: fundraising_event.user.id), method: :post %>
+      </div>
+    </div>
+    <div class="width-loan">
+      <h2 class="loan-os">£<%= fundraising_event.price %></h2>
+      <h2 class="outstanding">desired</h2>
     </div>
     <% if current_user.lender? %>
       <%= render 'shared/applicant_modal', fundraising_event: fundraising_event %>
