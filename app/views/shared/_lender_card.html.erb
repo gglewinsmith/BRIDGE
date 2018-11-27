@@ -1,7 +1,6 @@
 <div class="card lender-card-hover">
   <%= link_to fundraising_event_path(loan.fundraising_event_id) do %>
     <div class="profile">
-
       <div class="avatar-lender">
       <% if loan.fundraising_event.user.photo? %>
         <% photo_url =  loan.fundraising_event.user.photo_url(:bright_face) %>
@@ -10,7 +9,6 @@
       <% end %>
       <%= image_tag photo_url, class: "avatar-small" %>
       </div>
-
       <div class="width-lender-card">
         <h1 class="debtor-name">Debtor | <%= loan.fundraising_event.user.name.capitalize %></h1>
         <h2 class="course-detail">Loan for Tuition at <%= loan.fundraising_event.course.capitalize %></h2>
@@ -18,14 +16,13 @@
           <h4 class="lender-counters">Loan amount:</h4>
           <h4 class="orange-counter">£<%= loan.amount %></h4>
           <h4 class="lender-counters">Loan Length:</h4>
-          <h4 class="lender-counters"><%= loan.loan_length %></h4>
+          <h4 class="orange-counter"><%= loan.loan_length %></h4>
           <h4 class="lender-counters">Interest rate:</h4>
           <h4 class="green-counter">4% p.a.</h4>
         </div>
       </div>
-
-      <div class="width-loan no-text-dec-for-counter">
-        <h2 class="loan-os no-text-dec-for-counter"><%= humanized_money_with_symbol(loan.amount_owed) %></h2>
+      <div class="width-loan">
+        <h2 class="loan-os"><%= humanized_money_with_symbol(loan.amount_owed) %></h2>
         <h2 class="outstanding">outstanding</h2>
       </div>
     </div>

@@ -7,10 +7,26 @@
   background-image: url(...);
   background-repeat: no-repeat;
 }
-.fund-card-text {
-  font-size: 14px !important;
-  margin-left: 5px;
-  margin-top: 0;
+.debtor-name {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  color: black !important;
+}
+.course-detail {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  top: 30px;
+  width: 100%;
+  color: black !important;
+}
+.counter-lender {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 120px;
 }
 .fund-card-text-top {
   font-size: 14px !important;
@@ -28,4 +44,12 @@
 }
 .width-lender-card {
   flex-basis: 70%;
+}
+.width-loan {
+  flex-basis: 15%;
+  text-align: center;
+}
+.orange-counter-loan a {
+  color: #084887;
+  margin-left: 0px;
 }
