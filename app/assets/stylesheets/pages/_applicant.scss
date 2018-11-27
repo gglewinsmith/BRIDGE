@@ -1,6 +1,7 @@
 .applicant-page-applicant {
   color: black;
   background-color: #FCFCFC;
+  font-family: 'Assistant', sans-serif;
 
 }
 .applicant-title {
@@ -10,12 +11,27 @@
 }
 .applicant-text-applicant {
   margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 80px;
   font-size: 14px !important;
   width: 450px;
   color: black;
+  font-family: 'Assistant', sans-serif;
 }
 .btn-justified {
   margin-left: 230px;
   margin-top: 40px;
 }
+
+.h2 {
+font-size: 18px;
+margin-left: 100px;
+}
+
+.applicant-title {
+  width: 650px !important;
+}
+
+
+// body {
+//   scroll-behavior: auto !important;
+// }
