@@ -12,7 +12,7 @@
         <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
       </div>
       <div class="width">
-        <h2 class="username"> <%= current_user.name %></h2>
+        <h2 class="username"> <%= current_user.name.capitalize %></h2>
         <div class="stats">
             <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
             <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
@@ -96,12 +96,12 @@
         <%= link_to 'edit profile', edit_user_registration_path, method: :edit, class: "text-center" %>
       </div>
       <div class="width">
-        <h2 class="username"> <%= current_user.name %></h2>
+        <h2 class="username"> <%= current_user.name.capitalize %></h2>
         <div class="stats">
             <p class="stat">Outstanding Investments: <%= current_user.loans.select { |loan| loan.payment.present? }.count %></p>
         </div>
         <p class="email"><%= current_user.email %></p>
-        <p class="email"> My Motivation | <%= current_user.motivation %></p>
+        <p class="email"> Bio | <%= current_user.motivation %></p>
       </div>
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -116,8 +116,8 @@
             <span class="text">Loan Opportunities</span>
           </a>
         </li>
-        <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
-          </li>
+        <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn" %>
+        </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
@@ -135,7 +135,7 @@
           <div id="homepage-cards">
             <div class="row">
               <% @fundraising_events.each do |f| %>
-                <div class="col-xs-6 col-sm-4">
+                <div class="col-xs-12">
                   <%= render "shared/fundraising_events_card", fundraising_event: f %>
                 </div>
               <% end %>
