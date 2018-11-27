@@ -9,6 +9,8 @@ class FundraisingEventsController < ApplicationController
 
   def show
     @fundraising_event = FundraisingEvent.find(params[:id])
+    @raised = ((@fundraising_event.amount_raised / @fundraising_event.price) * 100)
+    @repaid = (100 - ((@fundraising_event.amount_due / @fundraising_event.amount_raised) * 100)).round
     # authorize @fundraising_event
     respond_to do |format|
         format.html { render 'fundraising_events/show' }
