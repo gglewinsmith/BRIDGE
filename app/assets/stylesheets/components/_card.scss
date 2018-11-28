@@ -1,0 +1,197 @@
+.applicant-image {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+.avatar-button {
+  background-image: url(...);
+  background-repeat: no-repeat;
+}
+.debtor-name {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  color: black !important;
+}
+.course-detail {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  top: 30px;
+  width: 100%;
+  color: black !important;
+}
+.counter-lender {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 120px;
+}
+.fund-card-text-top {
+  font-size: 14px !important;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+.background {
+  background-color: rgb(245, 245, 245);
+}
+.no-button-border {
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.width-lender-card {
+  flex-basis: 70%;
+}
+.width-loan {
+  flex-basis: 15%;
+  text-align: center;
+}
+.margin-width-loan {
+  margin-top: 22px;
+}
+.orange-counter-loan a {
+  color: #084887;
+  margin-left: 0px;
+}
+.card {
+  height: 150px;
+  // width: 75%;
+  margin: 20px;
+  background-color: white;
+  position: relative;
+  box-shadow: 1px 1px 1px 1px rgba(150,150,150,0.3);
+  display: flex;
+  justify-content: space-between;
+}
+.counter {
+  display: flex;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  justify-content: space-between;
+}
+.course-name {
+  font-size: 16px;
+  position: absolute;
+  left: 20px;
+  color: black;
+}
+.course-start {
+  font-size: 16px;
+  position: absolute;
+  left: 20px;
+  top: 35px;
+  color: black;
+}
+.cost {
+  font-size: 56px;
+  text-weight: 600px;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+.counters {
+  font-size: 16px;
+  flex-basis: 20%;
+  color: grey;
+}
+.orange-counter {
+  font-size: 16px;
+  flex-basis: 5%;
+  color: black;
+  margin: 0 10px;
+  width: 100px;
+  font-weight: bold;
+}
+.green-counter {
+  display: inline-block;
+  font-size: 16px;
+  flex-basis: 5%;
+  color: black;
+  margin: 0 10px;
+  min-width: 100px;
+  font-weight: bold;
+}
+.margin-width-loan {
+  margin-top: 22px;
+}
+.text-dec-none {
+  text-decoration: none !important;
+}
+.applicant-card-hover {
+  &:hover {
+    box-shadow: 2px 2px 2px 2px rgba(150, 150, 150, 0.4)
+  }
+}
+.card a {
+  text-decoration: none !important;
+}
+.lender-card-hover {
+  &:hover {
+    box-shadow: 2px 2px 2px 2px rgba(150, 150, 150, 0.4)
+  }
+}
+.debtor-name {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  color: black !important;
+}
+.avatar-lender {
+  flex-basis: 15%;
+  text-align: center;
+  padding-right: 40px;
+}
+.course-detail {
+  font-size: 16px;
+  position: absolute;
+  left: 120px;
+  top: 30px;
+  width: 100%;
+  color: black !important;
+}
+.loan-os {
+  font-size: 28px;
+  text-weight: 800px;
+  margin: 25px 20px 0 0;
+  color: black !important;
+}
+.outstanding {
+  font-size: 16px;
+  text-weight: 600px;
+  margin-top: 0px;
+  color: black !important;
+}
+.amount-left {
+  font-size: 56px;
+  text-weight: 600px;
+}
+.avatar-small {
+  width: 60px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.width-lender-card {
+  flex-basis: 70%;
+}
+.width-loan {
+  flex-basis: 15%;
+  text-align: center;
+}
+.counter-lender {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  bottom: 15px;
+  left: 120px;
+}
+.lender-counters {
+  font-size: 12px !important;
+  flex-basis: 15%;
+  margin: 0px;
+  color: black !important;
+}
+
