@@ -1,5 +1,5 @@
 <%= link_to fundraising_event_path(loan.fundraising_event_id) do %>
-  <div class="card lender-card-hover">
+  <div class="<%= loan.state == 'repaid' ? 'repayment-card complete-hover complete-border' : 'repayment-card incomplete-hover incomplete-border' %>">
     <div class="avatar-lender">
       <% if loan.fundraising_event.user.photo? %>
         <% photo_url =  loan.fundraising_event.user.photo_url(:bright_face) %>

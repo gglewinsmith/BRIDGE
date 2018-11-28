@@ -13,6 +13,11 @@ class LoansController < ApplicationController
     @fundraising_event.amount_due += @loan.amount_owed
     @fundraising_event.amount_due = @loan.amount_owed
     @loan.loan_length = @fundraising_event.loan_length
+    if @fundraising_event.amount_raised == @fundraising_event.price
+      @fundraising_event.status = 'fulfilled'
+    else
+      @fundraising_event.status = 'incomplete'
+    end
     @loan.save
     @fundraising_event.save
     redirect_to new_fundraising_event_loan_payment_path(@fundraising_event, @loan)

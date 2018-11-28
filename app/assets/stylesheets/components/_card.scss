@@ -66,6 +66,14 @@
   display: flex;
   justify-content: space-between;
 }
+.repayment-card {
+  height: 150px;
+  margin: 20px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
 .counter {
   display: flex;
   position: absolute;
@@ -194,4 +202,22 @@
   margin: 0px;
   color: black !important;
 }
-
+// Complete Status
+.complete-border {
+  // border: 1px solid rgba(0, 128, 0, 0.6) !important;
+  box-shadow: 1px 1px 1px 1px rgba(0, 128, 0, 0.6) !important;
+}
+.complete-hover {
+  &:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 128, 0, 0.6) !important;
+  }
+}
+// Incomplete Status
+.incomplete-border {
+  box-shadow: 1px 1px 1px 1px rgba(255, 0, 0, 0.5) !important;
+}
+.incomplete-hover {
+  &:hover {
+    box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.5) !important;
+  }
+}
