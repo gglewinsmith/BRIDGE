@@ -1,3 +1,28 @@
+.banner {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-position: right;
+  position: relative;
+  .tagline {
+    width: 450px;
+  }
+  .home-svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55vw;
+  }
+}
+.wrapper-homepage {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.footer-png {
+  bottom: 0;
+  right: 0;
+  margin: 0;
+}
 #homepage {
   position: relative;
   background-image: image-url('bridge-homepage.png');
@@ -13,11 +38,9 @@
 }
 .title {
   margin-top: 30px;
-  margin-left: 100px;
   width: 350px;
   font-size: 20px;
   color: #2D2C28 !important;
-  font-family: 'Assistant', sans-serif !important;
   font-weight: 600;
  }
 .homepage {
@@ -30,11 +53,8 @@
   margin-left: 20px;
 }
 .homepage-tagline{
-  margin-left: 100px;
-  width: 800px;
-  margin-top: 220px;
+  margin-top: 70px;
   color: #335F7A !important;
-  font-family: 'Assistant', sans-serif !important;
   font-size: 64px;
   font-weight: 700;
 }
@@ -64,7 +84,7 @@
   font-size: 14px;
 }
 .gap-title {
-  margin-top: 300px;
+  margin-top: 200px;
 }
 .gap-about {
   margin-top: 30px;
@@ -78,7 +98,6 @@
   border: 1.5px solid #335F7A;
   font-family: 'Assistant', sans-serif !important;
   border-radius: 23px;
-  margin-left: 100px;
   text-align: center;
   padding-top: 7px;
   margin-top: 50px;
@@ -86,7 +105,7 @@
 #details-box {
   display: flex;
   border-top: 1px solid #979797;
-  margin: 300px 100px 0 100px;
+  margin: 200px 00px 0 100px;
 }
 #lending {
   flex-basis: 35%;
@@ -99,8 +118,7 @@
   margin-bottom: 0 !important;
 }
 .bootcamps {
-  flex-basis: 65%;
-  padding: 30px 0 30px 100px;
+  padding: 20px 0 10px 90px;
   font-size: 20px;
   color: #2D2C28 !important;
   font-family: 'Assistant', sans-serif !important;
@@ -110,37 +128,34 @@
 #logos-box {
   display: flex;
   border-bottom: 1px solid #979797;
-  margin-left: 90px;
-  margin-right: 90px;
+  margin: 0 90px 100px 90px;
 }
 .support {
-  width: 100px;
-  padding-top: 12px;
+  margin-bottom: 0px;
   font-size: 14px;
   color: #2D2C28 !important;
-  font-family: 'Assistant', sans-serif !important;
   font-weight: 600;
 }
 .banks {
-  flex-basis: 35%;
   display: flex;
-  padding: 0 70px 20px 30px;
+  padding: 0 0px 20px 90px;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: center;
+  min-height: 114px;
 }
 .credit-cards {
-  width: 30px;
+  width: 50px;
   margin: 0 5px;
 }
 .lewagon-logo {
   width: 113px;
-  margin-right: 20px;
-  margin-left: 40px;
+  margin-right: 10px;
 }
 #thirty {
   margin: 0;
   font-size: 14px !important;
   height: 100px;
+  min-width: 100px;
   width: 100px;
   color: #335F7A;
   border: 1.5px solid #335F7A;
@@ -148,5 +163,11 @@
   border-radius: 50px;
   text-align: center;
   padding-top: 27px;
+  margin-left: 10px;
 }
+.homepage-row {
+  margin-top: 300px;
+  margin-bottom: 20px;
+}
+
 

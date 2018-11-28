@@ -4,14 +4,14 @@
       <h2 class="course-name"><%= fundraising_event.course.capitalize %></h2>
       <h5 class="course-start">Start Date | <%= fundraising_event.date_from %></h5>
       <div class="counter">
-          <p class="counters">Raised:</p>
-          <p class="orange-counter">
-            <%= ((fundraising_event.amount_raised / fundraising_event.price ) * 100).round %>%
-          </p>
-          <p class="counters">Desired:</p>
-          <p class="orange-counter">
-            <%= humanized_money_with_symbol(fundraising_event.price) %>
-          </p>
+        <p class="counters">Raised:</p>
+        <p class="orange-counter">
+          <%= ((fundraising_event.amount_raised / fundraising_event.price ) * 100).round %>%
+        </p>
+        <p class="counters">Desired:</p>
+        <p class="orange-counter">
+          <%= humanized_money_with_symbol(fundraising_event.price) %>
+        </p>
       </div>
     </div>
     <div class="width-loan margin-width-loan">

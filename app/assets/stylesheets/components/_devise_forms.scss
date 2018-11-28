@@ -1,8 +1,8 @@
 .devise-form-box {
   background-color: white;
   width: 550px;
-  padding: 0 75px 50px 75px;
-  margin-top: 90px !important;
+  padding: 0px 75px 50px 75px;
+  margin-top: 50px !important;
   margin-bottom: 70px !important;
   margin:0 auto;
   border-radius: 3px;
@@ -15,6 +15,13 @@
   font-family: 'Assistant', sans-serif;
   margin-top: 50px;
   margin-bottom: 30px;
+}
+.devise-h3 {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #8E8D8A;
+  font-family: 'Assistant', sans-serif;
+  margin-bottom: 40px;
 }
 .shared-devise-links {
   text-align: center;

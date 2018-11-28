@@ -48,20 +48,18 @@
           <div class="row">
             <% @fundraising_events.each do |f| %>
               <div class="col-xs-12">
-                <%= render "shared/applicant_card", fundraising_event: f %>
+                <%= render "shared/fundraising_event_card", fundraising_event: f %>
               </div>
             <% end %>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-          <div id="homepage-cards">
-            <div class="row">
-              <% @loans.each do |l| %>
-                <div class="col-xs-12">
-                  <%= render "shared/current_loan_card", loan: l %>
-                </div>
-              <% end %>
-            </div>
+          <div class="row">
+            <% @loans.each do |l| %>
+              <div class="col-xs-12">
+                <%= render "shared/current_loan_card", loan: l %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="repay" aria-labelledby="repay-tab">
@@ -99,41 +97,39 @@
       </div>
     </div>
     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-      <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+      <ul id="myLenderTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
         <li role="presentation" class="active">
-          <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+          <a href="#lender-home" id="lender-home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="lender-home" aria-expanded="true">
             <span class="text">Outstanding Loans</span>
           </a>
         </li>
         <li role="presentation" class="next">
-          <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
+          <a href="#lender-profile" role="tab" class="tab-text" id="lender-profile-tab" data-toggle="tab" aria-controls="lender-profile">
             <span class="text">Loan Opportunities</span>
           </a>
         </li>
         <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn" %>
         </li>
       </ul>
-      <div id="myTabContent" class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+      <div id="myLenderTabContent" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="lender-home" aria-labelledby="lender-home-tab">
           <div class="row">
             <% current_user.loans.each do |loan| %>
               <% if loan.payment.present? %>
                 <div class="col-xs-12">
-                  <%= render "shared/lender_card", loan: loan %>
+                  <%= render "shared/outstanding_loans_card", loan: loan %>
                 </div>
               <% end %>
             <% end %>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-          <div id="homepage-cards">
-            <div class="row">
-              <% @fundraising_events.each do |f| %>
-                <div class="col-xs-12">
-                  <%= render "shared/fundraising_events_card", fundraising_event: f %>
-                </div>
-              <% end %>
-            </div>
+        <div role="tabpanel" class="tab-pane fade" id="lender-profile" aria-labelledby="lender-profile-tab">
+          <div class="row">
+            <% @fundraising_events.each do |f| %>
+              <div class="col-xs-12">
+                <%= render "shared/loan_oppurtunities_card", fundraising_event: f %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

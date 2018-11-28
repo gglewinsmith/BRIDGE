@@ -1,41 +1,34 @@
-<div class="container" id="homepage">
-  <h2 class="homepage-tagline">Bridge.</h2>
-  <h1 class="title">A peer-to-peer loans platform connecting bootcamp applicants to a lending community.</h1>
-  <br>
-  <div class="homepage">
-    <div class="applicant">
-      <% if user_signed_in? && current_user.applicant? %>
-        <button type="button" class="btn btn-primary btn-homepage">
-          <%= link_to 'My dashboard', dashboard_path %>
-        </button>
-      <% elsif user_signed_in? && current_user.lender? %>
-        <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
-      <% else %>
-        <button type="button" class="btn btn-primary btn-homepage">
-          <%= link_to "Apply", applicant_path %>
-        </button>
-      <% end %>
-    </div>
-    <div class="lender">
-      <% if user_signed_in? && current_user.lender? %>
-        <button type="button" class="btn btn-primary btn-homepage">
-          <%= link_to 'My dashboard', dashboard_path %>
-        </button>
-      <% elsif user_signed_in? && current_user.applicant? %>
-        <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Invest</button>
-      <% else %>
-        <button type="button" class="btn btn-primary btn-homepage">
-          <%= link_to "Invest", lender_path %>
-        </button>
-      <% end %>
-    </div>
+<div class="banner" style="background-image: url(<%#= image_path'bridge_v2.png' %>
+)">
+  <%= image_tag "shape-home.svg", class: "home-svg" %>
+  <div class="container wrapper-homepage">
+    <h1 class="homepage-tagline">Bridge.</h1>
+    <h4 class="tagline title gap-about">A peer-to-peer loans platform connecting bootcamp applicants to a lending community.</h4>
+    <br>
+    <% if user_signed_in? && current_user.applicant? %>
+      <%= link_to 'My dashboard', dashboard_path, class: "btn btn-primary btn-homepage" %>
+    <% elsif user_signed_in? && current_user.lender? %>
+      <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Apply for a loan</button>
+    <% else %>
+      <%= link_to "Apply", applicant_path, class: "btn btn-primary btn-homepage" %>
+    <% end %>
+
+    <% if user_signed_in? && current_user.lender? %>
+      <%= link_to 'My dashboard', dashboard_path, class: "btn btn-primary btn-homepage" %>
+    <% elsif user_signed_in? && current_user.applicant? %>
+      <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#homepageModal">Invest</button>
+    <% else %>
+      <%= link_to "Invest", lender_path, class: "btn btn-primary btn-homepage" %>
+    <% end %>
+    <% if user_signed_in? %>
+    <% end %>
   </div>
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn-medium sign-out-btn"%>
-<% end %>
-  <h2 class="homepage-tagline gap-title">How it works.</h2>
+</div>
+
+<div class="container wrapper-homepage">
+  <h1 class="homepage-tagline gap-title">How it works.</h1>
   <p class="numbers">1</p>
-  <h1 class="title gap-about">Sign up</h1>
+  <h4 class="title gap-about">Sign up</h4>
   <p class="title about">Log on to bridge with the details of your coding bootcamp, and apply for a loan for partial of full loan from an alumni or tech professional.</p>
   <p class="numbers">2</p>
   <h1 class="title gap-about">Peer to peer</h1>
@@ -46,25 +39,32 @@
   <p class="numbers">4</p>
   <h1 class="title gap-about">Social lending</h1>
   <p class="title about">Sense of community by lending directly to peers, with the ability to spread your risk across lots of loans.</p>
+  <div class="row homepage-row">
+    <div class="col-xs-12 col-sm-6">
+      <p class="bootcamps">100% secure lending</p>
+      <div>
+        <div class="banks">
+          <p class="support">we support -</p>
+          <div class="">
+            <%= image_tag("visa.png", class: "credit-cards") %>
+            <%= image_tag("american-express.png", class: "credit-cards") %>
+            <%= image_tag("mastercard.png", class: "credit-cards") %>
+          </div>
+        </div>
+      </div>
 
-  <div id="details-box">
-    <p id="lending">100% secure lending</p>
-    <p class="bootcamps">Associated Bootcamps</p>
-  </div>
-  <div id="logos-box">
-    <div class="banks">
-      <p class="support">we support -</p>
-      <%= image_tag("visa.png", class: "credit-cards") %>
-      <%= image_tag("american-express.png", class: "credit-cards") %>
-      <%= image_tag("mastercard.png", class: "credit-cards") %>
     </div>
-    <div class="bootcamps banks">
-      <%= image_tag("lewagon.png", class: "lewagon-logo") %>
-      <p id="thirty">+ 30 other bootcamps</p>
+    <div class="col-xs-12 col-sm-6">
+      <p class="bootcamps">Associated Bootcamps</p>
+      <div class="banks">
+        <%= image_tag("lewagon.png", class: "lewagon-logo") %>
+        <p id="thirty">+ 30 other bootcamps</p>
+      </div>
     </div>
   </div>
+
 </div>
-
+<div style="background-image: url(<%= image_path'homepage.svg' %>); height: 270px; margin-top: -270px;"></div>
 <%= render 'shared/homepage_modal', user: current_user %>
 
 

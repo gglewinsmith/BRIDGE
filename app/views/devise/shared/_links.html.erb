@@ -1,15 +1,14 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), {:class => "shared-devise-links"} %><br />
+  <p class="edit-form-text center-form">Already have account? <%= link_to "Log in", new_session_path(resource_name) %><p/>
 <% end -%>
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), {:class => "shared-devise-links"} %><br />
+  <p class="edit-form-text center-form">Forgot your password? <%= link_to "Forgot password", new_password_path(resource_name) %><p/>
 <% end -%>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), {:class => "shared-devise-links"} %><br />
+  <p class="edit-form-text center-form">Didn't receive confirmation instructions? <%= link_to "Resend confirmation instructions", new_confirmation_path(resource_name) %><p/>
 <% end -%>
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), {:class => "shared-devise-links"} %><br />
+  <p class="edit-form-text center-form">Didn't receive unlock instructions? <%= link_to "Resend unlock instructions", new_unlock_path(resource_name) %><p/>
 <% end -%>
 <%- if devise_mapping.omniauthable? %>
 <% end -%>

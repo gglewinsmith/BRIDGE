@@ -1,20 +1,56 @@
+<div style="background-color: #CAD9E3; padding: 40px 0">
 <div class="devise-form-box">
   <div class="row">
-    <h2 class="devise-h2">Complete your loan application.</h2>
+    <h2 class="devise-h2">Complete your loan application</h2>
     <%= simple_form_for @fundraising_event do |f| %>
-          <%= f.input :price, label: "How much do you want to borrow?" %>
-          <%= f.input :course, label: "Enter the name of the course", collection: ["LeWagon", "Flatiron School", "Makers Academy", "General Assembly"], label_html: { class: "form_text" }  %>
-          <%= f.input :date_from, as: :string, label: "When does the course start? (your loan will be paid directly to your course on this date)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
-          <%= f.input :date_until, as: :string, label: "When does the course finish?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
-          <%= f.input :guarantor, label: "What is the name and email address of your guarantor? (by providing this information you are confirming that Bridge. can contact your guarantor directly for confirmation of this guarantee)", label_html: { class: "form_text" } %>
-          <%= f.input :loan_length, label: "Over what duration will you pay back the loan (in months)?", priority: [6], collection: [6, 12, 18, 24], label_html: { class: "form_text" } %>
-          <%= f.input :career_goals, label: "Please give a summary of your career aspirations following completion of your chosen course (the more detail you are able to provide prospective lenders, the higher chance of securing a loan)", label_html: { class: "form_text" } %>
-          <%= f.input :photo, label: "Please upload your cv", label_html: { class: "form_text" } %>
-          <%= f.input :status, as: :hidden, default: 'pending' %>
 
-          <button type="button" class="btn btn-primary btn-homepage" data-toggle="modal" data-target="#exampleModal">Submit</button>
+        <div class="form-inputs edit-form-text">
+
+          <%= f.input :price,
+                      label: "How much do you want to borrow?",
+                      input_html: { class: "edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :course,
+                      label: "What bootcamp are you enrolled on?",
+                      collection: ["LeWagon", "Flatiron School", "Makers Academy", "General Assembly"],
+                      input_html: { class: "edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :date_from,
+                      as: :string,
+                      label: "Start date of bootcamp? Your loan will be paid directly to your course on this date.",
+                      input_html: { class: "datepicker edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :date_until,
+                      as: :string,
+                      label: "When does the course finish?",
+                      input_html: { class: "datepicker edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :guarantor,
+                      label: "Name and email address of guarantor",
+                      input_html: { class: "edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :loan_length,
+                      label: "Over what duration will you pay back the loan (in months)?",
+                      priority: [6],
+                      collection: [6, 12, 18, 24],
+                      input_html: { class: "edit-form-style" }%>
+          <div class="linear-border"></div>
+          <%= f.input :career_goals,
+                      label: "Please give a summary of your career aspirations following completion of your chosen course (the more detail you are able to provide prospective lenders, the higher chance of securing a loan)",
+                      input_html: { class: "edit-form-style" }%>
+          <div class="linear-border"></div>
+
+
+
+          <%= f.input :photo, label: "Please upload your cv" %>
+
+          <%= f.input :status, as: :hidden, default: 'pending' %>
+        </div>
+
+          <button type="button" class="btn btn-primary button-edit-page" data-toggle="modal" data-target="#exampleModal">Submit</button>
     <% end %>
   </div>
+</div>
 </div>
 
 <%= render 'shared/modal' %>

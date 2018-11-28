@@ -1,23 +1,28 @@
-<div class="devise-form-box">
-  <div class="row">
-    <h2 class="devise-h2">Log in</h2>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
-        </div>
-      <% end %>
-    <div class="devise-footer-flex">
-      <%= render "devise/shared/links" %>
+<div style="background-color: #CAD9E3; padding: 40px 0">
+  <div class="devise-form-box">
+    <div class="row">
+      <h2 class="devise-h2">Log in to your account</h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs edit-form-text">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { class: "edit-form-style", autocomplete: "email" } %>
+            <div class="linear-border"></div>
+            <%= f.input :password,
+                        required: false,
+                        input_html: { class: "edit-form-style", autocomplete: "current-password" } %>
+            <div class="linear-border"></div>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Log in", class: 'btn btn-primary button-edit-page'  %>
+          </div>
+
+        <% end %>
+      <div class="devise-footer-flex">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

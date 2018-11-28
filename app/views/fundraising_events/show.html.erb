@@ -92,6 +92,20 @@
       <div class="CV-button">
         <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
       </div>
+      <div class="fulfill-loan-button">
+        <% if current_user.lender? %>
+          <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
+            <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
+            <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
+            <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
+          <% end %>
+        <% end %>
+        <% if @fundraising_event.amount_due <= 0 %>
+          <%= link_to "Delete", fundraising_event_path(params[:id]),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
