@@ -13,7 +13,7 @@ class LoansController < ApplicationController
     @fundraising_event.amount_due += @loan.amount_owed
     @fundraising_event.amount_due = @loan.amount_owed
     @loan.loan_length = @fundraising_event.loan_length
-    if @fundraising_event.amount_raised == @fundraising_event.price
+    if @fundraising_event.amount_raised >= @fundraising_event.price
       @fundraising_event.status = 'fulfilled'
     else
       @fundraising_event.status = 'incomplete'
@@ -24,6 +24,6 @@ class LoansController < ApplicationController
   end
 
   def show
-    @loan = current_user.loans.where(state: 'fulfilled').find(params[:id])
+    @loan = current_user.loans.where(state: 'pending').find(params[:id])
   end
 end

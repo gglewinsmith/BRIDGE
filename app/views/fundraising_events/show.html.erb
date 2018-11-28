@@ -4,6 +4,13 @@
 
 <div class="container container-text-align">
   <h1 class="show-title">Loan Request for <%=@fundraising_event.course.capitalize %></h1>
+        <div class="delete-button">
+          <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
+            <%= link_to "Delete", fundraising_event_path(params[:id]),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </div>
   <div class="show-flex">
     <div class="show-content-and-dashboard-button">
       <div class="card card-size">
@@ -33,13 +40,6 @@
               <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
               <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="delete-button">
-          <% if current_user.applicant? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
-            <%= link_to "Delete", fundraising_event_path(params[:id]),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
           <% end %>
         </div>
       </div>
