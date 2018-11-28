@@ -3,7 +3,7 @@
     <h2 class="devise-h2">Complete your loan application.</h2>
     <%= simple_form_for @fundraising_event do |f| %>
           <%= f.input :price, label: "How much do you want to borrow?" %>
-          <%= f.input :course, label: "Enter the name and location of your course" %>
+          <%= f.input :course, label: "Enter the name of the course", collection: ["LeWagon", "Flatiron School", "Makers Academy", "General Assembly"], label_html: { class: "form_text" }  %>
           <%= f.input :date_from, as: :string, label: "When does the course start? (your loan will be paid directly to your course on this date)", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :date_until, as: :string, label: "When does the course finish?", label_html: { class: "form_text" }, input_html: {class: "datepicker"} %>
           <%= f.input :guarantor, label: "What is the name and email address of your guarantor? (by providing this information you are confirming that Bridge. can contact your guarantor directly for confirmation of this guarantee)", label_html: { class: "form_text" } %>
