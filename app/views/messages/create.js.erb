@@ -1,0 +1,7 @@
+document.getElementById("message_body").value = "";
+const newMessage = `<div class="item"><div class="content"><div class="header"><strong><%= User.find(@message.user_id).name %></strong><%= @message.message_time %></div><div class="list"><div class="item"><i class="right triangle icon"></i><%= @message.body %></div></div></div></div>`
+
+
+let messageContainer = document.querySelector(".segment")
+messageContainer.insertAdjacentHTML("beforeend", newMessage)
+

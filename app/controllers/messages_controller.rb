@@ -28,8 +28,15 @@ end
 def create
   @message = @conversation.messages.new(message_params)
     if @message.save
-      render :new
-      # AJAX HERE???
+      respond_to do |format|
+        format.html { redirect_to conversations_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'conversations/index' }
+        format.js  # <-- idem
+      end
     end
 end
 
