@@ -1,7 +1,15 @@
-.repayment-container {
-  text-align: center;
+.repayment {
+margin-top: 10%;
+text-align: center;
+display: block;
 }
-.repayment-form {
-  display: inline-block;
-  margin-top: 200px;
+.repay_amount_field {
+  color: white;
+  border-radius: 7px;
+  background: black;
+  transition: background 0.3s ease;
+  width: 600px;
+  height: 100px;
+  margin: auto;
+  padding: 24px 16px;
 }
