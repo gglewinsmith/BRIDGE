@@ -2,8 +2,8 @@ class FundraisingEvent < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   belongs_to :user
 
-  has_many :loans
-  has_many :repayments
+  has_many :loans, dependent: :destroy
+  has_many :repayments, dependent: :destroy
 
   monetize :price_cents
   monetize :amount_raised_cents

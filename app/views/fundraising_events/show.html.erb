@@ -83,8 +83,8 @@
             <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
           <% end %>
         <% end %>
-        <% if @fundraising_event.amount_due == 0 %>
-          <%= link_to "Delete", dashboard_path,
+        <% if @fundraising_event.amount_due <= 0 %>
+          <%= link_to "Delete", fundraising_event_path(params[:id]),
           method: :delete,
           data: { confirm: "Are you sure?" } %>
         <% end %>
