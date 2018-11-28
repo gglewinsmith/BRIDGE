@@ -18,7 +18,11 @@
           <h4 class="lender-counters">Loan Length:</h4>
           <h4 class="lender-counters"><%= repayment.loan_length %></h4>
           <h4 class="lender-counters">Interest rate:</h4>
-          <h4 class="green-counter">4% p.a.</h4>
+          <% if repayment.fundraising_event.user.applicant == true %>
+          <h4 class="green-counter">5% p.a.</h4>
+          <% else  %>
+           <h4 class="green-counter">4% p.a.</h4>
+           <% end %>
         </div>
       </div>
       <div class="width-loan width-repayment-padding">
