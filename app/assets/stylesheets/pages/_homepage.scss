@@ -14,6 +14,10 @@
     width: 55vw;
   }
 }
+.wrapper-homepage {
+  margin-left: 70px;
+  margin-right: 70px;
+}
 .footer-png {
   bottom: 0;
   right: 0;
@@ -114,13 +118,12 @@
   margin-bottom: 0 !important;
 }
 .bootcamps {
-  padding: 20px 0;
+  padding: 20px 0 10px 90px;
   font-size: 20px;
   color: #2D2C28 !important;
   font-family: 'Assistant', sans-serif !important;
   font-weight: 700;
   margin-bottom: 0 !important;
-  text-align: center;
 }
 #logos-box {
   display: flex;
@@ -135,9 +138,9 @@
 }
 .banks {
   display: flex;
-  padding: 0 0px 20px 0px;
+  padding: 0 0px 20px 90px;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   min-height: 114px;
 }
 .credit-cards {
