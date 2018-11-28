@@ -66,9 +66,9 @@
         </div>
         <div role="tabpanel" class="tab-pane fade" id="repay" aria-labelledby="repay-tab">
           <div class="row">
-            <% @loans.each do |f| %>
+            <% @loans.each do |repayment| %>
               <div class="col-xs-12">
-                <%= render "shared/repayment_card", repayment: f %>
+                <%= render "shared/repayment_card", repayment: repayment %>
               </div>
             <% end %>
           </div>
