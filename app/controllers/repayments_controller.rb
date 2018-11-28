@@ -16,7 +16,7 @@ class RepaymentsController < ApplicationController
       fundraising_event_id: @fundraising_event.id,
       loan_id: @loan.id
     )
-
+    @fundraising_event.amount_repaid += @repayment.amount.round
     redirect_to new_fundraising_event_loan_repayment_payment_path(@fundraising_event, @loan, @repayment)
   end
 

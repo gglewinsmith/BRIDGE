@@ -17,8 +17,25 @@
           <li><p class="black-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></p></li>
         </ul>
       </div>
-      <div class="dashboard-button">
-        <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary btn-homepage btn-show" %>
+      <div class="loan-buttons">
+        <div class="dashboard-button">
+          <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary btn-homepage btn-show" %>
+        </div>
+        <div class="fulfill-loan-button">
+          <% if current_user.lender? %>
+            <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
+              <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
+              <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
+              <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="delete-loan-button">
+          <% if @fundraising_event.amount_due <= 0 %>
+            <%= link_to "Delete", fundraising_event_path,
+            method: :delete %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="progres-bars-and-cv">
@@ -74,20 +91,6 @@
       </div>
       <div class="CV-button">
         <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
-      </div>
-      <div class="fulfill-loan-button">
-        <% if current_user.lender? %>
-          <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
-            <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
-            <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
-            <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
-          <% end %>
-        <% end %>
-        <% if @fundraising_event.amount_due == 0 %>
-          <%= link_to "Delete", dashboard_path,
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-        <% end %>
       </div>
     </div>
   </div>
