@@ -1,33 +1,26 @@
-
-<div class="applicant-page-applicant">
+<div class="container wrapper-homepage">
   <div class="application-item">
-    <h1 class="applicant-title">For applicants</h1>
-    <br>
-    <h2 class="h2"> What we know:</h2>
-    <ul>
-      <li class="list_pad">Coding bootcamp courses are very expensive. On average they cost ~£8000 </li>
-      <li class ="list_pad">People do not have piles of cash lying around in savings, whether thats because you are a student straight out of university or in a low paid job and are undertaking the course to change your income potential!</li>
-      <li class="list_pad">You cannot always ask family or friends for such a large sum of money</li>
-      <li class="list_pad">The government Personal Career Development Loan scheme is closing as of January 2019</li>
-      <li class="list_pad">You will not be able to get a bank loan as they require proof of income. If you are on the course you won't have an income</li>
-      <li class="list_pad">Interest rates on government and predatory loans are extortinate! 10% or higher</li>
-      <li class="list_pad">Rates of employment after bootcamp courses is high</li>
-      <li class ="list_pad">Jobs using web development skills are well paid</li>
-    </ul>
-    <!-- <div> -->
-      <div class="text_div_applicant">
-        <h3 >Apply now</h3>
-        <p>If you do not have the full amount for a course right now, but are motivated to get a good job using the skills aquired on the course, we can help. Through connecting you to the development community, you can fund your place at a rasonable interest rate on mutually beneficial and flexible terms. We hope that once you have benefitted from this service you may also one day help someone in the same way! </p>
-        <p>Learn. Earn. Return. </p>
-     <%= link_to "CREATE AN ACCOUNT", new_user_registration_path(:user => { :applicant => true }), class: "btn btn-homepage" %>
+    <h1 class="homepage-tagline applicant-margin">Apply for a Bridge loan.</h1>
+    <h4 class="tagline title gap-about">Simple, secure loan for your coding bootcamp, at the click of a button.</h4>
+      <div class="applicant-flex">
+        <div class="dots">
+          <%= image_tag "dots2.png" %>
+        </div>
+        <div class="about">
+          <p class="dots-text">Coding bootcamp courses are very expensive. On average they cost ~£8000</p>
+          <p class="dots-text">People do not have piles of cash lying around in savings, whether thats because you are a student straight out of university or in a low paid job and are undertaking the course to change your income potential!</p>
+          <p class="dots-text">You cannot always ask family or friends for such a large sum of money</p>
+          <p class="dots-text">The government Personal Career Development Loan scheme is closing as of January 2019</p>
+          <p class="dots-text">You will not be able to get a bank loan as they require proof of income. If you are on the course you won't have an income</p>
+          <p class="dots-text">Interest rates on government and predatory loans are extortinate! 10% or higher</p>
+        </div>
       </div>
-   </div>
+        <h1 class="homepage-tagline apply-now-margin apply-now-margin-left">Apply now.</h1>
+        <h4 class="tagline title gap-about apply-now-margin-left">Learn. Earn. Return.</h4>
+        <%= link_to "Create an account", new_user_registration_path(:user => { :applicant => true }), class: "btn btn-primary button-edit-page apply-now-margin-left" %>
+        <p class="apply-text apply-now-margin-left">If you do not have the full amount for a course right now, but are motivated to get a good job using the skills aquired on the course, we can help. Through connecting you to the development community, you can fund your place at a rasonable interest rate on mutually beneficial and flexible terms. We hope that once you have benefitted from this service you may also one day help someone in the same way! </p>
 
-
-
-
-
-
+  </div>
 
 
    <div class="svg-container">
@@ -373,10 +366,10 @@
         </g>
       </g>
     </svg>
-
   </div>
-
 </div>
+
+<div style="background-image: url(<%= image_path'homepage_footer.png' %>); height: 270px; margin-top: -270px;"></div>
 
 
 

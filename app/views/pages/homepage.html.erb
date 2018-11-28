@@ -29,34 +29,35 @@
   <h1 class="homepage-tagline gap-title">How it works.</h1>
   <p class="numbers">1</p>
   <h4 class="title gap-about">Sign up</h4>
-  <p class="title about">Log on to bridge with the details of your coding bootcamp, and apply for a loan for partial of full loan from an alumni or tech professional.</p>
+  <p class="about">Log on to bridge with the details of your coding bootcamp, and apply for a loan for partial of full loan from an alumni or tech professional.</p>
   <p class="numbers">2</p>
   <h1 class="title gap-about">Peer to peer</h1>
-  <p class="title about">Applicants are matched directly with investors through our secure platform, while investors get to see and select exactly which loans they want to fund.</p>
+  <p class="about">Applicants are matched directly with investors through our secure platform, while investors get to see and select exactly which loans they want to fund.</p>
   <p class="numbers">3</p>
   <h1 class="title gap-about">No hidden fees or rate rises</h1>
-  <p class="title about">Fixed monthly payments for applicants at lower, fixed rates of interest.</p>
+  <p class="about">Fixed monthly payments for applicants at lower, fixed rates of interest.</p>
   <p class="numbers">4</p>
   <h1 class="title gap-about">Social lending</h1>
-  <p class="title about">Sense of community by lending directly to peers, with the ability to spread your risk across lots of loans.</p>
+  <p class="about">Sense of community by lending directly to peers, with the ability to spread your risk across lots of loans.</p>
   <div class="row homepage-row">
     <div class="col-xs-12 col-sm-6">
-      <p class="bootcamps">100% secure lending</p>
+      <p class="secure">100% secure lending</p>
       <div>
         <div class="banks">
-          <p class="support">we support -</p>
+          <p class="support">we support:</p>
           <div class="">
             <%= image_tag("visa.png", class: "credit-cards") %>
             <%= image_tag("american-express.png", class: "credit-cards") %>
             <%= image_tag("mastercard.png", class: "credit-cards") %>
+            <%= image_tag("capital-one.png", class: "credit-cards") %>
           </div>
         </div>
       </div>
 
     </div>
     <div class="col-xs-12 col-sm-6">
-      <p class="bootcamps">Associated Bootcamps</p>
-      <div class="banks">
+      <p class="bootcamps">Associated Bootcamps:</p>
+      <div class="bootcamp-logos">
         <%= image_tag("lewagon.png", class: "lewagon-logo") %>
         <p id="thirty">+ 30 other bootcamps</p>
       </div>
@@ -64,7 +65,7 @@
   </div>
 
 </div>
-<div style="background-image: url(<%= image_path'homepage.svg' %>); height: 270px; margin-top: -270px;"></div>
+<div style="background-image: url(<%= image_path'homepage_footer.png' %>); height: 270px; margin-top: -270px;"></div>
 <%= render 'shared/homepage_modal', user: current_user %>
 
 
