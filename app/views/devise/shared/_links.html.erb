@@ -1,5 +1,6 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), {:class => "shared-devise-links"} %><br />
+
+  <p class="edit-form-text center-form">Already have account? <%= link_to "Log in", new_session_path(resource_name), {:class => "edit-form-text center-form"} %><p/>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
