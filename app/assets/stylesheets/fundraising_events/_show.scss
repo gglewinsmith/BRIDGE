@@ -22,17 +22,43 @@
 .show-text {
   flex-basis: 35%;
 }
+.show-content {
+  width: 600px;
+  padding-right: 0px;
+}
+.show-content-and-dashboard-button {
+  margin-top: 30px;
+  margin-right: 0px;
+}
+.show-content p {
+  margin-top: 25px;
+}
+.dashboard-button {
+  margin-top: 30px;
+}
 .fundraising-text {
   margin-left: 100px;
+  margin-right: 0px;
+  padding-right: 0px;
   width: 450px;
-  // margin-top: 150px;
 }
 .black-text input {
   color: black !important;
 }
-#myBar span {
+.progress-bars-div {
+  margin-top: 150px;
+}
+#myRaisedBar span {
   color: #FCFCFC !important;
 }
-#myBar {
+#myRaisedBar {
   transition: 2s ease all;
+  border-radius: 5px;
+}
+#myRepaidBar span {
+  color: #FCFCFC !important;
+}
+#myRepaidBar {
+  transition: 2s ease all;
+  border-radius: 5px;
 }
