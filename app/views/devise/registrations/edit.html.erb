@@ -1,134 +1,136 @@
-<div class="devise-form-box">
-  <div class="row">
-    <% if current_user.applicant? %>
-      <h2 class="devise-h2">Edit my account details</h2>
+<div style="background-color: #CAD9E3; padding: 40px 0">
+  <div class="devise-form-box">
+    <div class="row">
+      <% if current_user.applicant? %>
+        <h2 class="devise-h2">Edit my account details</h2>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.error_notification %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
 
-          <div class="form-inputs edit-form-text">
+            <div class="form-inputs edit-form-text">
 
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
 
-            <%= f.input :name,
-                        required: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "name"}%>
-            <div class="linear-border"></div>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "email" }%>
-            <div class="linear-border"></div>
-            <%= f.input :current_password,
-                        required: true,
-                        input_html: { class: "edit-form-style password-form", autocomplete: "current-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :password,
-                        required: false,
-                        input_html: { class: "edit-form-style password-form", autocomplete: "new-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :password_confirmation,
-                        required: false,
-                        input_html: { class: "edit-form-style", autocomplete: "new-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :linkedin,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "LinkedIn URL"} %>
-            <div class="linear-border"></div>
-            <%= f.input :motivation,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "About Me / Short Bio"} %>
-            <div class="linear-border"></div>
-            <%= f.input :reasons_for_funding,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "Reasons for Funding"} %>
-            <div class="linear-border"></div>
-            <%= f.input :photo,
-                        require: true,
-                        autofocus: true,
-                        label: "Please upload a profile picture." %>
-          </div>
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "name"}%>
+              <div class="linear-border"></div>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "email" }%>
+              <div class="linear-border"></div>
+              <%= f.input :current_password,
+                          required: true,
+                          input_html: { class: "edit-form-style password-form", autocomplete: "current-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { class: "edit-form-style password-form", autocomplete: "new-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { class: "edit-form-style", autocomplete: "new-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :linkedin,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "LinkedIn URL"} %>
+              <div class="linear-border"></div>
+              <%= f.input :motivation,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "About Me / Short Bio"} %>
+              <div class="linear-border"></div>
+              <%= f.input :reasons_for_funding,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "Reasons for Funding"} %>
+              <div class="linear-border"></div>
+              <%= f.input :photo,
+                          require: true,
+                          autofocus: true,
+                          label: "Please upload a profile picture." %>
+            </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Update" %>
-          </div>
-        <% end %>
-
-    <% elsif current_user.lender? %>
-      <h2 class="devise-h2">Edit my account</h2>
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs edit-form-text">
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
-            <%= f.input :name,
-                        required: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "name"}%>
-            <div class="linear-border"></div>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "email" }%>
-            <div class="linear-border"></div>
-            <%= f.input :current_password,
-                        required: true,
-                        input_html: { class: "edit-form-style password-form", autocomplete: "current-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :password,
-                        required: false,
-                        input_html: { class: "edit-form-style password-form", autocomplete: "new-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :password_confirmation,
-                        required: false,
-                        input_html: { class: "edit-form-style", autocomplete: "new-password" } %>
-            <div class="linear-border"></div>
-            <%= f.input :linkedin,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "LinkedIn URL"} %>
-            <div class="linear-border"></div>
-            <%= f.input :job,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "Job Title"} %>
-            <div class="linear-border"></div>
-            <%= f.input :industry,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style", autocomplete: "Industry"} %>
-            <div class="linear-border"></div>
-            <%= f.input :motivation,
-                        require: true,
-                        autofocus: true,
-                        input_html: { class: "edit-form-style password-form", autocomplete: "About me / Short Bio"} %>
-            <div class="linear-border"></div>
-            <%= f.input :photo,
-                        require: true,
-                        autofocus: true,
-                        label: "Please upload a profile picture." %>
-
-          </div>
-
-          <div class="form-actions">
+            <div class="form-actions">
               <%= f.button :submit, "Update", class: 'btn btn-primary button-edit-page' %>
-          </div>
-        <% end %>
-    <% end %>
-        <p class="edit-form-text center-form">Or want to cancel your account?   <%= link_to "Cancel here", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-      <br>
-        <%= link_to "Back to my dashboard", :back, class: "btn btn-primary button-back-to-dashboard" %>
+            </div>
+          <% end %>
 
+      <% elsif current_user.lender? %>
+        <h2 class="devise-h2">Edit my account</h2>
+
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs edit-form-text">
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "name"}%>
+              <div class="linear-border"></div>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "email" }%>
+              <div class="linear-border"></div>
+              <%= f.input :current_password,
+                          required: true,
+                          input_html: { class: "edit-form-style password-form", autocomplete: "current-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { class: "edit-form-style password-form", autocomplete: "new-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { class: "edit-form-style", autocomplete: "new-password" } %>
+              <div class="linear-border"></div>
+              <%= f.input :linkedin,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "LinkedIn URL"} %>
+              <div class="linear-border"></div>
+              <%= f.input :job,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "Job Title"} %>
+              <div class="linear-border"></div>
+              <%= f.input :industry,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style", autocomplete: "Industry"} %>
+              <div class="linear-border"></div>
+              <%= f.input :motivation,
+                          require: true,
+                          autofocus: true,
+                          input_html: { class: "edit-form-style password-form", autocomplete: "About me / Short Bio"} %>
+              <div class="linear-border"></div>
+              <%= f.input :photo,
+                          require: true,
+                          autofocus: true,
+                          label: "Please upload a profile picture." %>
+
+            </div>
+
+            <div class="form-actions">
+                <%= f.button :submit, "Update", class: 'btn btn-primary button-edit-page' %>
+            </div>
+          <% end %>
+      <% end %>
+          <p class="edit-form-text center-form">Or want to cancel your account?   <%= link_to "Cancel here", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <br>
+          <%= link_to "Back to my dashboard", :back, class: "btn btn-primary button-back-to-dashboard" %>
+
+    </div>
   </div>
 </div>
 
