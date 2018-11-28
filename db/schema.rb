@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_145401) do
+ActiveRecord::Schema.define(version: 2018_11_28_104905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_145401) do
     t.integer "amount_raised_cents", default: 0, null: false
     t.string "status"
     t.integer "amount_due_cents", default: 0, null: false
+    t.integer "amount_repaid_cents", default: 0, null: false
     t.index ["user_id"], name: "index_fundraising_events_on_user_id"
   end
 

@@ -8,6 +8,7 @@ class FundraisingEvent < ApplicationRecord
   monetize :price_cents
   monetize :amount_raised_cents
   monetize :amount_due_cents
+  monetize :amount_repaid_cents
 
 
   # validates :course, presence: true
