@@ -126,9 +126,11 @@
         <div role="tabpanel" class="tab-pane fade" id="lender-profile" aria-labelledby="lender-profile-tab">
           <div class="row">
             <% @fundraising_events.each do |f| %>
-              <div class="col-xs-12">
-                <%= render "shared/loan_oppurtunities_card", fundraising_event: f %>
-              </div>
+              <% unless f.status == 'fulfilled' %>
+                <div class="col-xs-12">
+                  <%= render "shared/loan_oppurtunities_card", fundraising_event: f %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>

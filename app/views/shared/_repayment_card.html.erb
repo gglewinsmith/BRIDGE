@@ -1,4 +1,4 @@
-<div class="card lender-card-hover">
+<div class="<%= repayment.state == 'repaid' ? 'repayment-card complete-hover complete-border' : 'repayment-card incomplete-hover incomplete-border' %>">
   <div class="avatar-lender">
     <% if repayment.fundraising_event.user.photo? %>
       <% photo_url =  repayment.fundraising_event.user.photo_url(:bright_face) %>
@@ -9,7 +9,11 @@
   </div>
   <div class="card-content-main">
     <h1 class="debtor-name">Repayment Card | <%= repayment.fundraising_event.user.name.capitalize %></h1>
-    <h2 class="course-detail"><%= link_to "Repay Tuition at #{repayment.fundraising_event.course.capitalize}", new_fundraising_event_loan_repayment_path(repayment.fundraising_event_id, repayment.id) %></h2>
+    <h2 class="course-detail">
+      <% unless repayment.state == 'repaid' %>
+        <%= link_to "Repay Tuition at #{repayment.fundraising_event.course.capitalize}", new_fundraising_event_loan_repayment_path(repayment.fundraising_event_id, repayment.id) %>
+      <% end %>
+    </h2>
     <div class="counter">
       <div class="counter-lender">
         <h4 class="lender-counters">Loan amount:</h4>
