@@ -9,9 +9,12 @@ class FundraisingEventsController < ApplicationController
 
   def show
     @fundraising_event = FundraisingEvent.find(params[:id])
+    @loans = Loan.find(@fundraising_event.loan_ids)
     @raised = ((@fundraising_event.amount_raised / @fundraising_event.price) * 100).round
-    unless @fundraising_event.amount_raised == 0
-      @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_due) * 100).round
+    if @fundraising_event.amount_due == 0
+      @repaid = 100
+    else
+      @repaid = (((@fundraising_event.amount_repaid / @fundraising_event.amount_due) / 100).round) * 100
     end
     # authorize @fundraising_event
     respond_to do |format|
