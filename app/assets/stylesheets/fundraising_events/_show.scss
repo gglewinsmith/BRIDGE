@@ -8,6 +8,7 @@
 }
 .container-text-align {
   text-align: center;
+  z-index: 1000;
 }
 .show-title  {
   font-size: 32px !important;
@@ -65,6 +66,7 @@
   border-radius: 5px;
 }
 .bars-div {
+  background-color: rgba(252, 252, 252, 0.6);
 }
 .bars-margin {
   margin-top: 33px !important;
