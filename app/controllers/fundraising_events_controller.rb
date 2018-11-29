@@ -14,7 +14,7 @@ class FundraisingEventsController < ApplicationController
     if @fundraising_event.amount_due == 0
       @repaid = 100
     else
-      @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_due) * 100).round
+      @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_raised) * 100).round
     end
     # authorize @fundraising_event
     respond_to do |format|
