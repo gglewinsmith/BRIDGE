@@ -1,74 +1,76 @@
 <% if current_user.applicant? %>
   <div class="container dashboard dashboard-height">
-    <div class="profile">
-      <div class="avatar">
-        <% if current_user.photo? %>
-          <% photo_url =  current_user.photo_url(:bright_face) %>
-        <% else %>
-          <% photo_url = "https://via.placeholder.com/150" %>
-        <% end %>
-        <%= image_tag photo_url, class: "avatar-large" %>
-        <br>
-        <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
-      </div>
-      <div class="width">
-        <h2 class="username"> <%= current_user.name.capitalize %></h2>
-        <div class="stats">
-            <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
-            <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
+    <div class="dashboard-container-pop">
+      <div class="profile">
+        <div class="avatar">
+          <% if current_user.photo? %>
+            <% photo_url =  current_user.photo_url(:bright_face) %>
+          <% else %>
+            <% photo_url = "https://via.placeholder.com/150" %>
+          <% end %>
+          <%= image_tag photo_url, class: "avatar-large" %>
+          <br>
+          <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
         </div>
-        <p class="bio"><%= current_user.email %></p>
-        <p class="bio">Bio | <%= current_user.motivation %></p>
-      </div>
-    </div>
-    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-      <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-        <li role="presentation" class="active">
-          <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-            <span class="text">My Fundraising Events</span>
-          </a>
-        </li>
-        <li role="presentation" class="next">
-          <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
-            <span class="text">Current Loans</span>
-          </a>
-        </li>
-        <li role="presentation" class="next">
-          <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
-            <span class="text">Repay Loan</span>
-          </a>
-        </li>
-        <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
-        </li>
-        <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
-        </li>
-      </ul>
-      <div id="myTabContent" class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-          <div class="row">
-            <% @fundraising_events.each do |f| %>
-              <div class="col-xs-12">
-                <%= render "shared/fundraising_event_card", fundraising_event: f %>
-              </div>
-            <% end %>
+        <div class="width">
+          <h2 class="username"> <%= current_user.name.capitalize %></h2>
+          <div class="stats">
+              <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
+              <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
           </div>
+          <p class="bio"><%= current_user.email %></p>
+          <p class="bio">Bio | <%= current_user.motivation %></p>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-          <div class="row">
-            <% @loans.each do |l| %>
-              <div class="col-xs-12">
-                <%= render "shared/current_loan_card", loan: l %>
-              </div>
-            <% end %>
+      </div>
+      <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+        <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+              <span class="text">My Fundraising Events</span>
+            </a>
+          </li>
+          <li role="presentation" class="next">
+            <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
+              <span class="text">Current Loans</span>
+            </a>
+          </li>
+          <li role="presentation" class="next">
+            <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
+              <span class="text">Repay Loan</span>
+            </a>
+          </li>
+          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
+          </li>
+          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+            <div class="row">
+              <% @fundraising_events.each do |f| %>
+                <div class="col-xs-12">
+                  <%= render "shared/fundraising_event_card", fundraising_event: f %>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="repay" aria-labelledby="repay-tab">
-          <div class="row">
-            <% @loans.each do |repayment| %>
-              <div class="col-xs-12">
-                <%= render "shared/repayment_card", repayment: repayment %>
-              </div>
-            <% end %>
+          <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+            <div class="row">
+              <% @loans.each do |l| %>
+                <div class="col-xs-12">
+                  <%= render "shared/current_loan_card", loan: l %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="repay" aria-labelledby="repay-tab">
+            <div class="row">
+              <% @loans.each do |repayment| %>
+                <div class="col-xs-12">
+                  <%= render "shared/repayment_card", repayment: repayment %>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -76,62 +78,64 @@
   </div>
 <% elsif current_user.lender? %>
   <div class="container dashboard dashboard-height">
-    <div class="profile">
-      <div class="avatar">
-        <% if current_user.photo? %>
-          <% photo_url =  current_user.photo_url(:bright_face) %>
-        <% else %>
-          <% photo_url = "https://via.placeholder.com/150" %>
-        <% end %>
-        <%= image_tag photo_url, class: "avatar-large" %>
-        <br>
-        <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
-      </div>
-      <div class="width">
-        <h2 class="username"> <%= current_user.name.capitalize %></h2>
-        <div class="stats">
-            <p class="stat">Outstanding Investments: <%= current_user.loans.select { |loan| loan.payment.present? }.count %></p>
+    <div class="dashboard-container-pop">
+      <div class="profile">
+        <div class="avatar">
+          <% if current_user.photo? %>
+            <% photo_url =  current_user.photo_url(:bright_face) %>
+          <% else %>
+            <% photo_url = "https://via.placeholder.com/150" %>
+          <% end %>
+          <%= image_tag photo_url, class: "avatar-large" %>
+          <br>
+          <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
         </div>
-        <p class="bio"><%= current_user.email %></p>
-        <p class="bio"> Bio | <%= current_user.motivation %></p>
-      </div>
-    </div>
-    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-      <ul id="myLenderTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-        <li role="presentation" class="active">
-          <a href="#lender-home" id="lender-home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="lender-home" aria-expanded="true">
-            <span class="text">Outstanding Loans</span>
-          </a>
-        </li>
-        <li role="presentation" class="next">
-          <a href="#lender-profile" role="tab" class="tab-text" id="lender-profile-tab" data-toggle="tab" aria-controls="lender-profile">
-            <span class="text">Loan Opportunities</span>
-          </a>
-        </li>
-        <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn" %>
-        </li>
-      </ul>
-      <div id="myLenderTabContent" class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="lender-home" aria-labelledby="lender-home-tab">
-          <div class="row">
-            <% current_user.loans.each do |loan| %>
-              <% if loan.payment.present? %>
-                <div class="col-xs-12">
-                  <%= render "shared/outstanding_loans_card", loan: loan %>
-                </div>
-              <% end %>
-            <% end %>
+        <div class="width">
+          <h2 class="username"> <%= current_user.name.capitalize %></h2>
+          <div class="stats">
+              <p class="stat">Outstanding Investments: <%= current_user.loans.select { |loan| loan.payment.present? }.count %></p>
           </div>
+          <p class="bio"><%= current_user.email %></p>
+          <p class="bio"> Bio | <%= current_user.motivation %></p>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="lender-profile" aria-labelledby="lender-profile-tab">
-          <div class="row">
-            <% @fundraising_events.each do |f| %>
-              <% unless f.status == 'fulfilled' %>
-                <div class="col-xs-12">
-                  <%= render "shared/loan_oppurtunities_card", fundraising_event: f %>
-                </div>
+      </div>
+      <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+        <ul id="myLenderTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#lender-home" id="lender-home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="lender-home" aria-expanded="true">
+              <span class="text">Outstanding Loans</span>
+            </a>
+          </li>
+          <li role="presentation" class="next">
+            <a href="#lender-profile" role="tab" class="tab-text" id="lender-profile-tab" data-toggle="tab" aria-controls="lender-profile">
+              <span class="text">Loan Opportunities</span>
+            </a>
+          </li>
+          <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn" %>
+          </li>
+        </ul>
+        <div id="myLenderTabContent" class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="lender-home" aria-labelledby="lender-home-tab">
+            <div class="row">
+              <% current_user.loans.each do |loan| %>
+                <% if loan.payment.present? %>
+                  <div class="col-xs-12">
+                    <%= render "shared/outstanding_loans_card", loan: loan %>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="lender-profile" aria-labelledby="lender-profile-tab">
+            <div class="row">
+              <% @fundraising_events.each do |f| %>
+                <% unless f.status == 'fulfilled' %>
+                  <div class="col-xs-12">
+                    <%= render "shared/loan_oppurtunities_card", fundraising_event: f %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

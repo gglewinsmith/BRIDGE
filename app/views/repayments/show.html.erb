@@ -1,8 +1,11 @@
-<div class="repayment">
-  <h1>Repayment receipt</h1>
-    <h4>Status | <%= @repayment.state %></h4>
-    <h4>Item | <%= @repayment.fundraising_event_sku %></h4>
-    <h4>Amount | <%= humanized_money_with_symbol(@repayment.amount) %></h4>
-    <br>
-  <%= link_to "Back to Dashboard", dashboard_path, class: 'btn btn-homepage btn-primary btn-loan' %>
+<div class="repayment-reciept-background-container">
+  <div class="repayment-reciept-container-pop">
+    <h1>Repayment Receipt</h1>
+      <h4>Status | <%= @repayment.state.capitalize %></h4>
+      <h4>Item | <%= @repayment.fundraising_event_sku %></h4>
+      <h4>Amount | <%= humanized_money_with_symbol(@repayment.amount) %></h4>
+      <br>
+    <%= link_to "Back to Dashboard", dashboard_path, class: 'btn btn-homepage btn-primary btn-loan' %>
+  </div>
 </div>
+
