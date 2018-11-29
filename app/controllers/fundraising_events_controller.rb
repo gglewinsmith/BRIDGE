@@ -18,8 +18,8 @@ class FundraisingEventsController < ApplicationController
     end
     # authorize @fundraising_event
     respond_to do |format|
-        format.html { render 'fundraising_events/show' }
-        format.js
+      format.html { render 'fundraising_events/show' }
+      format.js
     end
   end
 

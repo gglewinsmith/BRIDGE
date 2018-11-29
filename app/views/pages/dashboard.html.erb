@@ -24,25 +24,28 @@
       </div>
       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-              <span class="text outstanding-text">My Fundraising Events</span>
-            </a>
-          </li>
+            <li role="presentation" class="active">
+              <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                <span class="text outstanding-text">My Fundraising Events</span>
+              </a>
+            </li>
+            <li role="presentation" class="next">
+              <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
+                <span class="text outstanding-text">Current Loans</span>
+              </a>
+            </li>
+            <li role="presentation" class="next">
+              <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
+                <span class="text outstanding-text">Repay Loan</span>
+              </a>
+            </li>
+
+          <!-- <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary outstanding-text" %>
+          </li> -->
           <li role="presentation" class="next">
-            <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
-              <span class="text outstanding-text">Current Loans</span>
-            </a>
+            <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "fundraising-event-tab" %>
           </li>
-          <li role="presentation" class="next">
-            <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
-              <span class="text outstanding-text">Repay Loan</span>
-            </a>
-          </li>
-          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger outstanding-text" %>
-          </li>
-          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary outstanding-text" %>
-          </li>
+
         </ul>
         <div id="myTabContent" class="tab-content">
           <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
@@ -111,8 +114,8 @@
               <span class="text outstanding-text">Loan Opportunities</span>
             </a>
           </li>
-          <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn outstanding-text" %>
-          </li>
+          <!-- <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn outstanding-text" %>
+          </li> -->
         </ul>
         <div id="myLenderTabContent" class="tab-content">
           <div role="tabpanel" class="tab-pane fade in active" id="lender-home" aria-labelledby="lender-home-tab">

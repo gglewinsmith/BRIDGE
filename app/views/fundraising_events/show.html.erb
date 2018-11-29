@@ -4,14 +4,14 @@
 <div class="banner">
   <%= image_tag "loan-page-background.svg", class: "loan-svg" %>
   <div class="container container-text-align">
-<!--           <div class="delete-button"> -->
-            <h1 class="loan-tagline">Loan sought for: <%=@fundraising_event.course.capitalize %></h1>
-<!--             <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
-              <%= link_to "Delete", fundraising_event_path(params[:id]),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-            <% end %>
-          </div> -->
+    <h1 class="loan-tagline">Loan sought for: <%=@fundraising_event.course.capitalize %></h1>
+    <div class="delete-button"> -->
+      <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
+        <%= link_to "Delete", fundraising_event_path(params[:id]),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
     <div class="show-flex">
       <div class="show-content-and-dashboard-button">
         <div class="card-size">
