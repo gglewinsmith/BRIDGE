@@ -7,8 +7,9 @@
   padding-top: 11px;
 }
 .container-text-align {
-  text-align: center;
   z-index: 1000;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 .show-title  {
   font-size: 32px !important;
@@ -19,6 +20,12 @@
   display: flex;
   justify-content: space-between;
 }
+.loan-card {
+      box-shadow: 0.5px 0.5px grey;
+  background-color: white;
+  border-radius: 15px;
+      border: 1px solid #355F79;
+}
 .card-size {
   height: 375px;
   background: none !important;
@@ -26,6 +33,8 @@
 .show-content {
   width: 400px;
   padding-right: 0px;
+  padding-left: 30px;
+  padding-top: 20px;
   background-color: transparent;
 }
 .show-content-and-dashboard-button {
@@ -43,43 +52,46 @@
   margin-top: 30px;
 }
 .black-text {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  text-align: left;
+  margin-left: 20px;
+  color: #2D2C28;
+  margin-top: 15px !important;
+  font-size: 15px;
+}
+.black-text-lg {
   font-family: 'Assistant', sans-serif;
   text-align: left;
   margin-left: 20px;
   color: #2D2C28;
   margin-top: 15px !important;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 .progress-bars-div {
-  height: 275px;
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-top: 20px;
+  position: absolute;
+  left: -40px;
+  // margin-left: 50px;
 }
 #myRaisedBar span {
   color: #FCFCFC !important;
 }
-#myRaisedBar {
-  transition: 2s ease all;
-  border-radius: 5px;
-  height: 75px !important;
-}
 #myRaisedProgress {
-  height: 75px !important;
+  height: 30px !important;
+  border-radius: 15px;
+
 }
 #myRepaidProgress {
-  height: 75px !important;
+  height: 30px !important;
+  border-radius: 15px;
+
 }
 #myRepaidBar span {
   color: #FCFCFC !important;
 }
-#myRepaidBar {
-  transition: 2s ease all;
-  border-radius: 5px;
-  height: 75px !important;
-}
 .bars-div {
-  background-color: rgba(252, 252, 252, 0.6);
+  background-color: rgba(8,17,32, 0.2);
+  border-radius: 15px;
 }
 .bars-margin {
   margin-top: 33px !important;
@@ -89,12 +101,19 @@
   margin-top: 30px !important;
 }
 #myRepaidBar {
+  // max-width: 150px;
+  border-radius: 15px;
+  height: 30px !important;
+  transition: 3s ease all;
   .title {
   margin-top: 50px !important;
   }
 }
 #myRaisedBar {
-  max-width: 500px;
+  max-width: 100%;
+  transition: 3s ease all;
+  border-radius: 15px;
+  height: 30px !important;
   .title {
   margin-top: 50px !important;
   }
@@ -104,7 +123,7 @@
   font-size: 40px;
   font-weight: 700;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 60px;
   padding-top: 20px;
 }
 .input-box {
@@ -120,6 +139,7 @@
   text-shadow: 0.5px 0.5px grey;
   border: none !important;
   margin-top: 20px;
+  margin-left: 57px;
 }
 .loan-svg {
   position: absolute;
@@ -129,11 +149,16 @@
   }
 .paid-shadow {
   text-shadow: 0.5px 0.5px grey;
-}
-.lower-title {
+  font-size: 16px !important;
   margin-top: 30px;
-  width: 350px;
-  font-size: 20px;
+  width: 250px;
   color: white;
   font-weight: 600;
+  padding-top: 3px;
+}
+
+#amount {
+  height: 38px;
+  border-radius: 19px;
+  padding: 0px 10px;
 }

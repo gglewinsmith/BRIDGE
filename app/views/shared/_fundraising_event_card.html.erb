@@ -1,7 +1,7 @@
 <%= link_to fundraising_event_path(fundraising_event), class: 'text-dec-none' do %>
   <div class="<%= fundraising_event.status == 'fulfilled' ? 'repayment-card complete-hover complete-border' : 'repayment-card incomplete-hover incomplete-border' %>">
     <div class="card-content-main">
-      <h2 class="course-name"><%= fundraising_event.course.capitalize %></h2>
+      <h2 class="course-name"><%= fundraising_event.course.titleize %></h2>
       <h5 class="course-start">Start Date | <%= fundraising_event.date_from %></h5>
       <div class="counter">
         <p class="counters">Raised:</p>
