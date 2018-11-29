@@ -1,3 +1,50 @@
-.mailbox {
-text-align: center;
+.mailbox-text-center {
+  text-align: center;
+}
+.mailbox-header {
+  display: inline-block;
+  margin-top: 40px;
+}
+.messages-flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+.inbox {
+  text-align: center;
+  width: 100%;
+}
+.inbox-header {
+  display: inline-block;
+}
+.all-users {
+  width: 100%;
+}
+.list {
+  text-align: left;
+}
+.item {
+  margin: 0px 20px;
+}
+.users-flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+.message-link {
+  color: #084887;
+}
+.displayed_messages {
+  display: block;
+  position: absolute;
+  bottom: -340px;
+  min-width: 625px;
+}
+.message_list {
+  display: none;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+#new_message {
+  margin: 0px 20px 20px 20px;
 }
