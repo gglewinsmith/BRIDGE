@@ -21,8 +21,6 @@ class PaymentsController < ApplicationController
         currency:     @repayment.amount.currency
       )
       @fundraising_event.amount_due -= @repayment.amount
-      @loan.amount_owed -= @repayment.amount
-      @loan.save
       @fundraising_event.save
       @repayment.update(payment: charge.to_json, state: 'paid')
       redirect_to fundraising_event_loan_repayment_path(params[:fundraising_event_id], params[:loan_id], params[:repayment_id])
