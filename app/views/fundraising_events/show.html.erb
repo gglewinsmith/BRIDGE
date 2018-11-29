@@ -4,9 +4,9 @@
 <div class="banner">
   <%= image_tag "loan-page-background.svg", class: "loan-svg" %>
   <div class="container container-text-align">
-          <!-- <div class="delete-button">
+<!--           <div class="delete-button"> -->
             <h1 class="loan-tagline">Loan sought for: <%=@fundraising_event.course.capitalize %></h1>
-            <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
+<!--             <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
               <%= link_to "Delete", fundraising_event_path(params[:id]),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
@@ -44,7 +44,7 @@
         <div class="bars-div">
           <div id="myRaisedProgress" class="bars-margin" style="width: 500px; margin: 50px auto; height: 200px;">
             <div id="myRaisedBar" style="width: 0; background-color: #084887; height: 200px;">
-              <span class="title paid-shadow">Raised: <%= @raised %>%</span>
+              <span class="lower-title paid-shadow">Raised: <%= @raised %>%</span>
             </div>
           </div>
           <script>
