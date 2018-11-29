@@ -1,11 +1,12 @@
 <div class="payment-background-container">
-  <div class="payment-container-pop">
+  <div class="repayment-container-pop">
     <% if params[:repayment_id].present? %>
       <div class="payment-new">
-        <h1>Repayment of Loan for <%= @repayment.fundraising_event_sku %></h1>
+        <h4 class="pads">Payment details</h4>
+        <h4 class="one-off pads">Repayment of Loan for <%= @repayment.fundraising_event_sku %></h4>
         <%= form_tag fundraising_event_loan_repayment_payments_path(params[:fundraising_event_id], params[:loan_id], params[:repayment_id]) do %>
           <article>
-            <label class="amount">
+            <label class="amount pads" style="padding:35px;">
               <span>Amount: <%= humanized_money_with_symbol(@repayment.amount) %></span>
             </label>
           </article>
@@ -22,10 +23,11 @@
       </div>
       <% else %>
       <div class="payment-new">
-        <h1>Payment for <%= @loan.funding_event_sku %></h1>
+        <h4 class="pads">Payment details</h4>
+        <h4 class= "pads one-off">Payment for <%= @loan.funding_event_sku %></h4>
         <%= form_tag fundraising_event_loan_payments_path(@loan) do %>
           <article>
-            <label class="amount">
+            <label class="amount" style="padding: 0 0 56px 0;">
               <span>Amount: <%= humanized_money_with_symbol(@loan.amount) %></span>
             </label>
           </article>
