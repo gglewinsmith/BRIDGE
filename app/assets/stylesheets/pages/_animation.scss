@@ -11,8 +11,8 @@ svg {
 
 svg {
   position: absolute;
-  top: 50%;
-  left: 76%;
+  top: 55%;
+  left: 75%;
   transform: translate(-50%, -50%);
   width: 40%;
   height: auto;
@@ -70,4 +70,7 @@ button {
     color: white;
     outline: none;
   }
+}
+.grey-brain {
+  fill: #F4F4F4 !important;
 }
