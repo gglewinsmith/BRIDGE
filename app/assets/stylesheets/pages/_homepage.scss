@@ -23,15 +23,6 @@
   right: 0;
   margin: 0;
 }
-// #homepage {
-//   position: relative;
-//   background-image: image-url('bridge-homepage.png');
-//   background-position: center;
-//   color: white;
-//   width: 100vw;
-//   height: calc(2.28 * 100vw);
-//   background-repeat: no-repeat;
-//  }
  #homepage a {
   text-decoration: none !important;
   color: white !important;
@@ -69,6 +60,9 @@
   border-radius: 24px;
   text-align: center;
   padding: 8px;
+  text-transform: none !important;
+  letter-spacing: 0;
+  text-shadow: 1px 1px grey;
 }
 
 .btn-homepage a{
