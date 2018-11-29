@@ -10,7 +10,7 @@
   border-radius: 2px;
 }
 .dashboard-height {
-  padding-bottom: 50px;
+  min-height: calc(100vh - 40px);
   background-color: #CAD9E3;
 }
 .profile {
