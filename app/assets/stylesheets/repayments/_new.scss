@@ -6,9 +6,57 @@
 }
 .repayment-container-pop {
   background-color: #FCFCFC;
-  box-shadow: 2px 2px 2px 2px #D8D8D7;
-  padding: 40px 60px 40px 60px;
-  border-radius: 2px;
-  margin: 200px 200px;
+  padding: 30px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 160px;
   text-align: center;
+  width: 300px;
+  height: 350px;
+  position: relative;
+}
+
+.pads{
+  padding: 6px;
+}
+.one-off {
+  font-size: 12px;
+  color: grey;
+}
+
+.btn-repay {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: white;
+  padding: 10px 15px;
+  background: #FACF0F ;
+  border: none;
+  transition: background 0.3s ease;
+  width: 150px;
+}
+
+.btn-back {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: #999999;
+  padding: 10px 15px;
+  font-weight: lighter;
+  opacity: 0.6;
+  width: 150px;
+  border-top: 1px solid #979797;
+  height: 45px;
+  text-decoration: none;
+}
+
+.btn-repay:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-back:hover {
+  text-decoration: none;
+  color: black;
 }

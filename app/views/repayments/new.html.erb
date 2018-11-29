@@ -1,13 +1,14 @@
 <div class="repayment-background-container">
   <div class="repayment-container-pop">
-    <h1>Tuition Loan for <%= @fundraising_event.course.capitalize  %></h1>
-    <h4>Repayment to <%= @loan.user.name.capitalize %></h4>
-    <h4><strong>Amount Due | £<%= @loan.amount_owed %></strong></h4>
-    <h4>How much would you like to repay?</h4>
+    <h4 class="pads">Repay <%= @loan.user.name.capitalize %></h4>
+    <h4 class="one-off pads">One off early repayment</h4>
+    <h4 class="pads"><strong>Amount Due | £<%= @loan.amount_owed %></strong></h4>
+    <h4 class="pads">Repayment amount</h4>
     <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans/#{@loan.id}/repayments" do %>
       <%= hidden_field_tag 'loan_id', @loan.id %>
       <%= number_field_tag 'amount', label: "How much do you want to repay?" %>
-      <%= submit_tag 'Repay', class: 'btn btn-homepage' %>
+      <%= submit_tag 'Repay', class: 'btn-repay' %>
+      <%= link_to "Back", dashboard_path, class: "btn-back" %>
     <% end %>
   </div>
 </div>
