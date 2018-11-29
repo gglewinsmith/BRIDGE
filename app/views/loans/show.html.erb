@@ -2,7 +2,7 @@
   <div class="loan-reciept-container-pop">
     <div class="payment-new">
       <h1>Loan Receipt</h1>
-      <p>Status: <%= @loan.state %></p>
+      <p>Status: <%= @loan.state.capitalize %></p>
       <p>Item: <%= @loan.funding_event_sku %></p>
       <p>Amount: <%= humanized_money_with_symbol(@loan.amount) %></p>
 
