@@ -23,6 +23,7 @@
             <li><p class="black-text">Loan length | <%= @fundraising_event.loan_length%></p></li>
             <li><p class="black-text">Career goals | <%= @fundraising_event.career_goals%></p></li>
             <li><p class="black-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></p></li>
+            <li><p class="black-text">Interest rate | 5% p.a.</p></li>
           </ul>
           <div class="CV-button">
             <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
