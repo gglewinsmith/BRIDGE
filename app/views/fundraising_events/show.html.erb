@@ -2,10 +2,10 @@
 <% content_for :meta_title, "#{@fundraising_event.user.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @fundraising_event.course %>
 <div class="banner">
-  <%= image_tag "loan-page-background.svg", class: "home-svg" %>
+  <%= image_tag "loan-page-background.svg", class: "loan-svg" %>
   <div class="container container-text-align">
-    <h1 class="show-title">Loan Request for <%=@fundraising_event.course.capitalize %></h1>
           <div class="delete-button">
+            <h1 class="loan-tagline">Loan sought for: <%=@fundraising_event.course.capitalize %></h1>
             <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
               <%= link_to "Delete", fundraising_event_path(params[:id]),
               method: :delete,
@@ -14,92 +14,85 @@
           </div>
     <div class="show-flex">
       <div class="show-content-and-dashboard-button">
-        <div class="card card-size">
+        <div class="card-size">
           <div class="show-content">
-            <ul>
-              <li><p class="black-text">Name | <%= @fundraising_event.user.name.capitalize %></p></li>
-              <li><p class="black-text">Loan required | <%= humanized_money_with_symbol(@fundraising_event.price) %></p></li>
-              <li><p class="black-text">Course name | <%= @fundraising_event.course.capitalize %></p></li>
-              <li><p class="black-text">Financial guarantor | <%= @fundraising_event.guarantor %></li>
-              <li><p class="black-text">Loan length | <%= @fundraising_event.loan_length%></p></li>
-              <li><p class="black-text">Career goals | <%= @fundraising_event.career_goals%></p></li>
-              <li><p class="black-text">Course from | <%= @fundraising_event.date_from %> to | <%= @fundraising_event.date_until%></p></li>
-            </ul>
-            <div class="CV-button">
-              <%= link_to 'Click here to view CV', fundraising_event_cv_path(@fundraising_event), class: "white-text" %>
-            </div>
+              <p class="black-text">Name of Applicant | <%= @fundraising_event.user.name.capitalize %></p></li>
+              <p class="black-text">Loan Amount Sought | <%= humanized_money_with_symbol(@fundraising_event.price) %></p></li>
+              <p class="black-text">Course Name | <%= @fundraising_event.course.capitalize %></p></li>
+              <p class="black-text">Financial Guarantor | <%= @fundraising_event.guarantor %></li>
+              <p class="black-text">Loan Length (months) | <%= @fundraising_event.loan_length%></p></li>
+              <p class="black-text">Career Goals | <%= @fundraising_event.career_goals%></p></li>
+              <p class="black-text">Course Start Date | <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></p></li>
+              <p class="black-text">Click here to view <%= link_to "CV", fundraising_event_cv_path(@fundraising_event) %></p>
           </div>
-        </div>
-        <div class="loan-buttons">
-          <div class="dashboard-button">
-            <%= link_to 'Back to dashboard', dashboard_path, class: "btn btn-primary btn-homepage btn-show" %>
-          </div>
-          <div class="fulfill-loan-button">
-            <% if current_user.lender? %>
-              <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
-                <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
-                <%= number_field_tag 'amount', label: "How much do you want to lend?" %>
-                <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
-              <% end %>
-            <% end %>
-          </div>
+                        <div class="fulfill-loan-button">
+                <% if current_user.lender? %>
+                  <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
+                    <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
+                    <%= number_field_tag 'amount', label: "How much do you want to lend?", class: 'input-box'%>
+                    <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
+                  <% end %>
+                <% end %>
+              </div>
+              <%= link_to "Back to my dashboard", :back, class: "btn btn-primary button-loan-dashboard" %>
+
         </div>
       </div>
-      <div class="progres-bars-and-cv">
-        <div class="progress-bars-div">
-          <div class="bars-div">
-            <div id="myRaisedProgress" class="bars-margin" style="width: 500px; margin: 50px auto; height: 200px;">
-              <div id="myRaisedBar" style="width: 0; background-color: #084887; height: 200px;">
-                <span class="title">Raised: <%= @raised %>%</span>
-              </div>
+
+
+      <div class="progress-bars-div">
+        <div class="bars-div">
+          <div id="myRaisedProgress" class="bars-margin" style="width: 500px; margin: 50px auto; height: 200px;">
+            <div id="myRaisedBar" style="width: 0; background-color: #084887; height: 200px;">
+              <span class="title">Raised: <%= @raised %>%</span>
             </div>
-            <script>
-              function move() {
-                console.log(<%= @raised.to_i %>)
-                var elem = document.getElementById("myRaisedBar");
-                var width = 1;
-                var id = setInterval(frame, 10);
-                function frame() {
-                  while(width < <%= @raised.to_i %>) {
-                    width++;
-                    elem.style.width = width + '%';
-                    }
-                    if (width > <%= @raised.to_i %> ) {
-                      clearInterval(id);
-                    }
+          </div>
+          <script>
+            function move() {
+              console.log(<%= @raised.to_i %>)
+              var elem = document.getElementById("myRaisedBar");
+              var width = 1;
+              var id = setInterval(frame, 10);
+              function frame() {
+                while(width < <%= @raised.to_i %>) {
+                  width++;
+                  elem.style.width = width + '%';
+                  }
+                  if (width > <%= @raised.to_i %> ) {
+                    clearInterval(id);
                   }
                 }
-              move();
-            </script>
-          </div>
-          <div class="bars-div">
-            <div id="myRepaidProgress" class="bars-margin bars-align-with-card" style="width: 500px; margin: 50px auto; height: 200px;">
-              <div id="myRepaidBar" style="width: 0; background-color: #084887; height: 200px;">
-                <span class="title">Repaid: <%= @repaid %>%</span>
-              </div>
+              }
+            move();
+          </script>
+        </div>
+        <div class="bars-div">
+          <div id="myRepaidProgress" class="bars-margin bars-align-with-card" style="width: 500px; margin: 50px auto; height: 200px;">
+            <div id="myRepaidBar" style="width: 0; background-color: #084887; height: 200px;">
+              <span class="title">Repaid: <%= @repaid %>%</span>
             </div>
-            <script>
-              function move() {
-                console.log(<%= @repaid.to_i %>)
-                var elem = document.getElementById("myRepaidBar");
-                var width = 1;
-                var id = setInterval(frame, 10);
-                function frame() {
-                  while(width < <%= @repaid.to_i %>) {
-                    width++;
-                    elem.style.width = width + '%';
-                    }
-                    if (width > <%= @repaid.to_i %> ) {
-                      clearInterval(id);
-                    }
+          </div>
+          <script>
+            function move() {
+              console.log(<%= @repaid.to_i %>)
+              var elem = document.getElementById("myRepaidBar");
+              var width = 1;
+              var id = setInterval(frame, 10);
+              function frame() {
+                while(width < <%= @repaid.to_i %>) {
+                  width++;
+                  elem.style.width = width + '%';
+                  }
+                  if (width > <%= @repaid.to_i %> ) {
+                    clearInterval(id);
                   }
                 }
-              move();
-            </script>
-          </div>
+              }
+            move();
+          </script>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+
