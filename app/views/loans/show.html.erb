@@ -1,8 +1,12 @@
-<div class="payment-new">
-  <h1>Loan Receipt</h1>
-  <p>Status: <%= @loan.state %></p>
-  <p>Item: <%= @loan.funding_event_sku %></p>
-  <p>Amount: <%= humanized_money_with_symbol(@loan.amount) %></p>
+<div class="loan-reciept-background-container">
+  <div class="loan-reciept-container-pop">
+    <div class="payment-new">
+      <h1>Loan Receipt</h1>
+      <p>Status: <%= @loan.state %></p>
+      <p>Item: <%= @loan.funding_event_sku %></p>
+      <p>Amount: <%= humanized_money_with_symbol(@loan.amount) %></p>
 
-  <%= link_to "Back to Dashboard", dashboard_path, class: 'btn btn-homepage btn-primary btn-loan' %>
+      <%= link_to "Back to Dashboard", dashboard_path, class: 'btn btn-homepage btn-primary btn-loan' %>
+    </div>
+  </div>
 </div>
