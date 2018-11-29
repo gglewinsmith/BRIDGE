@@ -16,7 +16,7 @@ class RepaymentsController < ApplicationController
       loan_id: @loan.id
     )
     @fundraising_event.amount_repaid += @repayment.amount.round
-    if @repayment.amount == @loan.amount_owed
+    if @loan.amount_owed <= 0
       @loan.state = 'repaid'
     else
       @loan.state = 'pending'
