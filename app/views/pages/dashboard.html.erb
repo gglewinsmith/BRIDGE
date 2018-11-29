@@ -26,22 +26,22 @@
         <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
           <li role="presentation" class="active">
             <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-              <span class="text">My Fundraising Events</span>
+              <span class="text outstanding-text">My Fundraising Events</span>
             </a>
           </li>
           <li role="presentation" class="next">
             <a href="#profile" role="tab" class="tab-text" id="profile-tab" data-toggle="tab" aria-controls="profile">
-              <span class="text">Current Loans</span>
+              <span class="text outstanding-text">Current Loans</span>
             </a>
           </li>
           <li role="presentation" class="next">
             <a href="#repay" role="tab" class="tab-text" id="repay-tab" data-toggle="tab" aria-controls="repay">
-              <span class="text">Repay Loan</span>
+              <span class="text outstanding-text">Repay Loan</span>
             </a>
           </li>
-          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger" %>
+          <li> <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "btn btn-danger outstanding-text" %>
           </li>
-          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary" %>
+          <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary outstanding-text" %>
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -103,15 +103,15 @@
         <ul id="myLenderTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
           <li role="presentation" class="active">
             <a href="#lender-home" id="lender-home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="lender-home" aria-expanded="true">
-              <span class="text">Outstanding Loans</span>
+              <span class="text outstanding-text">Outstanding Loans</span>
             </a>
           </li>
           <li role="presentation" class="next">
             <a href="#lender-profile" role="tab" class="tab-text" id="lender-profile-tab" data-toggle="tab" aria-controls="lender-profile">
-              <span class="text">Loan Opportunities</span>
+              <span class="text outstanding-text">Loan Opportunities</span>
             </a>
           </li>
-          <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn" %>
+          <li><%= link_to "Messaging", conversations_path, class: "btn btn-primary messaging-btn outstanding-text" %>
           </li>
         </ul>
         <div id="myLenderTabContent" class="tab-content">

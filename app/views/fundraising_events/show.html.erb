@@ -4,14 +4,14 @@
 <div class="banner">
   <%= image_tag "loan-page-background.svg", class: "loan-svg" %>
   <div class="container container-text-align">
-          <div class="delete-button">
+          <!-- <div class="delete-button">
             <h1 class="loan-tagline">Loan sought for: <%=@fundraising_event.course.capitalize %></h1>
             <% if current_user.applicant? && @loans.present? && @loans.each { |loan| loan.state = 'repaid' } && @fundraising_event.status == 'fulfilled' %>
               <%= link_to "Delete", fundraising_event_path(params[:id]),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
             <% end %>
-          </div>
+          </div> -->
     <div class="show-flex">
       <div class="show-content-and-dashboard-button">
         <div class="card-size">
@@ -22,14 +22,14 @@
               <p class="black-text">Financial Guarantor | <%= @fundraising_event.guarantor %></li>
               <p class="black-text">Loan Length (months) | <%= @fundraising_event.loan_length%></p></li>
               <p class="black-text">Career Goals | <%= @fundraising_event.career_goals%></p></li>
-              <p class="black-text">Course Start Date | <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></p></li>
-              <p class="black-text">Click here to view <%= link_to "CV", fundraising_event_cv_path(@fundraising_event) %></p>
+              <p class="black-text">Course Dates | <%= @fundraising_event.date_from %> to <%= @fundraising_event.date_until%></p></li>
+              <p class="black-text">Click here to view applicant's <%= link_to "CV", fundraising_event_cv_path(@fundraising_event) %></p>
           </div>
                         <div class="fulfill-loan-button">
                 <% if current_user.lender? %>
                   <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans", class: 'black-text' do %>
                     <%= hidden_field_tag 'fundraising_event_id', @fundraising_event.id %>
-                    <%= number_field_tag 'amount', label: "How much do you want to lend?", class: 'input-box'%>
+                    <%= number_field_tag 'amount', class: 'input-box' %>
                     <%= submit_tag 'Fulfill this loan', class: 'btn btn-primary btn-homepage' %>
                   <% end %>
                 <% end %>
@@ -44,7 +44,7 @@
         <div class="bars-div">
           <div id="myRaisedProgress" class="bars-margin" style="width: 500px; margin: 50px auto; height: 200px;">
             <div id="myRaisedBar" style="width: 0; background-color: #084887; height: 200px;">
-              <span class="title">Raised: <%= @raised %>%</span>
+              <span class="title paid-shadow">Raised: <%= @raised %>%</span>
             </div>
           </div>
           <script>
@@ -69,7 +69,7 @@
         <div class="bars-div">
           <div id="myRepaidProgress" class="bars-margin bars-align-with-card" style="width: 500px; margin: 50px auto; height: 200px;">
             <div id="myRepaidBar" style="width: 0; background-color: #084887; height: 200px;">
-              <span class="title">Repaid: <%= @repaid %>%</span>
+              <p class="lower-title paid-shadow">Repaid of Amount Raised: <%= @repaid %>%</p>
             </div>
           </div>
           <script>
