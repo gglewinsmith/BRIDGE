@@ -10,7 +10,7 @@
 .debtor-name {
   font-size: 16px;
   position: absolute;
-  left: 120px;
+  left: 160px;
   color: black !important;
 }
 .course-detail {
@@ -110,7 +110,7 @@
   font-size: 16px;
   flex-basis: 5%;
   color: black;
-  margin: 0 10px;
+  margin: 0 30px 0 0px;
   width: 100px;
   font-weight: bold;
 }
@@ -142,12 +142,6 @@
     box-shadow: 2px 2px 2px 2px rgba(150, 150, 150, 0.4)
   }
 }
-.debtor-name {
-  font-size: 16px;
-  position: absolute;
-  left: 120px;
-  color: black !important;
-}
 .avatar-lender {
   flex-basis: 15%;
   text-align: center;
@@ -156,22 +150,23 @@
 .course-detail {
   font-size: 16px;
   position: absolute;
-  left: 120px;
+  left: 160px;
   top: 30px;
   width: 100%;
   color: black !important;
 }
 .loan-os {
   font-size: 28px;
-  text-weight: 800px;
-  margin: 25px 20px 0 0;
-  color: black !important;
+  font-weight: 800 !important;
+  margin: 25px 40px 10px 0;
+  color: #335F7A !important;
 }
 .outstanding {
   font-size: 16px;
   text-weight: 600px;
   margin-top: 0px;
   color: black !important;
+  margin-right: 20px;
 }
 .amount-left {
   font-size: 56px;
@@ -181,6 +176,12 @@
   width: 60px;
   border-radius: 50%;
   margin-top: 20px;
+}
+.avatar-medium {
+  width: 110px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 .width-lender-card {
   flex-basis: 70%;
@@ -194,13 +195,14 @@
   position: absolute;
   justify-content: space-between;
   bottom: 15px;
-  left: 120px;
+  left: 140px;
 }
 .lender-counters {
   font-size: 12px !important;
   flex-basis: 15%;
   margin: 0px;
   color: black !important;
+  padding-top: 3px;
 }
 // Complete Status
 .complete-border {

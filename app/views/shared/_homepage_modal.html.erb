@@ -2,21 +2,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+        <h4 class="modal-title pop-up" id="exampleModalLabel">Warning</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h6>By continuing with Sign Up you will be signed out of your current session.</h6>
+        <h4 class="pop-up">By continuing with Sign Up you will be signed out of your current session.</h4>
       </div>
       <div class="modal-footer">
-        <button  id="modal-btn" type="button" class="btn btn-danger" data-dismiss="modal">
+        <button  id="modal-btn" type="button" class="btn btn-primary btn-homepage btn-pop-up" data-dismiss="modal">
           <%= link_to "Continue", destroy_user_session_path(sign_up: true, user: user), method: :delete  %>
         </button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Go back
-        </button>
+        <button type="button" class="btn btn-primary btn-homepage btn-pop-up" data-toggle="modal">Go Back</button>
       </div>
     </div>
   </div>
