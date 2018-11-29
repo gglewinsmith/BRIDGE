@@ -9,8 +9,8 @@
       <%= image_tag photo_url, class: "avatar-medium", data: { target: "#applicantModal", toggle: "modal"} %>
     </div>
     <div class="card-content-main">
-      <h1 class="debtor-name">Loan Applicant | <%= fundraising_event.user.name.capitalize %></h1>
-      <h2 class="course-detail">Course Name | <%= fundraising_event.course.capitalize %></h2>
+      <h1 class="debtor-name"><%= fundraising_event.user.name.capitalize %>'s loan application</h1>
+      <h2 class="course-detail"><%= fundraising_event.course.capitalize %></h2>
       <div class="counter">
         <div class="counter-lender">
           <h4 class="lender-counters">
