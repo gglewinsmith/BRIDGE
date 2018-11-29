@@ -1,43 +1,66 @@
-<div class="mailbox">
- <h3>Mailbox</h3>
- <div class="ui list">
-  <div class="item">
-   <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-
-    <p class="message_index" id="<%= recipient.id %>"> <%= recipient.name %></p>
-    <%= render "message", messages: conversation.messages, conversation: conversation, message: Message.new%>
-   <% end %>
-  <% end %>
+<div class="container mailbox-text-center">
+  <div class="mailbox-header">
+    <h1>Mailbox</h1>
   </div>
- </div>
+  <div class="messages-flexbox">
+    <div class="col-xs-6">
+      <div class="card">
+        <div class="inbox">
+          <div class="inbox-header">
+            <h3>Inbox</h3>
+          </div>
+          <div class="ui list">
+            <div class="item">
+              <% @conversations.each do |conversation| %>
+                <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+                  <% if conversation.sender_id == current_user.id %>
+                    <% recipient = User.find(conversation.recipient_id) %>
+                  <% elsif conversation.recipient_id == current_user.id %>
+                    <% recipient = User.find(conversation.sender_id) %>
+                  <% end %>
+                  <p class="message_index" id="<%= recipient.id %>"><%= recipient.name.capitalize %></p>
+                  <%= render "message", messages: conversation.messages, conversation: conversation, message: Message.new %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="card">
+        <div class="all-users">
+          <div class="ui segment">
+            <h3>All Users</h3>
+            <div class="ui list">
+              <% @users.each do |user| %>
+                <% if user.id != current_user.id %>
+                  <div class="item">
+                    <div class="users-flexbox">
+                      <%= user.name.capitalize %>
+                      <%= link_to "Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: 'message-link' %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="ui segment">
- <h3>All Users</h3>
-  <div class="ui list">
-   <% @users.each do |user| %>
-    <% if user.id != current_user.id %>
-     <div class="item">
-   <%= user.name %> <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
- </div>
-  <% end %>
- <% end %>
- </div>
-</div>
+
 
 <script>
   const messageIndex = document.querySelectorAll(".message_index")
-  messageIndex.forEach((message)=> {
-    message.addEventListener("click", (event)=> {
+  messageIndex.forEach((message) => {
+    message.addEventListener("click", (event) => {
      let messageId = event.currentTarget.attributes.id.value
      let messageDiv = document.getElementById(`message_${messageId}`)
       messageDiv.classList.toggle("displayed_messages")
       messageDiv.classList.toggle("message_list")
+      ("#message_list").detach().appendTo('#mailbox-text-center')
     })
   })
 </script>
