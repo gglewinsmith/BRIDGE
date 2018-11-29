@@ -6,10 +6,10 @@
       <% else %>
         <% photo_url = "https://via.placeholder.com/150" %>
       <% end %>
-      <%= image_tag photo_url, class: "avatar-small", data: { target: "#applicantModal", toggle: "modal"} %>
+      <%= image_tag photo_url, class: "avatar-medium", data: { target: "#applicantModal", toggle: "modal"} %>
     </div>
     <div class="card-content-main">
-      <h1 class="debtor-name">Debtor | <%= fundraising_event.user.name.capitalize %></h1>
+      <h1 class="debtor-name">Loan Applicant | <%= fundraising_event.user.name.capitalize %></h1>
       <h2 class="course-detail">Course Name | <%= fundraising_event.course.capitalize %></h2>
       <div class="counter">
         <div class="counter-lender">

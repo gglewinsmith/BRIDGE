@@ -17,7 +17,7 @@
             <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
             <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
         </div>
-        <p class="user-email"><%= current_user.email %></p>
+        <p class="bio"><%= current_user.email %></p>
         <p class="bio">Bio | <%= current_user.motivation %></p>
       </div>
     </div>
@@ -92,7 +92,7 @@
         <div class="stats">
             <p class="stat">Outstanding Investments: <%= current_user.loans.select { |loan| loan.payment.present? }.count %></p>
         </div>
-        <p class="email"><%= current_user.email %></p>
+        <p class="bio"><%= current_user.email %></p>
         <p class="bio"> Bio | <%= current_user.motivation %></p>
       </div>
     </div>
