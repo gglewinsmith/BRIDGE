@@ -3,16 +3,28 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin-top: 0;
   text-align: center;
   color: white;
-  width: 100%;
+  // width: 100%;
+  margin-bottom: 0;
+  border: none;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+
 }
 .alert-info {
   background: #335F7A;
+  z-index: 200000;
   font-family: 'Assistant', sans-serif !important;
 }
 .alert-warning {
   background: #335F7A;
   font-family: 'Assistant', sans-serif !important;
+}
+
+#info_alert {
+  transition: 1s opacity;
+
 }
