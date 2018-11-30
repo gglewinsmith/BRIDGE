@@ -3,7 +3,7 @@
     <h1 class="homepage-tagline applicant-margin">Apply for a Bridge loan.</h1>
     <h4 class="tagline title gap-about">Simple, secure loan for your coding bootcamp, at the click of a button.</h4>
       <div class="applicant-flex">
-        <div class="dots">
+        <div class="dots-applicant">
           <%= image_tag "dots.png" %>
         </div>
         <div class="about">
@@ -15,7 +15,7 @@
           <p class="dots-text">Interest rates on government and predatory loans are extortinate, at 10% or even higher.</p>
         </div>
       </div>
-        <h1 class="homepage-tagline apply-now-margin-left apply-now-margin-top">Apply now.</h1>
+        <h1 class="homepage-tagline apply-now-margin-left apply-now-margin-top-applicant">Apply now.</h1>
         <h4 class="tagline title gap-about apply-now-margin-left">Learn. Earn. Return.</h4>
         <p class="apply-text apply-now-margin-text apply-now-margin-left">If you do not have the full amount for a course right now, but are motivated to get a good job using the skills aquired on the course, we can help. Through connecting you to the development community, you can fund your place at a rasonable interest rate on mutually beneficial and flexible terms. We hope that once you have benefitted from this service you may also one day help someone in the same way! </p>
         <%= link_to "Create an account", new_user_registration_path(:user => { :applicant => true }), class: "btn btn-primary button-edit-page apply-now-margin-left apply-now-margin-bottom" %>
