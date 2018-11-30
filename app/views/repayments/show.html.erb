@@ -2,10 +2,10 @@
   <div class="repayment-container-pop">
     <h4>Receipt</h4>
     <h4>Status | <%= @repayment.state.capitalize %></h4>
-    <h4>Item | <%= @repayment.fundraising_event_sku %></h4>
+    <h4>Course | <%= @repayment.fundraising_event_sku %></h4>
     <h4>Amount | <%= humanized_money_with_symbol(@repayment.amount) %></h4>
     <br>
-    <%= link_to "Back to Dashboard", dashboard_path, class: 'btn btn-homepage btn-primary btn-loan' %>
+    <%= link_to "Back to Dashboard", dashboard_path, class: 'btn bk-to-dsbd btn-primary btn-loan' %>
   </div>
 </div>
 

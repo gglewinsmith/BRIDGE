@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="width-loan margin-width-loan">
-      <h2 class="loan-os">£<%= fundraising_event.price %></h2>
+      <h2 class="loan-os">£<%= fundraising_event.price.to_i %></h2>
       <h2 class="outstanding">desired</h2>
     </div>
     <% if current_user.lender? %>
