@@ -8,7 +8,7 @@
     <%= image_tag photo_url, class: "avatar-medium" %>
   </div>
   <div class="card-content-main">
-    <h1 class="debtor-name">Repayment Card | <%= repayment.fundraising_event.user.name.capitalize %></h1>
+    <h1 class="debtor-name">Repayment Card | <%= repayment.fundraising_event.user.name.titleize %></h1>
     <h2 class="course-detail">
       <% unless repayment.state == 'repaid' %>
         <%= link_to "Repay Tuition at #{repayment.fundraising_event.course.capitalize}", new_fundraising_event_loan_repayment_path(repayment.fundraising_event_id, repayment.id) %>

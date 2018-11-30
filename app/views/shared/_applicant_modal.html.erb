@@ -2,8 +2,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header modal-header-styling">
-        <h4 class="modal-title" id="applicantModalLabel"><strong><%= fundraising_event.user.name.capitalize %></strong></h4>
-        <h5 class="modal-title" id="applicantModalLabel"><%= fundraising_event.course.capitalize %></h5>
+        <h4 class="modal-title" id="applicantModalLabel"><strong><%= fundraising_event.user.name.titleize %></strong></h4>
+        <h5 class="modal-title" id="applicantModalLabel"><%= fundraising_event.course.titleize %></h5>
       </div>
       <div class="modal-body">
         <p><strong>Email:</strong> <%= fundraising_event.user.email %></p>

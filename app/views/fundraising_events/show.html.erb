@@ -16,7 +16,7 @@
             <%= image_tag photo_url, class: "avatar-large padding-avatar" %>
           </div>
           <div class="col-xs-9">
-            <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.capitalize %>'s loan for <%=@fundraising_event.course.titleize %></h1>
+            <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.titleize %>'s loan for <%=@fundraising_event.course.titleize %></h1>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
           <div class="col-xs-6">
             <div class="show-content">
               <p class="black-text-lg">Total Loan Amount | <%= humanized_money_with_symbol(@fundraising_event.price) %></p>
-              <p class="black-text">Guarantor | <%= @fundraising_event.guarantor.capitalize %></p>
+              <p class="black-text">Guarantor | <%= @fundraising_event.guarantor.titleize %></p>
               <p class="black-text">Loan Length | <%= @fundraising_event.loan_length%> months</p>
               <p class="black-text">Click here to view applicant's <%= link_to "CV", fundraising_event_cv_path(@fundraising_event) %></p>
             </div>
