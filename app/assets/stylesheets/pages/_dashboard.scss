@@ -48,8 +48,8 @@
   background-color: #FACF0F;
   color: #FCFCFC;
   text-decoration: none !important;
-  position: absolute;
-  left: 204px;
+  font-size: 14px !important;
+  height: 46px;
   &:hover {
     background-color: #FBDC50 !important;
     color: #FCFCFC !important;
@@ -285,3 +285,4 @@
     display: none;
   }
 }
+

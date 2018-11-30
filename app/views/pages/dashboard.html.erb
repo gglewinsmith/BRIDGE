@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-        <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+        <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist" style="position: relative;">
             <li role="presentation" class="active">
               <a href="#home" id="home-tab" class="tab-text" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
                 <span class="text outstanding-text">My Fundraising Events</span>
@@ -42,7 +42,7 @@
 
           <!-- <li> <%= link_to "Messaging", conversations_path, class: "btn btn-primary outstanding-text" %>
           </li> -->
-          <li role="presentation" class="next">
+          <li role="presentation" style="position: absolute; right: 0px;">
             <%= link_to "New Fundraising Event", new_fundraising_event_path, class: "fundraising-event-tab" %>
           </li>
 
