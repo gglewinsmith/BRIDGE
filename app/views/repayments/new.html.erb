@@ -2,7 +2,7 @@
   <div class="repayment-container-pop">
     <h4 class="pads">Repay <%= @loan.user.name.capitalize %></h4>
     <h4 class="one-off pads">One off early repayment</h4>
-    <h4 class="pads"><strong>Amount Due | £<%= @loan.amount_owed %></strong></h4>
+    <h4 class="pads"><strong>Amount Due | £<%= ((@loan.amount_owed / ((1.003333) ** @loan.loan_length)) * ((1.004167) ** @loan.loan_length)).to_i  %></strong></h4>
     <h4 class="pads">Amount</h4>
     <%= form_tag "/fundraising_events/#{@fundraising_event.id}/loans/#{@loan.id}/repayments" do %>
       <%= hidden_field_tag 'loan_id', @loan.id %>
