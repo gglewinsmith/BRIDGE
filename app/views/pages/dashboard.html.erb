@@ -13,7 +13,7 @@
           <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
         </div>
         <div class="width">
-          <h2 class="username"> <%= current_user.name.capitalize %></h2>
+          <h2 class="username"> <%= current_user.name.titleize %></h2>
           <div class="stats">
               <p class="stat"><%= current_user.fundraising_events.count %></p> <p class="stat-text">loan application(s)</p>
               <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
