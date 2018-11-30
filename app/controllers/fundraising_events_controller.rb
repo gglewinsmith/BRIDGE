@@ -20,9 +20,9 @@ class FundraisingEventsController < ApplicationController
         if current_user.lender == true
           @total_loan_for_user = 0
           @total_loan_repaid_for_user = 0
-          @total_loan_for_user += loan.amount_owed if loan.user == current_user
+          @total_loan_for_user += loan.amount if loan.user == current_user
           @total_loan_repaid_for_user += loan.amount_repaid if loan.user == current_user
-          @repaid = ((@total_loan_repaid_for_user.to_i / @total_loan_for_user.to_i) * 100).round
+          @repaid = ((@total_loan_repaid_for_user / @total_loan_for_user) * 100).round.to_i
         elsif current_user.applicant == true
           @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_due) * 100).round
         end

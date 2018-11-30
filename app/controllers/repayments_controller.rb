@@ -36,5 +36,4 @@ class RepaymentsController < ApplicationController
   end
 end
 
-
 # ((@repayment.amount) / ((1.004167) ** (@loan.loan_length))) * ((1.003333) ** (@loan.loan_length)).round.to_i
