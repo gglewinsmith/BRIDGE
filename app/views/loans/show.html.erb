@@ -3,9 +3,9 @@
     <div class="payment-new">
       <h4>Loan Receipt</h4>
       <p>Status | <%= @loan.state.capitalize %></p>
-      <p>Item | <%= @loan.funding_event_sku %></p>
+      <p>Course | <%= @loan.funding_event_sku %></p>
       <p>Amount | <%= humanized_money_with_symbol(@loan.amount) %></p>
-      <%= link_to "Back to Dashboard", dashboard_path, class: "btn btn-homepage bk-to-dsbd"%>
+      <%= link_to "Back to Dashboard", dashboard_path, class: "btn bk-to-dsbd"%>
     </div>
   </div>
 </div>
