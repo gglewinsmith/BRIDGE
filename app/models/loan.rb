@@ -6,4 +6,6 @@ class Loan < ApplicationRecord
 
   monetize :amount_cents
   monetize :amount_owed_cents
+  monetize :amount_repaid_cents
+  monetize :amount_owed_to_lender_cents
 end

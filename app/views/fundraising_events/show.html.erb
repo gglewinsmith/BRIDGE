@@ -6,14 +6,14 @@
   <div class="container container-text-align">
     <div class="loan-card">
       <div style="padding-bottom: 10px;width: 100%; background-color: #DAE9F3;border-radius: 15px 15px 0px 0px;border-bottom: 1px solid #355F79;">
-        <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.capitalize %>'s loan for <%=@fundraising_event.course.titleize %></h1>
+        <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.capitalize %>'s Loan for <%=@fundraising_event.course.titleize %></h1>
       </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-6">
             <div class="show-content">
               <p class="black-text-lg">Total Loan Amount | <%= humanized_money_with_symbol(@fundraising_event.price) %></p>
-              <p class="black-text">Guarantor | <%= @fundraising_event.guarantor %></p>
+              <p class="black-text">Guarantor | <%= @fundraising_event.guarantor.capitalize %></p>
               <p class="black-text">Loan Length | <%= @fundraising_event.loan_length%> months</p>
               <p class="black-text">Click here to view applicant's <%= link_to "CV", fundraising_event_cv_path(@fundraising_event) %></p>
             </div>
@@ -30,7 +30,11 @@
               <div class="bars-div">
                 <div id="myRepaidProgress" class="bars-margin bars-align-with-card" style="width: 500px; margin: 50px auto; height: 200px;">
                   <div id="myRepaidBar" style="width: 0; background-image: linear-gradient(to right, #8BD360, #6BB142); height: 200px;">
-                    <p style="text-align: left;margin-left: 12.5px;" class="lower-title paid-shadow">Repaid: £<%= @fundraising_event.amount_repaid.to_i %> / £<%= @fundraising_event.amount_raised.to_i %></p>
+                    <% if current_user.lender? %>
+                      <p style="text-align: left;margin-left: 12.5px;" class="lower-title paid-shadow">Repaid: £<%= @total_loan_repaid_for_user.to_i %> / £<%= @total_loan_for_user.to_i %></p>
+                    <% elsif current_user.applicant? %>
+                      <p style="text-align: left;margin-left: 12.5px;" class="lower-title paid-shadow">Repaid: £<%= @fundraising_event.amount_repaid.to_i %> / £<%= @fundraising_event.amount_due.to_i %></p>
+                    <% end %>
                   </div>
                 </div>
               </div>

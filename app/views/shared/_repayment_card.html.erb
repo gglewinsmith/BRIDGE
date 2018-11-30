@@ -12,7 +12,7 @@
     <h2 class="course-detail">
       <% unless repayment.state == 'repaid' %>
         <%= link_to "Repay Tuition at #{repayment.fundraising_event.course.capitalize}", new_fundraising_event_loan_repayment_path(repayment.fundraising_event_id, repayment.id) %>
-      <% end %>
+        <% end %>
     </h2>
     <div class="counter">
       <div class="counter-lender">
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="width-loan margin-width-loan">
-    <h2 class="loan-os"><%= humanized_money_with_symbol(repayment.amount_owed) %></h2>
+    <h2 class="loan-os"><%= humanized_money_with_symbol(repayment.amount_owed_to_lender) %></h2>
     <h2 class="outstanding">outstanding</h2>
   </div>
 </div>
