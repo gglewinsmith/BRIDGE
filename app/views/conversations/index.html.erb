@@ -18,7 +18,7 @@
                   <% elsif conversation.recipient_id == current_user.id %>
                     <% recipient = User.find(conversation.sender_id) %>
                   <% end %>
-                  <p class="message_index" id="<%= recipient.id %>"><%= recipient.name.capitalize %></p>
+                  <p class="message_index" id="<%= recipient.id %>"><%= recipient.name.titleize %></p>
                   <%= render "message", messages: conversation.messages, conversation: conversation, message: Message.new %>
                 <% end %>
               <% end %>
@@ -37,7 +37,7 @@
                 <% if user.id != current_user.id %>
                   <div class="item">
                     <div class="users-flexbox">
-                      <%= user.name.capitalize %>
+                      <%= user.name.titleize %>
                       <%= link_to "Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: 'message-link' %>
                     </div>
                   </div>

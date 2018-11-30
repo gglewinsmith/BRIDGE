@@ -94,7 +94,7 @@
           <%= link_to 'edit profile', edit_user_registration_path, class: "text-center" %>
         </div>
         <div class="width">
-          <h2 class="username"> <%= current_user.name.capitalize %></h2>
+          <h2 class="username"> <%= current_user.name.titleize %></h2>
           <div class="stats">
               <p class="stat">Outstanding Investments: <%= current_user.loans.select { |loan| loan.payment.present? }.count %></p>
           </div>

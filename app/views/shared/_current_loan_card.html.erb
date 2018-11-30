@@ -9,7 +9,7 @@
       <%= image_tag photo_url, class: "avatar-medium" %>
     </div>
     <div class="card-content-main">
-      <h1 class="debtor-name">Creditor | <%= loan.user.name.capitalize %></h1>
+      <h1 class="debtor-name">Creditor | <%= loan.user.name.titleize %></h1>
       <h2 class="course-detail">Loan for Tuition at <%= loan.fundraising_event.course.titleize %></h2>
       <div class="counter">
         <div class="counter-lender">
