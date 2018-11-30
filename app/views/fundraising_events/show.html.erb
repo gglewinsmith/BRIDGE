@@ -1,12 +1,24 @@
 <!-- show specific fundraising event page dynamically -->
 <% content_for :meta_title, "#{@fundraising_event.user.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @fundraising_event.course %>
-<div class="banner">
-  <%= image_tag "loan-page-background.svg", class: "loan-svg" %>
+<div class="banner", style="background-color: #DAE9F2">
+  <%= image_tag "", class: "loan-svg" %>
   <div class="container container-text-align">
     <div class="loan-card">
-      <div style="padding-bottom: 10px;width: 100%; background-color: #DAE9F3;border-radius: 15px 15px 0px 0px;border-bottom: 1px solid #355F79;">
-        <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.capitalize %>'s Loan for <%=@fundraising_event.course.titleize %></h1>
+      <div style="padding-bottom: 10px;width: 100%; border-radius: 15px 15px 0px 0px;">
+        <div class="row">
+          <div class="col-xs-3">
+            <% if @fundraising_event.user.photo? %>
+             <% photo_url = @fundraising_event.user.photo_url(:bright_face) %>
+            <% else %>
+              <% photo_url = "https://via.placeholder.com/150" %>
+            <% end %>
+            <%= image_tag photo_url, class: "avatar-large padding-avatar" %>
+          </div>
+          <div class="col-xs-9">
+            <h1 style="margin-top: 0px !important;" class="loan-tagline"><%= @fundraising_event.user.name.capitalize %>'s loan for <%=@fundraising_event.course.titleize %></h1>
+          </div>
+        </div>
       </div>
       <div class="container-fluid">
         <div class="row">

@@ -19,7 +19,7 @@
               <p class="stat"><%= @loans.select { |loan| loan.payment.present? }.count  %></p> <p class="stat-text">lender(s) currently invested in you</p>
           </div>
           <p class="bio"><%= current_user.email %></p>
-          <p class="bio">Bio | <%= current_user.motivation %></p>
+          <p class="bio">My Motivation | <%= current_user.motivation %></p>
         </div>
       </div>
       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
