@@ -11,7 +11,8 @@ class LoansController < ApplicationController
     @fundraising_event.amount_raised += @loan.amount
     @loan.loan_length = @fundraising_event.loan_length
     @loan.amount_owed += (((@loan.amount * (1.003333 ** @fundraising_event.loan_length)) / 100).round) * 100
-    @fundraising_event.amount_due += @loan.amount_owed
+    @loan.amount_owed_to_lender += (((@loan.amount * (1.004167 ** @fundraising_event.loan_length)) / 100).round) * 100
+    @fundraising_event.amount_due += (((@loan.amount * (1.004167 ** @fundraising_event.loan_length)) / 100).round) * 100
     if @fundraising_event.amount_raised >= @fundraising_event.price
       @fundraising_event.status = 'fulfilled'
     else

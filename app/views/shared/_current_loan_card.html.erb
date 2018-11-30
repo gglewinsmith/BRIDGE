@@ -23,7 +23,11 @@
       </div>
     </div>
     <div class="width-loan margin-width-loan">
-      <h2 class="loan-os"><%= humanized_money_with_symbol(loan.amount_owed) %></h2>
+      <% if current_user.lender %>
+        <h2 class="loan-os"><%= humanized_money_with_symbol(loan.amount_owed) %></h2>
+      <% elsif current_user.applicant %>
+        <h2 class="loan-os"><%= humanized_money_with_symbol(loan.amount_owed_to_lender) %></h2>
+      <% end %>
       <h2 class="outstanding">outstanding</h2>
     </div>
   </div>

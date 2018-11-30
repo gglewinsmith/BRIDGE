@@ -11,10 +11,22 @@ class FundraisingEventsController < ApplicationController
     @fundraising_event = FundraisingEvent.find(params[:id])
     @loans = Loan.find(@fundraising_event.loan_ids)
     @raised = ((@fundraising_event.amount_raised / @fundraising_event.price) * 100).round
-    if @fundraising_event.amount_due == 0
+    if (@fundraising_event.amount_due == 0) && (@fundraising_event.amount_raised != 0)
       @repaid = 100
+    elsif (@fundraising_event.amount_due == 0) && (@fundraising_event.amount_raised == 0)
+      @repaid = 0
     else
-      @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_raised) * 100).round
+      @loans.each do |loan|
+        if current_user.lender == true
+          @total_loan_for_user = 0
+          @total_loan_repaid_for_user = 0
+          @total_loan_for_user += loan.amount_owed if loan.user == current_user
+          @total_loan_repaid_for_user += loan.amount_repaid if loan.user == current_user
+          @repaid = ((@total_loan_repaid_for_user.to_i / @total_loan_for_user.to_i) * 100).round
+        elsif current_user.applicant == true
+          @repaid = ((@fundraising_event.amount_repaid / @fundraising_event.amount_due) * 100).round
+        end
+      end
     end
     # authorize @fundraising_event
     respond_to do |format|
@@ -31,7 +43,7 @@ class FundraisingEventsController < ApplicationController
   def create
     @fundraising_event = FundraisingEvent.new(fundraising_event_params)
     @fundraising_event.user = current_user
-    @fundraising_event.amount_due = @fundraising_event.price * (1.004167 ** @fundraising_event.loan_length)
+    # @fundraising_event.amount_due = @fundraising_event.price * (1.004167 ** @fundraising_event.loan_length)
     # authorize @fundraising_event
     if @fundraising_event.save
       redirect_to fundraising_event_path(@fundraising_event)

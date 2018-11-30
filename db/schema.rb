@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_104905) do
+ActiveRecord::Schema.define(version: 2018_11_30_102221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_28_104905) do
     t.bigint "fundraising_event_id"
     t.integer "amount_owed_cents", default: 0, null: false
     t.integer "loan_length"
+    t.integer "amount_repaid_cents", default: 0, null: false
+    t.integer "amount_owed_to_lender_cents", default: 0, null: false
     t.index ["fundraising_event_id"], name: "index_loans_on_fundraising_event_id"
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
